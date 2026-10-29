@@ -1,0 +1,1 @@
+Trước khi dùng bằng chứng, SAG phải kiểm tra quyền hiện tại. Nếu nguồn bị thu hồi quyền, thông tin trong chỉ mục và cache không được đưa trở lại câu trả lời.

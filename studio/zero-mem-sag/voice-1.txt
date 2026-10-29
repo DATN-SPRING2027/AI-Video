@@ -1,0 +1,1 @@
+Bạn hỏi: quyết định nào đã được chốt từ rất lâu trong cuộc trò chuyện? Khi hội thoại dài, SAG có thể không còn đoạn gốc trong phần ngữ cảnh được đưa cho mô hình.

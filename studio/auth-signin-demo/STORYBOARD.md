@@ -1,0 +1,18 @@
+# Kịch Bản Video Demo #1: Đăng Nhập Hệ Thống & Đăng Nhập Bằng Google (Continuum AI)
+
+- **Thời lượng dự kiến:** `~32–36 giây` (`1920×1080`, `30fps`)
+- **Ứng dụng thực tế:** `DATN_FE` (`http://localhost:3000/en/signin`) + `DATN_BE` (`http://localhost:3001`)
+- **Trình duyệt điều khiển:** **Brave Browser** thật của máy qua cổng `CDP :9222` (`start-brave-studio.bat` + `record_auth_brave.mjs`)
+- **Phong cách hình ảnh:** *Screen Studio* SaaS Walkthrough — khung `browser-device-stage` trên nền tối sang trọng, `cursor-zoom-follow` + `ui-focus-zoom` phóng cận cảnh `1.7x` vào form đăng nhập & nút Google, kèm Lottie `checkmark-success.json` và bộ 4 hiệu ứng âm thanh (`click-soft`, `typing-soft-mechanical`, `whoosh-short-snappy`, `confirm-success`).
+
+---
+
+## Bảng Phân Cảnh Chi Tiết (Scene-by-Scene)
+
+| Cảnh | Thời gian | Nội dung hiển thị & Chuyển động Camera / Animation | Âm thanh (SFX) & Thuyết minh Tiếng Việt |
+| :--- | :--- | :--- | :--- |
+| **Scene 1 — Hook & Mở màn** | `0.0s – 3.5s` | Logo **Continuum AI** xuất hiện cùng dòng tiêu đề động: *"Truy cập không gian làm việc doanh nghiệp chỉ trong vài giây"*. Chuyển cảnh `zoom-through-transition` mở ra giao diện `/en/signin` thật nằm trong khung trình duyệt. | **SFX:** `whoosh-short-snappy.mp3`<br>**Voice:** *"Bắt đầu làm việc trên Continuum AI nhanh chóng và bảo mật với hai phương thức đăng nhập linh hoạt."* |
+| **Scene 2 — Đăng nhập Email & Mật khẩu** | `3.5s – 15.5s` | - Thanh bước góc trên bật **Bước 1/2: Đăng nhập Tài khoản tiêu chuẩn**.<br>- Camera `ui-focus-zoom` phóng `1.65x` vào vùng `SignInForm` (`#signin-email`, `#signin-password`).<br>- Con trỏ lướt cong mượt mà click vào ô **Email**, gõ từng ký tự tài khoản quản lý; di xuống ô **Password**, gõ mật khẩu, bấm nút mắt ẩn/hiện kiểm tra nhanh rồi bấm **Sign in**.<br>- Camera thu nhẹ về `1.0x` khi hệ thống chuyển mượt sang màn hình **Select Organization** (`/select-organization`) / **Workspace**, bật hiệu ứng Lottie `checkmark-success.json`. | **SFX:** `click-soft.mp3` + `typing-soft-mechanical.wav` + `confirm-success.wav`<br>**Voice:** *"Với tài khoản nội bộ, bạn chỉ cần nhập email và mật khẩu để truy cập ngay vào danh sách tổ chức được phân quyền."* |
+| **Scene 3 — Chuyển bước sang Google OAuth** | `15.5s – 18.5s` | Chuyển cảnh `whip-pan-cut` quay trở lại trang `/en/signin` sạch phiên. Thanh bước đổi sang **Bước 2/2: Đăng nhập một chạm với Google (SSO)**. Mũi tên Lottie `hand-drawn-arrow-guide.json` chỉ nhẹ vào nút **Continue with Google**. | **SFX:** `whoosh-swipe-pixabay.mp3`<br>**Voice:** *"Hoặc nhanh hơn nữa, đăng nhập một chạm bằng tài khoản Google sẵn có trên trình duyệt của bạn."* |
+| **Scene 4 — Đăng nhập bằng Google thật trên Brave** | `18.5s – 29.5s` | - Camera zoom `1.75x` vào nút `GoogleOAuthButton` (**Continue with Google**).<br>- Con trỏ bấm click (nở vòng sóng `click-sunburst-soft.json`) → kích hoạt `/api/auth/google` chuyển sang màn hình **Choose an account của Google thật** trên Brave.<br>- Con trỏ chọn tài khoản Google đã đăng nhập sẵn → Google xác thực PKCE callback về `/api/auth/google/callback` → vào thẳng giao diện Continuum AI không cần nhập mật khẩu! | **SFX:** `send-click-soft.wav` + `whoosh-short-snappy.mp3` + `success-chime-melodic.mp3`<br>**Voice:** *"Chỉ một cú nhấp vào Continue with Google và chọn tài khoản, chuẩn bảo mật OAuth 2.0 tự động xác thực và đưa bạn vào thẳng hệ thống."* |
+| **Scene 5 — End Card / CTA** | `29.5s – 34.0s` | Khung trình duyệt thu mượt vào trung tâm, hiện khóa thương hiệu **Continuum AI — Enterprise Workspace & Knowledge Engine** (`cta-lockup`). | **SFX:** `sparkle-shimmer.mp3` + Nhạc nền `daybreak-upbeat-saas.mp3` fade-out. |

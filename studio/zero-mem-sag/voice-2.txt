@@ -1,0 +1,1 @@
+Hiện tại, SAG lấy tối đa hai trăm tin gần nhất. Nếu lịch sử vượt ngân sách, hệ thống tóm tắt bằng mô hình, hoặc cắt bớt đoạn cũ. Chi tiết quan trọng có thể bị bỏ sót.

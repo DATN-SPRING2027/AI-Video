@@ -1,0 +1,645 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #0b0f19;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s1-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .s1-topbar {
+      position: absolute;
+      top: 52px;
+      left: 88px;
+      right: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .s1-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #94a3b8;
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s1-status-pill {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.14);
+      border: 1.5px solid rgba(239, 68, 68, 0.55);
+      color: #fca5a5;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Shot 1.1: Deactivated Architect Alert Card */
+    .s1-shot1-wrap {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 168px;
+      height: 690px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+    .s1-alert-card {
+      width: 1380px;
+      background: #111827;
+      border: 2px solid #1f2937;
+      border-radius: 28px;
+      padding: 56px 64px;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55);
+    }
+    .s1-alert-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: rgba(239, 68, 68, 0.16);
+      border: 1px solid #ef4444;
+      color: #fecaca;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    .s1-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .s1-avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: #1f2937;
+      border: 3px solid #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 38px;
+      font-weight: 700;
+      color: #94a3b8;
+      flex-shrink: 0;
+    }
+    .s1-profile-title {
+      font-size: 54px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #f8fafc;
+      line-height: 1.18;
+      margin-bottom: 10px;
+    }
+    .s1-profile-sub {
+      font-size: 32px;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    .s1-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid #1f2937;
+    }
+    .s1-metric-box {
+      background: #0b0f19;
+      border: 1px solid #1f2937;
+      border-radius: 18px;
+      padding: 24px 28px;
+    }
+    .s1-metric-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 46px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 8px;
+    }
+    .s1-metric-label {
+      font-size: 28px;
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+
+    /* Shot 1.2: 3D Knowledge Graph Fracture */
+    .s1-shot2-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      opacity: 0;
+    }
+    #s1-graph-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .s1-graph-hud {
+      position: absolute;
+      left: 88px;
+      top: 144px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1.5px solid #1f2937;
+      border-radius: 20px;
+      padding: 24px 32px;
+      max-width: 780px;
+    }
+    .s1-graph-title {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #f8fafc;
+      margin-bottom: 10px;
+    }
+    .s1-graph-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #f59e0b;
+      font-variant-numeric: tabular-nums;
+    }
+    .s1-orphan-banner {
+      position: absolute;
+      right: 88px;
+      top: 144px;
+      background: rgba(127, 29, 29, 0.92);
+      border: 2px solid #ef4444;
+      border-radius: 18px;
+      padding: 22px 30px;
+      color: #fef2f2;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      opacity: 0;
+    }
+
+    /* Shot 1.3: Legacy RAG Hallucination */
+    .s1-shot3-wrap {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 158px;
+      height: 710px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+      opacity: 0;
+    }
+    .s1-chat-card {
+      position: relative;
+      width: 1440px;
+      background: #111827;
+      border: 2px solid #1f2937;
+      border-radius: 28px;
+      padding: 46px 56px;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.6);
+    }
+    .s1-chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .s1-chat-name {
+      font-size: 36px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .s1-chat-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #f59e0b;
+    }
+    .s1-msg-user {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 24px 30px;
+      margin-bottom: 24px;
+    }
+    .s1-msg-role {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #93c5fd;
+      margin-bottom: 8px;
+    }
+    .s1-msg-text {
+      font-size: 33px;
+      font-weight: 500;
+      color: #f8fafc;
+      line-height: 1.38;
+    }
+    .s1-msg-bot {
+      background: rgba(127, 29, 29, 0.2);
+      border: 1.5px solid rgba(239, 68, 68, 0.5);
+      border-radius: 20px;
+      padding: 26px 30px 44px 30px;
+    }
+    .s1-msg-bot-role {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #fca5a5;
+      margin-bottom: 8px;
+    }
+    .s1-msg-bot-meta {
+      margin-top: 16px;
+      max-width: 680px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      color: #f87171;
+      font-variant-numeric: tabular-nums;
+    }
+    .s1-stamp {
+      position: absolute;
+      right: 48px;
+      bottom: 34px;
+      padding: 14px 28px;
+      background: #991b1b;
+      border: 3px solid #ef4444;
+      border-radius: 16px;
+      color: #fef2f2;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.65);
+      opacity: 0;
+    }
+  </style>
+
+  <div data-hf-id="hf-5m5k" id="root" data-composition-id="scene1" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-bod8" class="s1-bg-grid" data-layout-ignore></div>
+
+    <div data-hf-id="hf-fwnh" class="s1-topbar">
+      <div data-hf-id="hf-w0ib" class="s1-eyebrow">01 / KNOWLEDGE ATTRITION RISK</div>
+      <div data-hf-id="hf-3zgc" id="s1-top-pill" class="s1-status-pill">INCIDENT • TECH LEAD DEPARTED</div>
+    </div>
+
+    <!-- Shot 1.1 (0.0s - 3.0s) -->
+    <div data-hf-id="hf-u9y3" id="s1-shot1" class="s1-shot1-wrap">
+      <div data-hf-id="hf-nane" id="s1-alert-card" class="s1-alert-card">
+        <div data-hf-id="hf-0avu" class="s1-alert-badge">ACCOUNT DEACTIVATED • SESSION CLOSED</div>
+        <div data-hf-id="hf-3hnb" class="s1-profile-row">
+          <div data-hf-id="hf-6xw2" class="s1-avatar">TL</div>
+          <div data-hf-id="hf-yeow">
+            <div data-hf-id="hf-67cj" class="s1-profile-title">Senior System Architect rời dự án</div>
+            <div data-hf-id="hf-w4vk" class="s1-profile-sub">Tri thức cốt lõi phân mảnh trong chat cũ</div>
+          </div>
+        </div>
+        <div data-hf-id="hf-sgz5" class="s1-metrics-grid">
+          <div data-hf-id="hf-v345" class="s1-metric-box">
+            <div data-hf-id="hf-bj9g" class="s1-metric-num" style="color: #f59e0b">142</div>
+            <div data-hf-id="hf-7jmo" class="s1-metric-label">Ghi chú chưa kiểm chứng</div>
+          </div>
+          <div data-hf-id="hf-fra1" class="s1-metric-box">
+            <div data-hf-id="hf-q484" class="s1-metric-num" style="color: #ef4444">12 ADRs</div>
+            <div data-hf-id="hf-x859" class="s1-metric-label">Mất người nắm ngữ cảnh</div>
+          </div>
+          <div data-hf-id="hf-gy74" class="s1-metric-box">
+            <div data-hf-id="hf-hbts" class="s1-metric-num" style="color: #94a3b8">0 Audit</div>
+            <div data-hf-id="hf-yr9h" class="s1-metric-label">Không rõ nguồn sự thật</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shot 1.2 (3.0s - 8.0s): Deterministic 3D Knowledge Graph Fracture -->
+    <div data-hf-id="hf-d7wh" id="s1-shot2" class="s1-shot2-wrap">
+      <canvas data-hf-id="hf-carp" id="s1-graph-canvas" width="1920" height="1080" data-layout-ignore></canvas>
+      <div data-hf-id="hf-q4ou" id="s1-graph-hud" class="s1-graph-hud">
+        <div data-hf-id="hf-0xy4" class="s1-graph-title">Đứt gãy liên kết tri thức dự án</div>
+        <div data-hf-id="hf-g7ez" class="s1-graph-meta">25 NODES • 72 LINKS • 2D-3D KNOWLEDGE GRAPH</div>
+      </div>
+      <div data-hf-id="hf-ru1a" id="s1-orphan-banner" class="s1-orphan-banner">
+        14 LINKS SEVERED • ORPHANED NODES
+      </div>
+    </div>
+
+    <!-- Shot 1.3 (8.0s - 12.0s): Legacy RAG Hallucination -->
+    <div data-hf-id="hf-savf" id="s1-shot3" class="s1-shot3-wrap">
+      <div data-hf-id="hf-ktvm" id="s1-chat-card" class="s1-chat-card">
+        <div data-hf-id="hf-iymr" class="s1-chat-header">
+          <div data-hf-id="hf-dm7b" class="s1-chat-name">Legacy AI Chatbot (RAG thông thường)</div>
+          <div data-hf-id="hf-4kq7" class="s1-chat-tag">NO SCOPED ACL • NO CITATION</div>
+        </div>
+        <div data-hf-id="hf-fvvo" class="s1-msg-user">
+          <div data-hf-id="hf-nmru" class="s1-msg-role">NHÂN SỰ KẾ NHIỆM HỎI</div>
+          <div data-hf-id="hf-3izk" class="s1-msg-text">“Vì sao Task Service tách riêng MongoDB thay vì dùng chung PostgreSQL?”</div>
+        </div>
+        <div data-hf-id="hf-68tg" class="s1-msg-bot">
+          <div data-hf-id="hf-svsw" class="s1-msg-bot-role">AI TRẢ LỜI TỰ CHẾ (KHÔNG CĂN CỨ)</div>
+          <div data-hf-id="hf-hhi1" class="s1-msg-text">
+            “Task Service vẫn dùng chung PostgreSQL chính cùng bảng IAM...”
+          </div>
+          <div data-hf-id="hf-aghu" class="s1-msg-bot-meta">0 trích dẫn nguồn • Trộn lẫn bản nháp cũ</div>
+        </div>
+        <div data-hf-id="hf-az22" id="s1-stamp" class="s1-stamp" data-layout-allow-overlap>UNVERIFIED HALLUCINATION</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function mulberry32(seed) {
+        let a = seed >>> 0;
+        return function () {
+          a |= 0;
+          a = (a + 0x6d2b79f5) | 0;
+          let t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+
+      const GRAPH_NODES = [
+        { id: "architecture/continuum-core.md", label: "Core Architect Hub", hub: true, group: "core" },
+        { id: "adr/adr-003-db-per-service.md", label: "ADR-003 DB-Per-Service", group: "adr" },
+        { id: "adr/adr-009-task-mongodb.md", label: "ADR-009 Task Lifecycle", group: "adr" },
+        { id: "ai/sag-engine.md", label: "SAG Engine", group: "ai" },
+        { id: "ai/session-context-graph.md", label: "Session-Context", group: "ai" },
+        { id: "governance/continuum-audit.md", label: "Audit Trail", group: "gov" },
+        { id: "governance/knowledge-gap-14.md", label: "Gap #KG-14", group: "gov" },
+        { id: "governance/sme-verified-active.md", label: "Verified Truth", group: "gov" },
+        { id: "handover/onboarding-roadmap.md", label: "Handover Pack", group: "handover" },
+        { id: "notes/work-note-209.md", label: "Work Note #209", group: "notes" },
+        { id: "security/pre-retrieval-acl.md", label: "Scoped ACL", group: "sec" },
+        { id: "services/api-gateway.md", label: "API Gateway", group: "svc" },
+        { id: "services/svc-capture.md", label: "svc_capture", group: "svc" },
+        { id: "services/svc-chat.md", label: "svc_chat", group: "svc" },
+        { id: "services/svc-handover.md", label: "svc_handover", group: "svc" },
+        { id: "services/svc-iam.md", label: "svc_iam", group: "sec" },
+        { id: "services/svc-ingestion.md", label: "svc_ingestion", group: "ai" },
+        { id: "services/svc-lifecycle.md", label: "svc_lifecycle", group: "gov" },
+        { id: "services/svc-notification.md", label: "svc_notification", group: "svc" },
+        { id: "services/svc-task.md", label: "svc_task", group: "svc" },
+        { id: "storage/bullmq-workers.md", label: "BullMQ", group: "store" },
+        { id: "storage/cloudflare-r2.md", label: "Cloudflare R2", group: "store" },
+        { id: "storage/lancedb-vectors.md", label: "LanceDB", group: "store" },
+        { id: "storage/mongodb-rs0.md", label: "MongoDB rs0", group: "store" },
+        { id: "storage/redis-cluster.md", label: "Redis 7.2", group: "store" }
+      ];
+
+      const GRAPH_EDGES = [
+        [0, 11], [0, 15], [0, 19], [0, 12], [0, 17], [0, 13], [0, 14], [0, 3],
+        [0, 1], [0, 2], [0, 9], [0, 10], [0, 8], [0, 23],
+        [1, 23], [1, 19], [1, 7], [2, 19], [2, 9], [3, 22], [3, 4], [3, 1], [3, 6],
+        [4, 13], [5, 23], [5, 17], [6, 8], [6, 14], [7, 3], [7, 22], [7, 8],
+        [8, 1], [8, 2], [9, 17], [9, 7], [9, 1], [10, 3], [10, 22], [10, 15], [10, 5],
+        [11, 10], [11, 24], [11, 15], [12, 9], [12, 17], [12, 23], [13, 3], [13, 4], [13, 6],
+        [14, 8], [14, 21], [14, 9], [16, 21], [16, 20], [16, 3], [18, 24], [18, 6],
+        [20, 16], [20, 14], [24, 20]
+      ];
+
+      const rng = mulberry32(20270401);
+      const pts = GRAPH_NODES.map((n, idx) => {
+        if (idx === 0) return { ...n, x: 0, y: 0, z: 0, vx: 0, vy: 0, vz: 0 };
+        const phi = Math.acos(1 - (2 * (idx + 0.5)) / GRAPH_NODES.length);
+        const theta = Math.PI * (1 + Math.sqrt(5)) * idx + (rng() - 0.5) * 0.22;
+        const rx = 560 + rng() * 210;
+        const ry = 230 + rng() * 90;
+        const rz = 320 + rng() * 140;
+        return {
+          ...n,
+          x: rx * Math.sin(phi) * Math.cos(theta),
+          y: ry * Math.cos(phi),
+          z: rz * Math.sin(phi) * Math.sin(theta),
+          dx: Math.sin(phi) * Math.cos(theta),
+          dy: Math.cos(phi) * 0.48,
+          dz: Math.sin(phi) * Math.sin(theta)
+        };
+      });
+
+      const canvas = document.getElementById("s1-graph-canvas");
+      const ctx = canvas.getContext("2d");
+
+      function renderFractureGraph(t) {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, 1920, 1080);
+        if (t < 2.95 || t > 8.1) return;
+
+        const localT = Math.max(0, t - 3.0);
+        // Fracture starts at t = 4.0s (localT = 1.0s)
+        const fracture = Math.max(0, Math.min(1, (localT - 1.0) / 1.4));
+        const rotY = localT * 0.18;
+        const cosY = Math.cos(rotY);
+        const sinY = Math.sin(rotY);
+        const cx = 960;
+        const cy = 590;
+        const fov = 1050;
+
+        const projected = pts.map((p, idx) => {
+          const drift = idx === 0 ? 0 : fracture * 125;
+          const px = p.x + (p.dx || 0) * drift;
+          const py = p.y + (p.dy || 0) * drift;
+          const pz = p.z + (p.dz || 0) * drift;
+          const rx = px * cosY - pz * sinY;
+          const rz = px * sinY + pz * cosY;
+          const scale = fov / (fov + rz + 360);
+          return {
+            idx,
+            label: p.label,
+            hub: !!p.hub,
+            sx: cx + rx * scale,
+            sy: cy + py * scale,
+            rz,
+            scale
+          };
+        });
+
+        // Draw edges
+        for (let i = 0; i < GRAPH_EDGES.length; i++) {
+          const [aIdx, bIdx] = GRAPH_EDGES[i];
+          const a = projected[aIdx];
+          const b = projected[bIdx];
+          const isHubEdge = aIdx === 0 || bIdx === 0;
+
+          if (isHubEdge && fracture > 0.02) {
+            if (fracture < 0.88) {
+              ctx.save();
+              ctx.strokeStyle = `rgba(239, 68, 68, ${(1 - fracture) * 0.9})`;
+              ctx.lineWidth = 2.6;
+              ctx.setLineDash([12, 12]);
+              ctx.beginPath();
+              ctx.moveTo(a.sx, a.sy);
+              ctx.lineTo(b.sx, b.sy);
+              ctx.stroke();
+              ctx.restore();
+            }
+          } else {
+            const alpha = fracture > 0 ? 0.25 : 0.45;
+            ctx.strokeStyle = `rgba(148, 163, 184, ${alpha})`;
+            ctx.lineWidth = 1.9;
+            ctx.beginPath();
+            ctx.moveTo(a.sx, a.sy);
+            ctx.lineTo(b.sx, b.sy);
+            ctx.stroke();
+          }
+        }
+
+        // Draw nodes sorted back-to-front
+        const sorted = projected.slice().sort((u, v) => v.rz - u.rz);
+        for (const n of sorted) {
+          const r = (n.hub ? 26 : 12) * n.scale;
+          ctx.beginPath();
+          ctx.arc(n.sx, n.sy, r, 0, Math.PI * 2);
+          if (n.hub) {
+            ctx.fillStyle = fracture > 0.35 ? "#1f2937" : fracture > 0.02 ? "#ef4444" : "#3b82f6";
+            ctx.fill();
+            ctx.lineWidth = 3.5;
+            ctx.strokeStyle = fracture > 0.02 ? "#ef4444" : "#93c5fd";
+            ctx.stroke();
+          } else {
+            ctx.fillStyle = fracture > 0.3 ? "#475569" : "#3b82f6";
+            ctx.fill();
+            ctx.lineWidth = 1.8;
+            ctx.strokeStyle = fracture > 0.3 ? "#64748b" : "#93c5fd";
+            ctx.stroke();
+          }
+        }
+
+        // Collision-free label pass (front-to-back priority, hub first)
+        const labelCandidates = projected
+          .filter((n) => n.hub || n.idx <= 12)
+          .sort((a, b) => (a.hub === b.hub ? a.rz - b.rz : a.hub ? -1 : 1));
+        const placedBoxes = [];
+
+        for (const n of labelCandidates) {
+          const r = (n.hub ? 26 : 12) * n.scale;
+          ctx.font = n.hub ? '700 26px "Inter"' : '600 22px "Inter"';
+          const tw = ctx.measureText(n.label).width + 20;
+          const th = n.hub ? 34 : 30;
+          const bx = n.sx - tw / 2;
+          const by = n.sy - r - th - 8;
+          if (by < 305 || by + th > 885 || bx < 90 || bx + tw > 1830) continue;
+          const collides = placedBoxes.some(
+            (b) => !(bx + tw + 10 < b.x || bx > b.x + b.w + 10 || by + th + 8 < b.y || by > b.y + b.h + 8)
+          );
+          if (collides) continue;
+          placedBoxes.push({ x: bx, y: by, w: tw, h: th });
+
+          ctx.fillStyle = "rgba(11, 15, 25, 0.82)";
+          ctx.beginPath();
+          ctx.roundRect(bx, by, tw, th, 8);
+          ctx.fill();
+
+          ctx.fillStyle = n.hub
+            ? fracture > 0.3
+              ? "#fca5a5"
+              : "#f8fafc"
+            : fracture > 0.3
+              ? "#cbd5e1"
+              : "#f8fafc";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(n.label, n.sx, by + th / 2 + 1);
+        }
+      }
+
+      const clock = { t: 0 };
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        clock,
+        { t: 0 },
+        {
+          t: 12,
+          duration: 12,
+          ease: "none",
+          onUpdate: function () {
+            renderFractureGraph(clock.t);
+          }
+        },
+        0
+      );
+
+      // Shot 1.1: 0.0s -> 3.0s
+      tl.fromTo(
+        "#s1-alert-card",
+        { opacity: 0, scale: 0.94, y: 26 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        0
+      );
+      tl.to(
+        "#s1-shot1",
+        { opacity: 0, duration: 0.2, ease: "power2.in" },
+        2.8
+      );
+
+      // Shot 1.2: 3.0s -> 8.0s (Hard cut onto 3D Graph)
+      tl.fromTo(
+        "#s1-shot2",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.12, ease: "none" },
+        3.0
+      );
+      tl.fromTo(
+        "#s1-graph-hud",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+        3.08
+      );
+      tl.fromTo(
+        "#s1-orphan-banner",
+        { opacity: 0, scale: 0.88 },
+        { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.4)" },
+        4.15
+      );
+      tl.to(
+        "#s1-shot2",
+        { opacity: 0, duration: 0.35, ease: "power2.inOut" },
+        7.75
+      );
+
+      // Shot 1.3: 8.0s -> 12.0s (Pan in Legacy RAG Chat + Hallucination Stamp at 9.5s)
+      tl.fromTo(
+        "#s1-shot3",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "power2.out" },
+        8.0
+      );
+      tl.fromTo(
+        "#s1-chat-card",
+        { x: 120, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+        8.0
+      );
+      tl.fromTo(
+        "#s1-stamp",
+        { opacity: 0, scale: 1.45, rotation: -8 },
+        { opacity: 1, scale: 1, rotation: -3, duration: 0.33, ease: "back.out(1.4)" },
+        9.5
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene1"] = tl;
+      tl.seek(0);
+      renderFractureGraph(0);
+    })();
+  </script>
+</template>
+

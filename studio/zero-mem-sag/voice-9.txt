@@ -1,0 +1,1 @@
+Lưu ý: thử nghiệm P R bốn mươi chưa đạt điều kiện triển khai. Đặc biệt, câu hỏi tổng hợp toàn phiên còn lỗi. Zero Mem là hướng đề xuất, không phải tính năng đang hoạt động trên main.

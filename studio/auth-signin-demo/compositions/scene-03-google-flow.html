@@ -1,0 +1,289 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 22%, #1e1b4b 0%, #090e1c 58%, #050811 100%);
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s3-topbar {
+      position: absolute;
+      top: 34px;
+      left: 192px;
+      width: 1536px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+    }
+    .s3-stepper {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .s3-step-done {
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .s3-step-active {
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      color: #ffffff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 21px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
+    }
+    .s3-oauth-tag {
+      padding: 9px 20px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #7dd3fc;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .s3-browser-shell {
+      position: absolute;
+      left: 192px;
+      top: 100px;
+      width: 1536px;
+      height: 908px;
+      border-radius: 22px;
+      background: #0f172a;
+      border: 2px solid rgba(148, 163, 184, 0.28);
+      box-shadow: 0 34px 80px rgba(0, 0, 0, 0.68);
+      overflow: hidden;
+    }
+    .s3-chrome-bar {
+      height: 44px;
+      background: #1e293b;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 14px;
+    }
+    .s3-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .s3-dot-r, .s3-dot-y, .s3-dot-g {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .s3-dot-r { background: #ef4444; }
+    .s3-dot-y { background: #f59e0b; }
+    .s3-dot-g { background: #10b981; }
+    .s3-url-bar {
+      margin-left: 18px;
+      padding: 5px 18px;
+      border-radius: 8px;
+      background: #0f172a;
+      color: #cbd5e1;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      min-width: 560px;
+    }
+    .s3-viewport {
+      position: relative;
+      width: 1536px;
+      height: 864px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .s3-cam {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1536px;
+      height: 864px;
+      transform-origin: 0px 0px;
+    }
+    .s3-arrow-guide {
+      position: absolute;
+      left: 72px;
+      top: 575px;
+      width: 180px;
+      height: 120px;
+      pointer-events: none;
+      z-index: 13;
+      opacity: 0;
+    }
+    .s3-cursor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      pointer-events: none;
+      z-index: 15;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.42));
+    }
+    .s3-ripple {
+      position: absolute;
+      left: -30px;
+      top: -30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3.5px solid #2563eb;
+      background: rgba(37, 99, 235, 0.25);
+      pointer-events: none;
+      z-index: 14;
+      opacity: 0;
+    }
+    .s3-badge {
+      position: absolute;
+      right: 228px;
+      top: 172px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 26px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1.5px solid rgba(59, 130, 246, 0.68);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+      z-index: 25;
+      opacity: 0;
+    }
+    .s3-badge-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #eff6ff;
+    }
+    .s3-badge-sub {
+      font-size: 19px;
+      color: #93c5fd;
+      font-family: "JetBrains Mono", monospace;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene3" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="s3-top" class="s3-topbar">
+      <div class="s3-stepper">
+        <span class="s3-step-done">✓ 01 • EMAIL LOGIN</span>
+        <span class="s3-step-active">02 • CONTINUE WITH GOOGLE (SSO)</span>
+      </div>
+      <div class="s3-oauth-tag">ACCOUNTS.GOOGLE.COM • OAUTH 2.0 PKCE</div>
+    </div>
+
+    <div id="s3-shell" class="s3-browser-shell" data-layout-allow-overflow>
+      <div class="s3-chrome-bar">
+        <div class="s3-dots">
+          <span class="s3-dot-r"></span>
+          <span class="s3-dot-y"></span>
+          <span class="s3-dot-g"></span>
+        </div>
+        <div class="s3-url-bar">localhost:3000/api/auth/google → accounts.google.com</div>
+      </div>
+
+      <div id="s3-vp" class="s3-viewport" data-layout-allow-overflow>
+        <div id="s3-cam" class="s3-cam" data-layout-allow-overflow>
+          <video
+            id="s3-vid"
+            class="clip"
+            src="assets/captures/flow-b-edited.mp4"
+            data-start="0"
+            data-duration="6.6"
+            data-track-index="1"
+            muted
+            playsinline
+            style="position: absolute; left: 0; top: 0; width: 1536px; height: 864px; object-fit: cover"
+          ></video>
+
+          <div
+            id="s3-oauth-wrap"
+            style="position: absolute; left: 0; top: 0; width: 1536px; height: 864px; opacity: 0; z-index: 3; pointer-events: none"
+            data-layout-ignore
+          >
+            <img
+              id="s3-oauth-img"
+              class="clip"
+              src="assets/captures/03-google-oauth-step.png"
+              data-start="0"
+              data-duration="6.6"
+              data-track-index="2"
+              alt="Google OAuth 2.0 Sign In"
+              style="width: 1536px; height: 864px; object-fit: cover; display: block"
+            />
+          </div>
+
+          <div id="s3-arrow" class="s3-arrow-guide" data-layout-ignore>
+            <svg viewBox="0 0 180 120" width="180" height="120" fill="none">
+              <path d="M12 96 C64 28, 118 42, 162 84" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
+              <path d="M142 86 L165 86 L156 64" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div id="s3-ripple" class="s3-ripple" data-layout-ignore></div>
+          <div id="s3-cursor" class="s3-cursor" data-layout-ignore>
+            <svg viewBox="0 0 36 36" width="44" height="44" fill="none">
+              <path d="M6 4L30 16.5L18.5 19.8L14 31L6 4Z" fill="#111827" stroke="#FFFFFF" stroke-width="2.6" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="s3-badge" class="s3-badge" data-layout-allow-overlap>
+      <div>
+        <div class="s3-badge-title">Google OAuth 2.0 • Continuum AI</div>
+        <div class="s3-badge-sub">S256 PKCE Redirect • Brave Real Session</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#s3-shell", { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0);
+
+      // Punch-in 1.65x onto "Continue with Google" button (357, 682) with safe clamped bounds
+      tl.fromTo(
+        "#s3-cam",
+        { scale: 1.05, x: 0, y: -20 },
+        { scale: 1.65, x: -20, y: -520, duration: 0.72, ease: "power3.inOut" },
+        0.15
+      );
+
+      // Hand-drawn curved guide arrow reveal
+      tl.fromTo("#s3-arrow", { opacity: 0, x: -16, scale: 0.85 }, { opacity: 1, x: 0, scale: 1, duration: 0.38, ease: "back.out(1.6)" }, 0.55);
+      tl.to("#s3-arrow", { opacity: 0, duration: 0.2 }, 1.85);
+
+      // Cursor glides to Continue with Google (357, 682) & clicks at t=1.55s
+      tl.fromTo("#s3-cursor", { x: 640, y: 540, scale: 1 }, { x: 357, y: 682, duration: 0.75, ease: "power3.out" }, 0.45);
+      tl.to("#s3-cursor", { scale: 0.82, duration: 0.1 }, 1.55);
+      tl.to("#s3-cursor", { scale: 1, duration: 0.16 }, 1.66);
+      tl.fromTo("#s3-ripple", { x: 357, y: 682, scale: 0.3, opacity: 1 }, { scale: 2.1, opacity: 0, duration: 0.48, ease: "power2.out" }, 1.55);
+
+      // Crossfade to real Brave Google OAuth 2.0 screen right after clicking Continue with Google
+      tl.fromTo("#s3-oauth-wrap", { opacity: 0 }, { opacity: 1, duration: 0.36, ease: "power2.out" }, 2.05);
+
+      // Camera pulls smoothly to 1.18x centered on Google's "Sign in to continue to Continuum AI" card
+      tl.to("#s3-cam", { scale: 1.18, x: -138, y: -78, duration: 0.85, ease: "power3.inOut" }, 2.15);
+      tl.to("#s3-cursor", { x: 960, y: 405, duration: 0.85, ease: "power2.inOut" }, 2.3);
+
+      // OAuth Verified Floating Pill
+      tl.fromTo("#s3-badge", { opacity: 0, y: -16, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.5)" }, 3.25);
+      tl.to("#s3-badge", { opacity: 0, duration: 0.25 }, 6.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene3"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

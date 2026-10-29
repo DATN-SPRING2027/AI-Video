@@ -1,0 +1,115 @@
+{
+  "recordedAt": "2026-10-29T03:15:40.259Z",
+  "events": [
+    {
+      "flow": "email",
+      "type": "click",
+      "label": "email-input",
+      "tMs": 1023,
+      "x": 446,
+      "y": 506,
+      "width": 624,
+      "height": 74
+    },
+    {
+      "flow": "email",
+      "type": "typing-start",
+      "label": "email-input",
+      "tMs": 1282,
+      "x": 446,
+      "y": 506,
+      "width": 624,
+      "height": 74
+    },
+    {
+      "flow": "email",
+      "type": "typing-end",
+      "label": "email-input",
+      "tMs": 2529,
+      "x": 446,
+      "y": 506,
+      "width": 624,
+      "height": 74
+    },
+    {
+      "flow": "email",
+      "type": "click",
+      "label": "password-input",
+      "tMs": 3570,
+      "x": 446,
+      "y": 596,
+      "width": 624,
+      "height": 74
+    },
+    {
+      "flow": "email",
+      "type": "typing-start",
+      "label": "password-input",
+      "tMs": 3828,
+      "x": 446,
+      "y": 596,
+      "width": 624,
+      "height": 74
+    },
+    {
+      "flow": "email",
+      "type": "typing-end",
+      "label": "password-input",
+      "tMs": 5186,
+      "x": 446,
+      "y": 596,
+      "width": 624,
+      "height": 74
+    },
+    {
+      "flow": "email",
+      "type": "click",
+      "label": "signin-submit",
+      "tMs": 6211,
+      "x": 446,
+      "y": 737,
+      "width": 240,
+      "height": 54
+    },
+    {
+      "flow": "email",
+      "type": "click",
+      "label": "select-organization-card",
+      "tMs": 13187,
+      "x": 446,
+      "y": 584,
+      "width": 624,
+      "height": 70
+    },
+    {
+      "flow": "email",
+      "type": "complete",
+      "label": "email-authenticated",
+      "tMs": 16860,
+      "x": 446,
+      "y": 584,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "flow": "google",
+      "type": "click",
+      "label": "continue-with-google",
+      "tMs": 1363,
+      "x": 446,
+      "y": 853,
+      "width": 624,
+      "height": 50
+    },
+    {
+      "flow": "google",
+      "type": "complete",
+      "label": "google-oauth-finished",
+      "tMs": 22328,
+      "x": 446,
+      "y": 853,
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

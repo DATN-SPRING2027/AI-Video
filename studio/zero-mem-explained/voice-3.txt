@@ -1,0 +1,1 @@
+Bước một: xây nền bộ nhớ từ lịch sử gốc. Đồ thị nối thực thể với đoạn hội thoại có nhắc đến nó. Cấu trúc thời gian giữ thứ tự phiên, đoạn và lượt nói. Hai góc nhìn này bổ sung cho nhau; graph đồng xuất hiện chưa chứng minh quan hệ nhân quả.

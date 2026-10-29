@@ -1,0 +1,1 @@
+Khi có câu hỏi, hệ thống tìm theo cả quan hệ và thời gian, kết hợp kết quả, rồi chọn các đoạn bằng chứng gốc phù hợp với ngân sách.

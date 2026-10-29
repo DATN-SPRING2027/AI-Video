@@ -1,0 +1,518 @@
+{
+  "source": "F:\\LEARN KÌ 8\\ĐATN\\CreateVideo\\studio\\auth-signin-demo\\assets\\audio\\voiceover.wav",
+  "language": "vi",
+  "language_probability": 1,
+  "duration": 18.752,
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 4.28,
+      "text": "Bắt đầu làm việc trên kênh TINU MA nhanh chóng và bảo mật với hai phương thức đang nhập linh hoạt.",
+      "words": [
+        {
+          "word": " Bắt",
+          "start": 0.0,
+          "end": 0.28,
+          "probability": 0.862
+        },
+        {
+          "word": " đầu",
+          "start": 0.28,
+          "end": 0.46,
+          "probability": 1.0
+        },
+        {
+          "word": " làm",
+          "start": 0.46,
+          "end": 0.6,
+          "probability": 0.994
+        },
+        {
+          "word": " việc",
+          "start": 0.6,
+          "end": 0.76,
+          "probability": 1.0
+        },
+        {
+          "word": " trên",
+          "start": 0.76,
+          "end": 0.98,
+          "probability": 0.999
+        },
+        {
+          "word": " kênh",
+          "start": 0.98,
+          "end": 1.24,
+          "probability": 0.665
+        },
+        {
+          "word": " TINU",
+          "start": 1.24,
+          "end": 1.52,
+          "probability": 0.327
+        },
+        {
+          "word": " MA",
+          "start": 1.52,
+          "end": 1.74,
+          "probability": 0.2
+        },
+        {
+          "word": " nhanh",
+          "start": 1.74,
+          "end": 2.04,
+          "probability": 0.967
+        },
+        {
+          "word": " chóng",
+          "start": 2.04,
+          "end": 2.32,
+          "probability": 0.925
+        },
+        {
+          "word": " và",
+          "start": 2.32,
+          "end": 2.42,
+          "probability": 0.986
+        },
+        {
+          "word": " bảo",
+          "start": 2.42,
+          "end": 2.6,
+          "probability": 0.834
+        },
+        {
+          "word": " mật",
+          "start": 2.6,
+          "end": 2.8,
+          "probability": 0.873
+        },
+        {
+          "word": " với",
+          "start": 2.8,
+          "end": 2.94,
+          "probability": 0.989
+        },
+        {
+          "word": " hai",
+          "start": 2.94,
+          "end": 3.12,
+          "probability": 0.47
+        },
+        {
+          "word": " phương",
+          "start": 3.12,
+          "end": 3.3,
+          "probability": 0.855
+        },
+        {
+          "word": " thức",
+          "start": 3.3,
+          "end": 3.5,
+          "probability": 0.975
+        },
+        {
+          "word": " đang",
+          "start": 3.5,
+          "end": 3.64,
+          "probability": 0.833
+        },
+        {
+          "word": " nhập",
+          "start": 3.64,
+          "end": 3.86,
+          "probability": 0.992
+        },
+        {
+          "word": " linh",
+          "start": 3.86,
+          "end": 4.02,
+          "probability": 0.736
+        },
+        {
+          "word": " hoạt.",
+          "start": 4.02,
+          "end": 4.28,
+          "probability": 0.847
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.86,
+      "end": 10.42,
+      "text": "Với tài khoản dân nghiệp, chỉ cần nhập e-mail, mật hầu và chọn tổ chức để truy cập ngay vào không gian làm việc của bạn.",
+      "words": [
+        {
+          "word": " Với",
+          "start": 4.86,
+          "end": 5.02,
+          "probability": 0.99
+        },
+        {
+          "word": " tài",
+          "start": 5.02,
+          "end": 5.16,
+          "probability": 0.91
+        },
+        {
+          "word": " khoản",
+          "start": 5.16,
+          "end": 5.42,
+          "probability": 0.933
+        },
+        {
+          "word": " dân",
+          "start": 5.42,
+          "end": 5.56,
+          "probability": 0.249
+        },
+        {
+          "word": " nghiệp,",
+          "start": 5.56,
+          "end": 5.86,
+          "probability": 0.979
+        },
+        {
+          "word": " chỉ",
+          "start": 6.08,
+          "end": 6.2,
+          "probability": 0.984
+        },
+        {
+          "word": " cần",
+          "start": 6.2,
+          "end": 6.38,
+          "probability": 0.999
+        },
+        {
+          "word": " nhập",
+          "start": 6.38,
+          "end": 6.58,
+          "probability": 0.996
+        },
+        {
+          "word": " e",
+          "start": 6.58,
+          "end": 6.74,
+          "probability": 0.314
+        },
+        {
+          "word": "-mail,",
+          "start": 6.74,
+          "end": 7.0,
+          "probability": 0.99
+        },
+        {
+          "word": " mật",
+          "start": 7.34,
+          "end": 7.44,
+          "probability": 0.886
+        },
+        {
+          "word": " hầu",
+          "start": 7.44,
+          "end": 7.68,
+          "probability": 0.669
+        },
+        {
+          "word": " và",
+          "start": 7.68,
+          "end": 7.84,
+          "probability": 0.987
+        },
+        {
+          "word": " chọn",
+          "start": 7.84,
+          "end": 8.06,
+          "probability": 0.868
+        },
+        {
+          "word": " tổ",
+          "start": 8.06,
+          "end": 8.24,
+          "probability": 0.991
+        },
+        {
+          "word": " chức",
+          "start": 8.24,
+          "end": 8.48,
+          "probability": 0.978
+        },
+        {
+          "word": " để",
+          "start": 8.48,
+          "end": 8.62,
+          "probability": 0.995
+        },
+        {
+          "word": " truy",
+          "start": 8.62,
+          "end": 8.82,
+          "probability": 0.719
+        },
+        {
+          "word": " cập",
+          "start": 8.82,
+          "end": 9.0,
+          "probability": 0.965
+        },
+        {
+          "word": " ngay",
+          "start": 9.0,
+          "end": 9.22,
+          "probability": 0.989
+        },
+        {
+          "word": " vào",
+          "start": 9.22,
+          "end": 9.36,
+          "probability": 0.997
+        },
+        {
+          "word": " không",
+          "start": 9.36,
+          "end": 9.56,
+          "probability": 0.847
+        },
+        {
+          "word": " gian",
+          "start": 9.56,
+          "end": 9.74,
+          "probability": 0.953
+        },
+        {
+          "word": " làm",
+          "start": 9.74,
+          "end": 9.88,
+          "probability": 0.996
+        },
+        {
+          "word": " việc",
+          "start": 9.88,
+          "end": 10.06,
+          "probability": 0.999
+        },
+        {
+          "word": " của",
+          "start": 10.06,
+          "end": 10.24,
+          "probability": 0.894
+        },
+        {
+          "word": " bạn.",
+          "start": 10.24,
+          "end": 10.42,
+          "probability": 0.998
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 10.94,
+      "end": 18.46,
+      "text": "Hoặc tiện lợi hơn nữa, nhấn kênh TINU with Google ngay trên trình duyệt để sát thực một trạm theo trần ớt 2.0, sẵn sàng cộng tác tức thì cùng đội ngũ.",
+      "words": [
+        {
+          "word": " Hoặc",
+          "start": 10.94,
+          "end": 11.18,
+          "probability": 0.977
+        },
+        {
+          "word": " tiện",
+          "start": 11.18,
+          "end": 11.34,
+          "probability": 0.972
+        },
+        {
+          "word": " lợi",
+          "start": 11.34,
+          "end": 11.56,
+          "probability": 0.988
+        },
+        {
+          "word": " hơn",
+          "start": 11.56,
+          "end": 11.7,
+          "probability": 0.996
+        },
+        {
+          "word": " nữa,",
+          "start": 11.7,
+          "end": 11.92,
+          "probability": 0.999
+        },
+        {
+          "word": " nhấn",
+          "start": 12.32,
+          "end": 12.44,
+          "probability": 0.849
+        },
+        {
+          "word": " kênh",
+          "start": 12.44,
+          "end": 12.68,
+          "probability": 0.937
+        },
+        {
+          "word": " TINU",
+          "start": 12.68,
+          "end": 13.0,
+          "probability": 0.991
+        },
+        {
+          "word": " with",
+          "start": 13.0,
+          "end": 13.18,
+          "probability": 0.239
+        },
+        {
+          "word": " Google",
+          "start": 13.18,
+          "end": 13.4,
+          "probability": 0.958
+        },
+        {
+          "word": " ngay",
+          "start": 13.4,
+          "end": 13.76,
+          "probability": 0.996
+        },
+        {
+          "word": " trên",
+          "start": 13.76,
+          "end": 13.92,
+          "probability": 0.998
+        },
+        {
+          "word": " trình",
+          "start": 13.92,
+          "end": 14.12,
+          "probability": 0.949
+        },
+        {
+          "word": " duyệt",
+          "start": 14.12,
+          "end": 14.38,
+          "probability": 0.689
+        },
+        {
+          "word": " để",
+          "start": 14.38,
+          "end": 14.54,
+          "probability": 0.969
+        },
+        {
+          "word": " sát",
+          "start": 14.54,
+          "end": 14.74,
+          "probability": 0.71
+        },
+        {
+          "word": " thực",
+          "start": 14.74,
+          "end": 14.86,
+          "probability": 0.519
+        },
+        {
+          "word": " một",
+          "start": 14.86,
+          "end": 15.04,
+          "probability": 0.835
+        },
+        {
+          "word": " trạm",
+          "start": 15.04,
+          "end": 15.32,
+          "probability": 0.8
+        },
+        {
+          "word": " theo",
+          "start": 15.32,
+          "end": 15.44,
+          "probability": 0.995
+        },
+        {
+          "word": " trần",
+          "start": 15.44,
+          "end": 15.7,
+          "probability": 0.353
+        },
+        {
+          "word": " ớt",
+          "start": 15.7,
+          "end": 15.9,
+          "probability": 0.855
+        },
+        {
+          "word": " 2",
+          "start": 15.9,
+          "end": 16.02,
+          "probability": 0.955
+        },
+        {
+          "word": ".0,",
+          "start": 16.02,
+          "end": 16.52,
+          "probability": 0.986
+        },
+        {
+          "word": " sẵn",
+          "start": 16.82,
+          "end": 17.0,
+          "probability": 0.981
+        },
+        {
+          "word": " sàng",
+          "start": 17.0,
+          "end": 17.16,
+          "probability": 0.878
+        },
+        {
+          "word": " cộng",
+          "start": 17.16,
+          "end": 17.4,
+          "probability": 0.976
+        },
+        {
+          "word": " tác",
+          "start": 17.4,
+          "end": 17.6,
+          "probability": 0.833
+        },
+        {
+          "word": " tức",
+          "start": 17.6,
+          "end": 17.72,
+          "probability": 0.948
+        },
+        {
+          "word": " thì",
+          "start": 17.72,
+          "end": 17.88,
+          "probability": 0.971
+        },
+        {
+          "word": " cùng",
+          "start": 17.88,
+          "end": 18.04,
+          "probability": 0.922
+        },
+        {
+          "word": " đội",
+          "start": 18.04,
+          "end": 18.26,
+          "probability": 0.754
+        },
+        {
+          "word": " ngũ.",
+          "start": 18.26,
+          "end": 18.46,
+          "probability": 0.901
+        }
+      ]
+    }
+  ]
+}

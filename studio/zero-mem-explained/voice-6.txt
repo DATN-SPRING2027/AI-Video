@@ -1,0 +1,1 @@
+Bước bốn: hiệu chỉnh bằng chứng, chọn phần phù hợp ngân sách rồi cho mô hình trả lời. Sau đó kiểm tra mức hỗ trợ, kiểu và định dạng đáp án. Zero token chỉ nói về thao tác memory; encoder, lưu trữ và bước trả lời vẫn tốn tài nguyên.

@@ -1,0 +1,136 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 25%, #172554 0%, #0b1120 55%, #060913 100%);
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s1-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(99, 102, 241, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .s1-center {
+      position: absolute;
+      left: 160px;
+      right: 160px;
+      top: 165px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .s1-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.14);
+      border: 1.5px solid rgba(96, 165, 250, 0.45);
+      color: #93c5fd;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+    .s1-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #38bdf8;
+    }
+    .s1-title {
+      font-size: 74px;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      max-width: 1420px;
+      margin-bottom: 24px;
+    }
+    .s1-sub {
+      font-size: 32px;
+      font-weight: 500;
+      color: #cbd5e1;
+      max-width: 1180px;
+      margin-bottom: 54px;
+    }
+    .s1-modes {
+      display: flex;
+      gap: 32px;
+    }
+    .s1-card {
+      width: 580px;
+      padding: 28px 34px;
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1.5px solid rgba(148, 163, 184, 0.28);
+      text-align: left;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+    }
+    .s1-card-step {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+    .s1-card-name {
+      font-size: 30px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+    .s1-card-desc {
+      font-size: 23px;
+      color: #94a3b8;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene1" data-width="1920" data-height="1080">
+    <div id="s1-grid-bg" class="s1-grid" data-layout-ignore></div>
+    <div id="s1-wrap" class="s1-center">
+      <div id="s1-pill" class="s1-badge">
+        <span class="s1-dot"></span>
+        <span>CONTINUUM AI • WORKFLOW WALKTHROUGH</span>
+      </div>
+      <h1 id="s1-h1" class="s1-title">Xác Thực Linh Hoạt &amp; Bảo Mật Doanh Nghiệp</h1>
+      <p id="s1-p" class="s1-sub">Quay trực tiếp trên trình duyệt Brave thật qua giao thức CDP</p>
+      <div id="s1-cards" class="s1-modes">
+        <div id="s1-c1" class="s1-card">
+          <div class="s1-card-step">PHƯƠNG THỨC 01</div>
+          <div class="s1-card-name">Email &amp; Workspace RBAC</div>
+          <div class="s1-card-desc">Đăng nhập chuẩn nội bộ &amp; chọn tổ chức Continuum AI Labs</div>
+        </div>
+        <div id="s1-c2" class="s1-card">
+          <div class="s1-card-step">PHƯƠNG THỨC 02</div>
+          <div class="s1-card-name">Continue with Google</div>
+          <div class="s1-card-desc">Xác thực một chạm chuẩn OAuth 2.0 (S256 PKCE)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s1-pill", { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+      tl.fromTo("#s1-h1", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.18);
+      tl.fromTo("#s1-p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.35);
+      tl.fromTo("#s1-c1", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 0.52);
+      tl.fromTo("#s1-c2", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 0.66);
+      tl.fromTo("#s1-wrap", { scale: 1, opacity: 1 }, { scale: 1.06, opacity: 0, duration: 0.35, ease: "power2.in" }, 2.8);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene1"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

@@ -1,0 +1,1 @@
+Bước hai: phân tích câu hỏi. Câu hỏi về ai, thời điểm nào, cần kiểu đáp án gì và thuộc phạm vi nào? Từ các dấu hiệu đó, hệ thống điều chỉnh trọng số giữa graph và thời gian. Cả hai góc nhìn vẫn được xem xét.

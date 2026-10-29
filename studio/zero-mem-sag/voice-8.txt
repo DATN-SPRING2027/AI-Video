@@ -1,0 +1,1 @@
+Lộ trình là: kiểm kê kết quả P R bốn mươi; đo baseline; chạy thử song song; đánh giá trên bộ kiểm thử mới; rồi mới triển khai giới hạn nếu đạt chất lượng và an toàn.

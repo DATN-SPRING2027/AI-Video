@@ -1,0 +1,45 @@
+# ============================================================================
+# Secrets, Credentials & Local Browser Profiles (NEVER COMMIT)
+# ============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+.cache/
+
+# ============================================================================
+# Dependencies, Virtual Environments & Build Caches
+# ============================================================================
+node_modules/
+**/node_modules/
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+.hyperframes/
+**/.hyperframes/
+
+# ============================================================================
+# Heavy Local AI Engines, Upstream Clones & Multi-GB Model Weights
+# (Re-hydrated via scripts/setup-external-repos.ps1; custom workflows live in comfyui-workflows/)
+# ============================================================================
+ACE-Step-1.5/
+ComfyUI/
+hyperframes/
+2d-3d-knowledge-graph/
+saas-demo-templates/
+studio/assets-library/lottie-sources/
+whisper/models/
+piper-tts/voices/*.onnx
+
+# ============================================================================
+# Temporary Render Intermediates & Raw Frame Dumps
+# ============================================================================
+studio/*/dist/_render-*.mp4
+studio/*/captures/frames/
+studio/*/assets/audio/_acestep_out/
+*.tmp
+*.log

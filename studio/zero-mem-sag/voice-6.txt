@@ -1,0 +1,1 @@
+Lợi ích tiềm năng là tìm lại thông tin cũ, truy vết nguồn rõ hơn và giảm context thừa. Không gọi mô hình trong thao tác memory không có nghĩa là không tốn tài nguyên tính toán.

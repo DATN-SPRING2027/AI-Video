@@ -1,0 +1,111 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 35%, #1e3a8a 0%, #0b1120 55%, #050811 100%);
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s4-center {
+      position: absolute;
+      left: 160px;
+      right: 160px;
+      top: 135px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .s4-previews {
+      display: flex;
+      gap: 34px;
+      margin-bottom: 48px;
+    }
+    .s4-shot {
+      width: 560px;
+      height: 315px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
+      background: #0f172a;
+      position: relative;
+    }
+    .s4-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .s4-brand {
+      font-size: 68px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .s4-tagline {
+      font-size: 30px;
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 34px;
+    }
+    .s4-cta {
+      padding: 16px 38px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 700;
+      box-shadow: 0 14px 36px rgba(37, 99, 235, 0.5);
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene4" data-width="1920" data-height="1080">
+    <div id="s4-wrap" class="s4-center">
+      <div class="s4-previews">
+        <div id="s4-p1" class="s4-shot">
+          <img
+            id="s4-img1"
+            class="clip"
+            src="assets/captures/02b-workspace-entered.png"
+            data-start="0"
+            data-duration="3.6"
+            data-track-index="1"
+            alt="Continuum AI Labs Workspace"
+          />
+        </div>
+        <div id="s4-p2" class="s4-shot">
+          <img
+            id="s4-img2"
+            class="clip"
+            src="assets/captures/03-google-oauth-step.png"
+            data-start="0"
+            data-duration="3.6"
+            data-track-index="2"
+            alt="Sign in with Google OAuth"
+          />
+        </div>
+      </div>
+      <div id="s4-title" class="s4-brand">Continuum AI</div>
+      <div id="s4-sub" class="s4-tagline">Bảo mật truy cập • Sẵn sàng khởi tạo Organization &amp; Project</div>
+      <div id="s4-cta" class="s4-cta">ENTERPRISE WORKSPACE • OAUTH 2.0 READY</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s4-p1", { opacity: 0, y: 26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "power3.out" }, 0.08);
+      tl.fromTo("#s4-p2", { opacity: 0, y: 26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "power3.out" }, 0.2);
+      tl.fromTo("#s4-title", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.34);
+      tl.fromTo("#s4-sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.46);
+      tl.fromTo("#s4-cta", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.58);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene4"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

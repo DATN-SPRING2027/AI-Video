@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Continuum AI — Living Software Knowledge Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0f19;
+        font-family: "Inter", sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #main-bg {
+        position: absolute;
+        inset: 0;
+        background: #0b0f19;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-32aq"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="75"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div data-hf-id="hf-s8i1" id="main-bg" data-layout-ignore></div>
+
+      <div data-hf-id="hf-ndkn"
+        id="scene1"
+        class="clip"
+        data-composition-id="scene1"
+        data-composition-src="compositions/scene-01-hook.html"
+        data-track-kind="graphics"
+        data-start="0"
+        data-duration="12"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 1"
+      ></div>
+
+      <div data-hf-id="hf-eg2y"
+        id="scene2"
+        class="clip"
+        data-composition-id="scene2"
+        data-composition-src="compositions/scene-02-capture-verify.html"
+        data-track-kind="graphics"
+        data-start="12"
+        data-duration="15"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 2"
+      ></div>
+
+      <div data-hf-id="hf-yvex"
+        id="scene3"
+        class="clip"
+        data-composition-id="scene3"
+        data-composition-src="compositions/scene-03-acl-sag.html"
+        data-track-kind="graphics"
+        data-start="27"
+        data-duration="18"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 3"
+      ></div>
+
+      <div data-hf-id="hf-bx00"
+        id="scene4"
+        class="clip"
+        data-composition-id="scene4"
+        data-composition-src="compositions/scene-04-graph-handover.html"
+        data-track-kind="graphics"
+        data-start="45"
+        data-duration="17"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 4"
+      ></div>
+
+      <div data-hf-id="hf-kyi8"
+        id="scene5"
+        class="clip"
+        data-composition-id="scene5"
+        data-composition-src="compositions/scene-05-outro.html"
+        data-track-kind="graphics"
+        data-start="62"
+        data-duration="13"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 5"
+      ></div>
+
+      <div data-hf-id="hf-2d81"
+        id="captions"
+        class="clip"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions-overlay.html"
+        data-track-kind="captions"
+        data-start="0"
+        data-duration="75"
+        data-track-index="2"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 10"
+      ></div>
+
+      <audio data-hf-id="hf-l53s"
+        id="vo-track"
+        class="clip"
+        src="assets/audio/vo-master.wav"
+        data-start="0"
+        data-duration="75"
+        data-track-index="3"
+        data-volume="1"
+      ></audio>
+
+      <audio data-hf-id="hf-m5n3"
+        id="bgm-track"
+        class="clip"
+        src="assets/audio/bgm-120bpm.wav"
+        data-start="0"
+        data-duration="75"
+        data-track-index="4"
+        data-volume="0.22"
+        data-fade-in="0.8"
+        data-fade-out="2.2"
+      ></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

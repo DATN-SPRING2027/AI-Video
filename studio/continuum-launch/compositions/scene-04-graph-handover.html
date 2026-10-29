@@ -1,0 +1,592 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #0b0f19;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s4-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .s4-topbar {
+      position: absolute;
+      top: 52px;
+      left: 88px;
+      right: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .s4-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #cbd5e1;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s4-chip {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.18);
+      border: 1.5px solid #3b82f6;
+      color: #bfdbfe;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Shot 4.1: 3D Knowledge & Semantic Graph */
+    .s4-shot1 {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+    }
+    #s4-graph-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .s4-hud-left {
+      position: absolute;
+      left: 88px;
+      top: 140px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1.5px solid #1f2937;
+      border-radius: 20px;
+      padding: 24px 32px;
+      max-width: 720px;
+    }
+    .s4-hud-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .s4-hud-sub {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #93c5fd;
+      font-variant-numeric: tabular-nums;
+    }
+    .s4-legend {
+      position: absolute;
+      right: 88px;
+      top: 140px;
+      background: rgba(17, 24, 39, 0.92);
+      border: 1.5px solid #334155;
+      border-radius: 20px;
+      padding: 22px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+    }
+    .s4-legend-head {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 4px;
+    }
+    .s4-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 28px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .s4-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Shot 4.2: Successor Handover Roadmap */
+    .s4-shot2 {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 148px;
+      height: 724px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+      opacity: 0;
+    }
+    .s4-roadmap-card {
+      width: 1744px;
+      background: #111827;
+      border: 2px solid #334155;
+      border-radius: 28px;
+      padding: 40px 48px;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.6);
+    }
+    .s4-rm-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .s4-rm-title {
+      font-size: 40px;
+      font-weight: 800;
+      color: #f8fafc;
+      letter-spacing: -0.02em;
+    }
+    .s4-rm-ready {
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.18);
+      border: 2px solid #10b981;
+      color: #6ee7b7;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .s4-days-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-bottom: 28px;
+    }
+    .s4-day-box {
+      background: #0b0f19;
+      border: 1.5px solid #1f2937;
+      border-radius: 20px;
+      padding: 28px 28px;
+    }
+    .s4-day-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .s4-day-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #f8fafc;
+      line-height: 1.28;
+      margin-bottom: 10px;
+    }
+    .s4-day-desc {
+      font-size: 28px;
+      font-weight: 500;
+      color: #94a3b8;
+      line-height: 1.36;
+    }
+    .s4-audio-bar {
+      background: #1e293b;
+      border: 1.5px solid #3b82f6;
+      border-radius: 18px;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .s4-audio-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #93c5fd;
+      white-space: nowrap;
+    }
+    .s4-audio-quote {
+      font-size: 28px;
+      font-weight: 500;
+      color: #f8fafc;
+    }
+  </style>
+
+  <div data-hf-id="hf-v4mq" id="root" data-composition-id="scene4" data-width="1920" data-height="1080" data-hold="true">
+    <div data-hf-id="hf-fskt" class="s4-bg-grid" data-layout-ignore></div>
+
+    <div data-hf-id="hf-rjaq" class="s4-topbar">
+      <div data-hf-id="hf-x1o3" class="s4-eyebrow">04 / 2D-3D KNOWLEDGE GRAPH &amp; SUCCESSOR HANDOVER</div>
+      <div data-hf-id="hf-ybqk" class="s4-chip">25 NOTES • 72 VERIFIED LINKS</div>
+    </div>
+
+    <!-- Shot 4.1 (0.0s - 8.5s): Full-Frame 3D Knowledge & Semantic Graph -->
+    <div data-hf-id="hf-btg2" id="s4-shot1" class="s4-shot1">
+      <canvas data-hf-id="hf-lcjo" id="s4-graph-canvas" width="1920" height="1080" data-layout-ignore></canvas>
+      <div data-hf-id="hf-4ski" id="s4-hud" class="s4-hud-left">
+        <div data-hf-id="hf-6a9k" class="s4-hud-title">Bản Đồ Tri Thức 3D Continuum AI</div>
+        <div data-hf-id="hf-x6xn" class="s4-hud-sub">25 notes · 72 links • 2D-3D Knowledge Graph</div>
+      </div>
+
+      <div data-hf-id="hf-vtak" id="s4-legend" class="s4-legend">
+        <div data-hf-id="hf-siut" class="s4-legend-head">SEMANTIC COMMUNITIES</div>
+        <div data-hf-id="hf-hjq6" class="s4-legend-row">
+          <span data-hf-id="hf-e2ry" class="s4-dot" style="background: #3b82f6"></span>Architecture &amp; ADR
+        </div>
+        <div data-hf-id="hf-352a" class="s4-legend-row">
+          <span data-hf-id="hf-lm8i" class="s4-dot" style="background: #10b981"></span>Security &amp; Scoped ACL
+        </div>
+        <div data-hf-id="hf-rn01" class="s4-legend-row">
+          <span data-hf-id="hf-95ag" class="s4-dot" style="background: #f59e0b"></span>SAG &amp; AI Engine
+        </div>
+        <div data-hf-id="hf-wkrv" class="s4-legend-row">
+          <span data-hf-id="hf-ck4d" class="s4-dot" style="background: #06b6d4"></span>Successor Handover
+        </div>
+      </div>
+    </div>
+
+    <!-- Shot 4.2 (8.5s - 17.0s): Successor Handover Roadmap -->
+    <div data-hf-id="hf-oa12" id="s4-shot2" class="s4-shot2">
+      <div data-hf-id="hf-0ekw" id="s4-roadmap-card" class="s4-roadmap-card">
+        <div data-hf-id="hf-vbbd" class="s4-rm-header">
+          <div data-hf-id="hf-vbl0" class="s4-rm-title">Successor Handover Roadmap (svc_handover)</div>
+          <div data-hf-id="hf-a2kt" class="s4-rm-ready">ONBOARDING • 85% READY</div>
+        </div>
+
+        <div data-hf-id="hf-mjn4" class="s4-days-grid">
+          <div data-hf-id="hf-zu7z" id="s4-day1" class="s4-day-box">
+            <div data-hf-id="hf-njjt" class="s4-day-tag" style="color: #34d399">DAY 01 • COMPLETED</div>
+            <div data-hf-id="hf-pmg4" class="s4-day-name">System Topology &amp; RBAC</div>
+            <div data-hf-id="hf-xrwj" class="s4-day-desc">Nắm vững 8 microservices &amp; cổng phân quyền API Gateway</div>
+          </div>
+
+          <div data-hf-id="hf-rxzx" id="s4-day3" class="s4-day-box">
+            <div data-hf-id="hf-y4je" class="s4-day-tag" style="color: #34d399">DAY 03 • VERIFIED</div>
+            <div data-hf-id="hf-0cfr" class="s4-day-name">Task Service &amp; MongoDB rs0</div>
+            <div data-hf-id="hf-0dmk" class="s4-day-desc">Đọc ADR-003, ADR-009 &amp; Work Note #WN-209 đã duyệt</div>
+          </div>
+
+          <div data-hf-id="hf-4jzt" id="s4-day7" class="s4-day-box">
+            <div data-hf-id="hf-sl46" class="s4-day-tag" style="color: #60a5fa">DAY 07 • ACTIVE TRACK</div>
+            <div data-hf-id="hf-m0fi" class="s4-day-name">SAG Engine &amp; Gap #KG-14</div>
+            <div data-hf-id="hf-vwxx" class="s4-day-desc">Hoàn thiện tài liệu còn thiếu từ Handover Checklist</div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-pkpy" id="s4-audio-bar" class="s4-audio-bar">
+          <div data-hf-id="hf-tv7g" class="s4-audio-label">▶ WHISPER SYNC AUDIO</div>
+          <div data-hf-id="hf-ykpy" class="s4-audio-quote">
+            “Mọi quyết định tách MongoDB rs0 đều đã gắn mã băm trích dẫn trực tiếp cho người kế nhiệm.”
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function mulberry32(seed) {
+        let a = seed >>> 0;
+        return function () {
+          a |= 0;
+          a = (a + 0x6d2b79f5) | 0;
+          let t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+
+      const DOMAIN_COLORS = {
+        arch: "#3b82f6",
+        sec: "#10b981",
+        ai: "#f59e0b",
+        handover: "#06b6d4"
+      };
+
+      const NODES = [
+        { label: "Continuum AI Core", dom: "arch", r: 22 },
+        { label: "ADR-003 DB-Per-Service", dom: "arch", r: 15 },
+        { label: "ADR-009 Task Lifecycle", dom: "arch", r: 14 },
+        { label: "SAG Evidence Engine", dom: "ai", r: 19 },
+        { label: "Session-Context Graph", dom: "ai", r: 15 },
+        { label: "Immutable Audit", dom: "sec", r: 14 },
+        { label: "Knowledge Gap #KG-14", dom: "handover", r: 15 },
+        { label: "ACTIVE Verified Truth", dom: "sec", r: 17 },
+        { label: "Successor Handover Pack", dom: "handover", r: 19 },
+        { label: "Work Note #WN-209", dom: "handover", r: 16 },
+        { label: "Pre-Retrieval ACL", dom: "sec", r: 18 },
+        { label: "NestJS API Gateway", dom: "sec", r: 15 },
+        { label: "svc_capture", dom: "handover", r: 13 },
+        { label: "svc_chat", dom: "ai", r: 14 },
+        { label: "svc_handover", dom: "handover", r: 15 },
+        { label: "svc_iam", dom: "sec", r: 13 },
+        { label: "svc_ingestion", dom: "ai", r: 13 },
+        { label: "svc_lifecycle", dom: "sec", r: 15 },
+        { label: "svc_notification", dom: "arch", r: 12 },
+        { label: "svc_task", dom: "arch", r: 15 },
+        { label: "BullMQ Workers", dom: "ai", r: 12 },
+        { label: "Cloudflare R2", dom: "sec", r: 12 },
+        { label: "LanceDB Vectors", dom: "ai", r: 15 },
+        { label: "MongoDB 7.0 rs0", dom: "arch", r: 15 },
+        { label: "Redis 7.2 Cluster", dom: "arch", r: 12 }
+      ];
+
+      const EDGES = [
+        [1, 23], [1, 19], [1, 7], [2, 19], [2, 9],
+        [3, 22], [3, 4], [3, 1], [3, 6], [4, 13], [4, 3],
+        [0, 11], [0, 15], [0, 19], [0, 12], [0, 17], [0, 13], [0, 14], [0, 3],
+        [5, 23], [5, 17], [6, 8], [6, 14],
+        [7, 3], [7, 22], [7, 8], [8, 7], [8, 1], [8, 2],
+        [9, 17], [9, 7], [9, 1], [10, 3], [10, 22], [10, 15], [10, 5],
+        [11, 10], [11, 24], [11, 15], [12, 9], [12, 17], [12, 23],
+        [13, 3], [13, 4], [13, 6], [14, 8], [14, 21], [14, 9],
+        [16, 21], [16, 20], [16, 3], [18, 24], [18, 6],
+        [19, 2], [19, 1], [19, 9], [20, 16], [20, 14], [22, 10], [23, 5]
+      ];
+
+      // Cluster offsets when community mode engages at t = 4.0s
+      const CLUSTER_CENTERS = {
+        arch: { x: -490, y: -65, z: -40 },
+        sec: { x: 470, y: -55, z: 45 },
+        ai: { x: -430, y: 155, z: 55 },
+        handover: { x: 440, y: 155, z: -45 }
+      };
+
+      const rng = mulberry32(884210);
+      const baseNodes = NODES.map((n, idx) => {
+        if (idx === 0) return { ...n, x: 0, y: 20, z: 0, cx: -60, cy: 10, cz: 0 };
+        const phi = Math.acos(1 - (2 * (idx + 0.5)) / NODES.length);
+        const theta = Math.PI * (1 + Math.sqrt(5)) * idx;
+        const rx = 560 + (rng() - 0.5) * 180;
+        const ry = 235 + (rng() - 0.5) * 80;
+        const rz = 320 + (rng() - 0.5) * 120;
+        const bx = rx * Math.sin(phi) * Math.cos(theta);
+        const by = ry * Math.cos(phi);
+        const bz = rz * Math.sin(phi) * Math.sin(theta);
+        const cc = CLUSTER_CENTERS[n.dom];
+        return {
+          ...n,
+          x: bx,
+          y: by,
+          z: bz,
+          cx: cc.x + bx * 0.36,
+          cy: cc.y + by * 0.45,
+          cz: cc.z + bz * 0.38
+        };
+      });
+
+      const canvas = document.getElementById("s4-graph-canvas");
+      const ctx = canvas.getContext("2d");
+
+      function smoothstep(edge0, edge1, x) {
+        const u = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+        return u * u * (3 - 2 * u);
+      }
+
+      function renderOrbitGraph(t) {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, 1920, 1080);
+        if (t > 8.85) return;
+
+        // Community color + cluster morph activates smoothly at t = 3.8s..5.0s (F1470)
+        const commMix = smoothstep(3.6, 5.0, t);
+        const rotY = Math.sin(t * 0.28) * 0.38;
+        const rotX = Math.sin(t * 0.36) * 0.1;
+        const cosY = Math.cos(rotY);
+        const sinY = Math.sin(rotY);
+        const cosX = Math.cos(rotX);
+        const sinX = Math.sin(rotX);
+
+        const cx = 960;
+        const cy = 595;
+        const fov = 1080;
+
+        const proj = baseNodes.map((n, idx) => {
+          const px = n.x + (n.cx - n.x) * commMix;
+          const py = n.y + (n.cy - n.y) * commMix;
+          const pz = n.z + (n.cz - n.z) * commMix;
+
+          const rx = px * cosY - pz * sinY;
+          const rz1 = px * sinY + pz * cosY;
+          const ry = py * cosX - rz1 * sinX;
+          const rz = py * sinX + rz1 * cosX;
+          const scale = fov / (fov + rz + 360);
+          return {
+            idx,
+            label: n.label,
+            dom: n.dom,
+            r: n.r,
+            sx: cx + rx * scale,
+            sy: cy + ry * scale,
+            rz,
+            scale
+          };
+        });
+
+        // Draw verified edges + directional light particles
+        for (let i = 0; i < EDGES.length; i++) {
+          const [uIdx, vIdx] = EDGES[i];
+          const a = proj[uIdx];
+          const b = proj[vIdx];
+          const domColor = DOMAIN_COLORS[a.dom] || "#3b82f6";
+
+          ctx.strokeStyle = commMix > 0.2 ? "rgba(148, 163, 184, 0.34)" : "rgba(96, 165, 250, 0.34)";
+          ctx.lineWidth = 1.9;
+          ctx.beginPath();
+          ctx.moveTo(a.sx, a.sy);
+          ctx.lineTo(b.sx, b.sy);
+          ctx.stroke();
+
+          // Deterministic directional particle on key edges
+          if (i % 3 === 0) {
+            const prog = (t * 0.65 + i * 0.17) % 1;
+            const px = a.sx + (b.sx - a.sx) * prog;
+            const py = a.sy + (b.sy - a.sy) * prog;
+            ctx.beginPath();
+            ctx.arc(px, py, 4.2, 0, Math.PI * 2);
+            ctx.fillStyle = commMix > 0.3 ? domColor : "#60a5fa";
+            ctx.fill();
+          }
+        }
+
+        // Draw nodes back-to-front
+        const sorted = proj.slice().sort((a, b) => b.rz - a.rz);
+        for (const n of sorted) {
+          const radius = (n.r + 2) * n.scale;
+          const col = commMix > 0.15 ? DOMAIN_COLORS[n.dom] : "#3b82f6";
+          ctx.beginPath();
+          ctx.arc(n.sx, n.sy, radius, 0, Math.PI * 2);
+          ctx.fillStyle = col;
+          ctx.fill();
+          ctx.lineWidth = n.idx === 0 || n.idx === 8 ? 3.2 : 1.8;
+          ctx.strokeStyle = "#f8fafc";
+          ctx.stroke();
+        }
+
+        // Collision-free label pass with dark pill backing
+        const priorityOrder = [0, 8, 3, 10, 1, 7, 9, 6, 4, 23, 22, 11, 14, 17, 19];
+        const placedBoxes = [
+          // Reserve HUD & Legend boxes so graph labels never collide with cards
+          { x: 80, y: 130, w: 740, h: 165 },
+          { x: 1370, y: 130, w: 470, h: 270 }
+        ];
+
+        for (const idx of priorityOrder) {
+          const n = proj[idx];
+          if (!n) continue;
+          const radius = (n.r + 2) * n.scale;
+          const isHero = idx === 0 || idx === 8 || idx === 3 || idx === 10;
+          ctx.font = isHero ? '700 24px "Inter"' : '600 21px "Inter"';
+          const tw = ctx.measureText(n.label).width + 20;
+          const th = isHero ? 32 : 28;
+          const bx = n.sx - tw / 2;
+          const by = n.sy - radius - th - 8;
+          if (by < 145 || by + th > 885 || bx < 88 || bx + tw > 1832) continue;
+          const collides = placedBoxes.some(
+            (b) => !(bx + tw + 12 < b.x || bx > b.x + b.w + 12 || by + th + 8 < b.y || by > b.y + b.h + 8)
+          );
+          if (collides) continue;
+          placedBoxes.push({ x: bx, y: by, w: tw, h: th });
+
+          ctx.fillStyle = "rgba(11, 15, 25, 0.84)";
+          ctx.beginPath();
+          ctx.roundRect(bx, by, tw, th, 8);
+          ctx.fill();
+
+          ctx.fillStyle = "#f8fafc";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(n.label, n.sx, by + th / 2 + 1);
+        }
+      }
+
+      const clock = { t: 0 };
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        clock,
+        { t: 0 },
+        {
+          t: 17,
+          duration: 17,
+          ease: "none",
+          onUpdate: function () {
+            renderOrbitGraph(clock.t);
+          }
+        },
+        0
+      );
+
+      // Shot 4.1 (0.0s - 8.5s): 3D Graph + Community Legend at t = 4.0s (F1470)
+      tl.fromTo(
+        "#s4-hud",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        0
+      );
+      tl.fromTo(
+        "#s4-legend",
+        { opacity: 0, x: 32 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" },
+        3.8
+      );
+      tl.to(
+        "#s4-shot1",
+        { opacity: 0, duration: 0.35, ease: "power2.inOut" },
+        8.25
+      );
+
+      // Shot 4.2 (8.5s - 17.0s): Successor Handover Roadmap (F1605)
+      tl.fromTo(
+        "#s4-shot2",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "none" },
+        8.5
+      );
+      tl.fromTo(
+        "#s4-roadmap-card",
+        { opacity: 0, scale: 0.95, y: 24 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.48, ease: "power3.out" },
+        8.5
+      );
+      tl.fromTo(
+        "#s4-day1",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
+        8.85
+      );
+      tl.fromTo(
+        "#s4-day3",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
+        9.1
+      );
+      tl.fromTo(
+        "#s4-day7",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
+        9.35
+      );
+      tl.fromTo(
+        "#s4-audio-bar",
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+        9.7
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene4"] = tl;
+      tl.seek(0);
+      renderOrbitGraph(0);
+    })();
+  </script>
+</template>
+

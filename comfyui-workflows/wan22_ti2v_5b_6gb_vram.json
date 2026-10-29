@@ -1,0 +1,188 @@
+{
+  "last_node_id": 11,
+  "last_link_id": 13,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UnetLoaderGGUF",
+      "pos": [60, 80],
+      "size": [340, 60],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [{ "name": "MODEL", "type": "MODEL", "links": [1], "slot_index": 0 }],
+      "properties": { "Node name for S&R": "UnetLoaderGGUF" },
+      "widgets_values": ["Wan2.2-TI2V-5B-Q4_K_M.gguf"]
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoaderGGUF",
+      "pos": [60, 190],
+      "size": [340, 82],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [{ "name": "CLIP", "type": "CLIP", "links": [2, 3], "slot_index": 0 }],
+      "properties": { "Node name for S&R": "CLIPLoaderGGUF" },
+      "widgets_values": ["umt5-xxl-encoder-Q4_K_M.gguf", "wan"]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [60, 320],
+      "size": [340, 60],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [{ "name": "VAE", "type": "VAE", "links": [4, 10], "slot_index": 0 }],
+      "properties": { "Node name for S&R": "VAELoader" },
+      "widgets_values": ["wan2.2_vae.safetensors"]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [450, 80],
+      "size": [420, 140],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [{ "name": "clip", "type": "CLIP", "link": 2 }],
+      "outputs": [{ "name": "CONDITIONING", "type": "CONDITIONING", "links": [6], "slot_index": 0 }],
+      "title": "Positive Prompt (Wan 2.2)",
+      "properties": { "Node name for S&R": "CLIPTextEncode" },
+      "widgets_values": [
+        "Cinematic aerial drone shot flying over futuristic glowing AI data center glass towers at sunset, volumetric golden light, smooth camera motion, photorealistic, 4k"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [450, 260],
+      "size": [420, 120],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [{ "name": "clip", "type": "CLIP", "link": 3 }],
+      "outputs": [{ "name": "CONDITIONING", "type": "CONDITIONING", "links": [7], "slot_index": 0 }],
+      "title": "Negative Prompt",
+      "properties": { "Node name for S&R": "CLIPTextEncode" },
+      "widgets_values": [
+        "blurry, low quality, distorted, watermark, text, deformed, static, overexposed, worst quality, artifacts"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "Wan22ImageToVideoLatent",
+      "pos": [450, 430],
+      "size": [340, 150],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        { "name": "vae", "type": "VAE", "link": 4 },
+        { "name": "start_image", "type": "IMAGE", "link": null, "shape": 7 }
+      ],
+      "outputs": [{ "name": "LATENT", "type": "LATENT", "links": [8], "slot_index": 0 }],
+      "title": "Wan 2.2 Latent (6GB Safe: 832x480, 33f)",
+      "properties": { "Node name for S&R": "Wan22ImageToVideoLatent" },
+      "widgets_values": [832, 480, 33, 1]
+    },
+    {
+      "id": 7,
+      "type": "ModelSamplingSD3",
+      "pos": [920, 80],
+      "size": [260, 60],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [{ "name": "model", "type": "MODEL", "link": 1 }],
+      "outputs": [{ "name": "MODEL", "type": "MODEL", "links": [5], "slot_index": 0 }],
+      "properties": { "Node name for S&R": "ModelSamplingSD3" },
+      "widgets_values": [8.0]
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [920, 190],
+      "size": [315, 262],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        { "name": "model", "type": "MODEL", "link": 5 },
+        { "name": "positive", "type": "CONDITIONING", "link": 6 },
+        { "name": "negative", "type": "CONDITIONING", "link": 7 },
+        { "name": "latent_image", "type": "LATENT", "link": 8 }
+      ],
+      "outputs": [{ "name": "LATENT", "type": "LATENT", "links": [9], "slot_index": 0 }],
+      "properties": { "Node name for S&R": "KSampler" },
+      "widgets_values": [20261028, "randomize", 20, 5.0, "uni_pc", "simple", 1.0]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecodeTiled",
+      "pos": [1280, 190],
+      "size": [280, 150],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        { "name": "samples", "type": "LATENT", "link": 9 },
+        { "name": "vae", "type": "VAE", "link": 10 }
+      ],
+      "outputs": [{ "name": "IMAGE", "type": "IMAGE", "links": [11], "slot_index": 0 }],
+      "title": "Tiled VAE Decode (6GB VRAM Anti-OOM)",
+      "properties": { "Node name for S&R": "VAEDecodeTiled" },
+      "widgets_values": [256, 64, 16, 4]
+    },
+    {
+      "id": 10,
+      "type": "CreateVideo",
+      "pos": [1600, 190],
+      "size": [260, 130],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        { "name": "images", "type": "IMAGE", "link": 11 },
+        { "name": "audio", "type": "AUDIO", "link": null, "shape": 7 }
+      ],
+      "outputs": [{ "name": "VIDEO", "type": "VIDEO", "links": [12], "slot_index": 0 }],
+      "properties": { "Node name for S&R": "CreateVideo" },
+      "widgets_values": [16.0, "auto", "sRGB", "none"]
+    },
+    {
+      "id": 11,
+      "type": "SaveVideo",
+      "pos": [1900, 190],
+      "size": [320, 260],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [{ "name": "video", "type": "VIDEO", "link": 12 }],
+      "outputs": [],
+      "properties": { "Node name for S&R": "SaveVideo" },
+      "widgets_values": ["wan22/clip", "mp4", "h264"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 7, 0, "MODEL"],
+    [2, 2, 0, 4, 0, "CLIP"],
+    [3, 2, 0, 5, 0, "CLIP"],
+    [4, 3, 0, 6, 0, "VAE"],
+    [5, 7, 0, 8, 0, "MODEL"],
+    [6, 4, 0, 8, 1, "CONDITIONING"],
+    [7, 5, 0, 8, 2, "CONDITIONING"],
+    [8, 6, 0, 8, 3, "LATENT"],
+    [9, 8, 0, 9, 0, "LATENT"],
+    [10, 3, 0, 9, 1, "VAE"],
+    [11, 9, 0, 10, 0, "IMAGE"],
+    [12, 10, 0, 11, 0, "VIDEO"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": { "scale": 0.85, "offset": [0, 0] }
+  },
+  "version": 0.4
+}

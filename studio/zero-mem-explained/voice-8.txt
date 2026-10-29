@@ -1,0 +1,1 @@
+Lộ trình nên đi là kiểm kê kết quả P R bốn mươi, đo baseline trên main, chạy quan sát song song, rồi đánh giá trên tập mới. Chỉ triển khai giới hạn khi chất lượng và phân quyền đạt yêu cầu. Câu hỏi tổng hợp toàn phiên cần kiểm chứng riêng.

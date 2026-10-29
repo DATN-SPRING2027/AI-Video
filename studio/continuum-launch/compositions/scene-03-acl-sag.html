@@ -1,0 +1,467 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #f9fafb;
+      font-family: "Inter", sans-serif;
+      color: #0f172a;
+      overflow: hidden;
+    }
+    .s3-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .s3-topbar {
+      position: absolute;
+      top: 52px;
+      left: 88px;
+      right: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .s3-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #334155;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s3-chip {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #d1fae5;
+      border: 1.5px solid #10b981;
+      color: #065f46;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Shot 3.1: Horizontal Highway Pre-Retrieval ACL */
+    .s3-shot1 {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 158px;
+      height: 706px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 4;
+    }
+    .s3-sec-heading {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #0f172a;
+      margin-bottom: 34px;
+    }
+    .s3-highway {
+      display: grid;
+      grid-template-columns: 430px 92px 620px 92px 510px;
+      align-items: center;
+    }
+    .s3-node-box {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 24px;
+      padding: 34px 32px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06);
+    }
+    .s3-node-gate {
+      background: #eff6ff;
+      border: 3px solid #2563eb;
+      border-radius: 26px;
+      padding: 34px 34px;
+      box-shadow: 0 22px 48px rgba(37, 99, 235, 0.12);
+    }
+    .s3-node-kicker {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 10px;
+    }
+    .s3-node-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .s3-node-desc {
+      font-size: 28px;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.38;
+    }
+    .s3-acl-pill-ok {
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: #d1fae5;
+      border: 1.5px solid #10b981;
+      color: #065f46;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .s3-acl-pill-deny {
+      margin-top: 14px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: #fee2e2;
+      border: 2px solid #ef4444;
+      color: #991b1b;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 800;
+      opacity: 0;
+    }
+    .s3-arrow-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Shot 3.2: SAG Citation & Verbatim Highlight */
+    .s3-shot2 {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 158px;
+      height: 706px;
+      display: grid;
+      grid-template-columns: 930px 774px;
+      gap: 40px;
+      align-items: stretch;
+      z-index: 5;
+      opacity: 0;
+    }
+    .s3-panel {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 26px;
+      padding: 38px 42px;
+      box-shadow: 0 20px 46px rgba(15, 23, 42, 0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s3-panel-head {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 16px;
+    }
+    .s3-panel-q {
+      font-size: 30px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 18px;
+    }
+    .s3-panel-ans {
+      font-size: 34px;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.38;
+      margin-bottom: 24px;
+    }
+    .s3-cite-chip {
+      padding: 16px 22px;
+      border-radius: 16px;
+      background: #d1fae5;
+      border: 2px solid #10b981;
+      color: #065f46;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .s3-doc-code {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      line-height: 1.5;
+      color: #334155;
+      padding: 18px 22px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      font-variant-numeric: tabular-nums;
+    }
+    .s3-doc-highlight {
+      margin: 16px 0;
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: #fef3c7;
+      border: 2.5px solid #f59e0b;
+      color: #78350f;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1.42;
+    }
+
+    /* Shot 3.3: Insufficient Evidence -> Knowledge Gap #KG-14 */
+    .s3-shot3 {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 166px;
+      height: 694px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+      opacity: 0;
+    }
+    .s3-gap-card {
+      width: 1460px;
+      background: #ffffff;
+      border: 2.5px solid #cbd5e1;
+      border-radius: 28px;
+      padding: 44px 52px;
+      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.09);
+    }
+    .s3-gap-query {
+      font-size: 34px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+    }
+    .s3-insuff-box {
+      padding: 24px 30px;
+      border-radius: 18px;
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      color: #78350f;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      opacity: 0;
+    }
+    .s3-kg-created {
+      padding: 26px 32px;
+      border-radius: 18px;
+      background: #fef2f2;
+      border: 2.5px solid #ef4444;
+      color: #991b1b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+    }
+    .s3-kg-left {
+      font-size: 32px;
+      font-weight: 800;
+    }
+    .s3-kg-right {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+
+  <div data-hf-id="hf-qvwq" id="root" data-composition-id="scene3" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-g9gy" class="s3-bg-grid" data-layout-ignore></div>
+
+    <div data-hf-id="hf-c8e7" class="s3-topbar">
+      <div data-hf-id="hf-0gr1" class="s3-eyebrow">03 / PRE-RETRIEVAL SCOPED ACL &amp; EVIDENCE-GROUNDED SAG</div>
+      <div data-hf-id="hf-8kvv" class="s3-chip">ZERO-HALLUCINATION CONTRACT</div>
+    </div>
+
+    <!-- Shot 3.1 (0.0s - 6.0s): Pre-Retrieval Scoped ACL Highway -->
+    <div data-hf-id="hf-qd5a" id="s3-shot1" class="s3-shot1">
+      <div data-hf-id="hf-zyb0" class="s3-sec-heading">Khóa phân quyền ngay trước khi truy hồi Vector &amp; Graph</div>
+      <div data-hf-id="hf-1i28" class="s3-highway">
+        <div data-hf-id="hf-z7w6" id="s3-gw" class="s3-node-box">
+          <div data-hf-id="hf-8ehi" class="s3-node-kicker">STAGE 01</div>
+          <div data-hf-id="hf-wd28" class="s3-node-title">API Gateway</div>
+          <div data-hf-id="hf-syz6" class="s3-node-desc">Xác thực JWT &amp; ánh xạ phạm vi dự án của nhân sự</div>
+        </div>
+
+        <div data-hf-id="hf-amuy" class="s3-arrow-col" data-layout-ignore>
+          <svg data-hf-id="hf-cobm" width="76" height="44" viewBox="0 0 76 44" fill="none">
+            <path data-hf-id="hf-2p2x" d="M4 22 H66 M50 8 L68 22 L50 36" stroke="#2563EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div data-hf-id="hf-kkym" id="s3-acl" class="s3-node-gate">
+          <div data-hf-id="hf-x2yw" class="s3-node-kicker">STAGE 02 • SECURITY GATE</div>
+          <div data-hf-id="hf-6ze5" class="s3-node-title">Pre-Retrieval Scoped ACL (P_eff)</div>
+          <div data-hf-id="hf-qwra" id="s3-acl-ok" class="s3-acl-pill-ok">✓ ALLOW: Sprint-8 ACTIVE Docs</div>
+          <div data-hf-id="hf-upr5" id="s3-acl-deny" class="s3-acl-pill-deny">✕ 403 SCOPED OUT: 2 Secret Docs</div>
+        </div>
+
+        <div data-hf-id="hf-nu8u" class="s3-arrow-col" data-layout-ignore>
+          <svg data-hf-id="hf-0pom" width="76" height="44" viewBox="0 0 76 44" fill="none">
+            <path data-hf-id="hf-ulyj" d="M4 22 H66 M50 8 L68 22 L50 36" stroke="#10B981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div data-hf-id="hf-x85n" id="s3-sag" class="s3-node-box">
+          <div data-hf-id="hf-973k" class="s3-node-kicker">STAGE 03</div>
+          <div data-hf-id="hf-yft8" class="s3-node-title">SAG &amp; LanceDB</div>
+          <div data-hf-id="hf-89c7" class="s3-node-desc">Truy hồi trên tập tài liệu đã lọc sạch quyền truy cập</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shot 3.2 (6.0s - 12.5s): Verbatim Citation + SHA-256 -->
+    <div data-hf-id="hf-6bia" id="s3-shot2" class="s3-shot2">
+      <div data-hf-id="hf-xz5t" id="s3-ans-panel" class="s3-panel">
+        <div data-hf-id="hf-yeow">
+          <div data-hf-id="hf-i073" class="s3-panel-head">svc_chat • SESSION-CONTEXT GROUNDED</div>
+          <div data-hf-id="hf-7swm" class="s3-panel-q">Hỏi: “Vì sao Task Service tách riêng MongoDB?”</div>
+          <div data-hf-id="hf-iziz" class="s3-panel-ans">
+            Task Service lưu trữ độc lập trên MongoDB 7.0 (rs0) để cô lập tải ghi khỏi bảng IAM.
+          </div>
+        </div>
+        <div data-hf-id="hf-jk7i" id="s3-cite" class="s3-cite-chip">
+          ADR-003 • Line 18-24 • sha256:7c893940 • ACTIVE
+        </div>
+      </div>
+
+      <div data-hf-id="hf-97g3" id="s3-doc-panel" class="s3-panel">
+        <div data-hf-id="hf-y7yw">
+          <div data-hf-id="hf-zxye" class="s3-panel-head">SOURCE • adr/adr-003-db-per-service.md</div>
+          <div data-hf-id="hf-k0vg" class="s3-doc-code">Line 14: Status: ACTIVE (Approved by SME)</div>
+          <div data-hf-id="hf-wza3" id="s3-doc-hl" class="s3-doc-highlight">
+            Line 18–24: “Mỗi microservice sở hữu database riêng; continuum_task vận hành trên MongoDB rs0 độc lập.”
+          </div>
+          <div data-hf-id="hf-u6l0" class="s3-doc-code">Hash: sha256:7c893940f8f1cbb3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shot 3.3 (12.5s - 18.0s): INSUFFICIENT_EVIDENCE -> Knowledge Gap #KG-14 -->
+    <div data-hf-id="hf-tdh9" id="s3-shot3" class="s3-shot3" data-hold="true">
+      <div data-hf-id="hf-dfkm" id="s3-gap-card" class="s3-gap-card">
+        <div data-hf-id="hf-9l5c" class="s3-panel-head">MISSING EVIDENCE DETECTION • ZERO GUESSWORK</div>
+        <div data-hf-id="hf-e212" class="s3-gap-query">Truy vấn: “Thông số kết nối cổng thanh toán Legacy năm 2023?”</div>
+        <div data-hf-id="hf-bsjq" id="s3-insuff" class="s3-insuff-box">
+          STATUS: INSUFFICIENT_EVIDENCE • Không tìm thấy tài liệu ACTIVE hợp lệ
+        </div>
+        <div data-hf-id="hf-6xcl" id="s3-kg-box" class="s3-kg-created">
+          <div data-hf-id="hf-nsy1" class="s3-kg-left">Knowledge Gap #KG-14 tự động khởi tạo</div>
+          <div data-hf-id="hf-4vfg" class="s3-kg-right">→ Gắn vào Handover Checklist</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Shot 3.1 (0.0s - 6.0s): Highway Flow
+      tl.fromTo(
+        "#s3-gw",
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" },
+        0
+      );
+      tl.fromTo(
+        "#s3-acl",
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        0.45
+      );
+      tl.fromTo(
+        "#s3-sag",
+        { opacity: 0, x: 30 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" },
+        0.9
+      );
+      tl.fromTo(
+        "#s3-acl-deny",
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.4)" },
+        1.8
+      );
+      tl.to(
+        "#s3-shot1",
+        { opacity: 0, duration: 0.25, ease: "power2.in" },
+        5.75
+      );
+
+      // Shot 3.2 (6.0s - 12.5s): Citation + Source Highlight
+      tl.fromTo(
+        "#s3-shot2",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "none" },
+        6.0
+      );
+      tl.fromTo(
+        "#s3-ans-panel",
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        6.05
+      );
+      tl.fromTo(
+        "#s3-doc-panel",
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        6.25
+      );
+      tl.fromTo(
+        "#s3-cite",
+        { opacity: 0, scale: 0.92 },
+        { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.4)" },
+        7.2
+      );
+      tl.fromTo(
+        "#s3-doc-hl",
+        { scale: 0.97 },
+        { scale: 1.02, duration: 0.35, ease: "power2.out" },
+        7.8
+      );
+      tl.to(
+        "#s3-shot2",
+        { opacity: 0, duration: 0.25, ease: "power2.in" },
+        12.25
+      );
+
+      // Shot 3.3 (12.5s - 18.0s): INSUFFICIENT_EVIDENCE -> Knowledge Gap #KG-14
+      tl.fromTo(
+        "#s3-shot3",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "none" },
+        12.5
+      );
+      tl.fromTo(
+        "#s3-gap-card",
+        { opacity: 0, y: 26 },
+        { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" },
+        12.55
+      );
+      tl.fromTo(
+        "#s3-insuff",
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" },
+        13.35
+      );
+      tl.fromTo(
+        "#s3-kg-box",
+        { opacity: 0, scale: 0.93 },
+        { opacity: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" },
+        14.2
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene3"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>
+

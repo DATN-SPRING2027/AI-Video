@@ -1,0 +1,315 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, #172554 0%, #090e1c 58%, #050811 100%);
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s2-topbar {
+      position: absolute;
+      top: 34px;
+      left: 192px;
+      width: 1536px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+    }
+    .s2-stepper {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .s2-step-active {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 21px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+    }
+    .s2-step-idle {
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: #94a3b8;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .s2-brave-tag {
+      padding: 9px 20px;
+      border-radius: 999px;
+      background: rgba(249, 115, 22, 0.14);
+      border: 1px solid rgba(251, 146, 60, 0.45);
+      color: #fdba74;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .s2-browser-shell {
+      position: absolute;
+      left: 192px;
+      top: 100px;
+      width: 1536px;
+      height: 908px;
+      border-radius: 22px;
+      background: #0f172a;
+      border: 2px solid rgba(148, 163, 184, 0.28);
+      box-shadow: 0 34px 80px rgba(0, 0, 0, 0.68);
+      overflow: hidden;
+    }
+    .s2-chrome-bar {
+      height: 44px;
+      background: #1e293b;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 14px;
+    }
+    .s2-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .s2-dot-r, .s2-dot-y, .s2-dot-g {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .s2-dot-r { background: #ef4444; }
+    .s2-dot-y { background: #f59e0b; }
+    .s2-dot-g { background: #10b981; }
+    .s2-url-bar {
+      margin-left: 18px;
+      padding: 5px 18px;
+      border-radius: 8px;
+      background: #0f172a;
+      color: #cbd5e1;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      min-width: 480px;
+    }
+    .s2-viewport {
+      position: relative;
+      width: 1536px;
+      height: 864px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .s2-cam {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1536px;
+      height: 864px;
+      transform-origin: 0px 0px;
+    }
+    .s2-cursor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      pointer-events: none;
+      z-index: 15;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.42));
+    }
+    .s2-ripple {
+      position: absolute;
+      left: -26px;
+      top: -26px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid #3b82f6;
+      background: rgba(59, 130, 246, 0.22);
+      pointer-events: none;
+      z-index: 14;
+      opacity: 0;
+    }
+    .s2-toast {
+      position: absolute;
+      right: 224px;
+      top: 172px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 26px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.94);
+      border: 1.5px solid rgba(16, 185, 129, 0.65);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+      z-index: 25;
+      opacity: 0;
+    }
+    .s2-toast-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .s2-toast-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ecfdf5;
+    }
+    .s2-toast-sub {
+      font-size: 19px;
+      color: #6ee7b7;
+      font-family: "JetBrains Mono", monospace;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene2" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="s2-top" class="s2-topbar">
+      <div class="s2-stepper">
+        <span class="s2-step-active">01 • ĐĂNG NHẬP EMAIL &amp; WORKSPACE</span>
+        <span class="s2-step-idle">02 • GOOGLE OAUTH 2.0</span>
+      </div>
+      <div class="s2-brave-tag">BRAVE STUDIO CDP :9333 • LIVE</div>
+    </div>
+
+    <div id="s2-shell" class="s2-browser-shell" data-layout-allow-overflow>
+      <div class="s2-chrome-bar">
+        <div class="s2-dots">
+          <span class="s2-dot-r"></span>
+          <span class="s2-dot-y"></span>
+          <span class="s2-dot-g"></span>
+        </div>
+        <div id="s2-url" class="s2-url-bar">localhost:3000/en/signin → Continuum AI Labs</div>
+      </div>
+      <div id="s2-vp" class="s2-viewport" data-layout-allow-overflow>
+        <div id="s2-cam" class="s2-cam" data-layout-allow-overflow>
+          <video
+            id="s2-vid"
+            class="clip"
+            src="assets/captures/flow-a-edited.mp4"
+            data-start="0"
+            data-duration="10.6"
+            data-track-index="1"
+            muted
+            playsinline
+            style="position: absolute; left: 0; top: 0; width: 1536px; height: 864px; object-fit: cover"
+          ></video>
+
+          <div
+            id="s2-ws-wrap"
+            style="position: absolute; left: 0; top: 0; width: 1536px; height: 864px; opacity: 0; z-index: 3; pointer-events: none"
+            data-layout-ignore
+          >
+            <img
+              id="s2-ws-img"
+              class="clip"
+              src="assets/captures/02b-workspace-entered.png"
+              data-start="0"
+              data-duration="10.6"
+              data-track-index="2"
+              alt="Continuum AI Labs Dashboard"
+              style="width: 1536px; height: 864px; object-fit: cover; display: block"
+            />
+          </div>
+
+          <div id="s2-ripple" class="s2-ripple" data-layout-ignore></div>
+          <div id="s2-cursor" class="s2-cursor" data-layout-ignore>
+            <svg viewBox="0 0 36 36" width="44" height="44" fill="none">
+              <path d="M6 4L30 16.5L18.5 19.8L14 31L6 4Z" fill="#111827" stroke="#FFFFFF" stroke-width="2.6" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="s2-toast" class="s2-toast" data-layout-allow-overlap>
+      <div id="s2-lottie-check" class="s2-toast-icon">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none">
+          <path
+            id="s2-check-path"
+            d="M7 16.5L13.2 22.5L25 10"
+            stroke="#34d399"
+            stroke-width="3.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-dasharray="36"
+            stroke-dashoffset="36"
+          />
+        </svg>
+      </div>
+      <div>
+        <div class="s2-toast-title">Truy cập thành công • Continuum AI Labs</div>
+        <div class="s2-toast-sub">Role: Manager • 6 Active Members • 2 Projects</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Entrance
+      tl.fromTo("#s2-shell", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo("#s2-top", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.08);
+
+      // Screen-Studio Auto-Zoom choreography matched to recorded Flow A
+      tl.fromTo(
+        "#s2-cam",
+        { scale: 1, x: 0, y: 0 },
+        { scale: 1.56, x: -8, y: -260, duration: 0.75, ease: "power3.inOut" },
+        0.45
+      );
+      // Shift focus slightly down to Sign-In button at 4.8s
+      tl.to("#s2-cam", { scale: 1.58, x: -12, y: -330, duration: 0.55, ease: "power2.inOut" }, 4.7);
+      // Adjust framing for Choose Organization card (CA Continuum AI Labs)
+      tl.to("#s2-cam", { scale: 1.38, x: -6, y: -195, duration: 0.65, ease: "power2.inOut" }, 6.1);
+      // Pull back smoothly to full 1.0x revealing Enterprise Dashboard
+      tl.to("#s2-cam", { scale: 1, x: 0, y: 0, duration: 0.85, ease: "power3.inOut" }, 7.8);
+
+      // Smooth Cursor Path & Clicks (mapped to 0.8x viewport coordinates)
+      tl.fromTo("#s2-cursor", { x: 760, y: 520, scale: 1 }, { x: 357, y: 405, duration: 0.65, ease: "power3.out" }, 0.25);
+      // Click 1: Email input (t=0.9s)
+      tl.to("#s2-cursor", { scale: 0.84, duration: 0.09 }, 0.9);
+      tl.to("#s2-cursor", { scale: 1, duration: 0.14 }, 1.0);
+      tl.fromTo("#s2-ripple", { x: 357, y: 405, scale: 0.3, opacity: 0.95 }, { scale: 1.7, opacity: 0, duration: 0.42, ease: "power2.out" }, 0.9);
+
+      // Move & Click 2: Password input (t=3.05s)
+      tl.to("#s2-cursor", { x: 357, y: 477, duration: 0.5, ease: "power2.inOut" }, 2.55);
+      tl.to("#s2-cursor", { scale: 0.84, duration: 0.09 }, 3.05);
+      tl.to("#s2-cursor", { scale: 1, duration: 0.14 }, 3.15);
+      tl.fromTo("#s2-ripple", { x: 357, y: 477, scale: 0.3, opacity: 0.95 }, { scale: 1.7, opacity: 0, duration: 0.42, ease: "power2.out", immediateRender: false }, 3.05);
+
+      // Move & Click 3: Sign In submit button (t=5.35s)
+      tl.to("#s2-cursor", { x: 357, y: 590, duration: 0.5, ease: "power2.inOut" }, 4.8);
+      tl.to("#s2-cursor", { scale: 0.82, duration: 0.1 }, 5.35);
+      tl.to("#s2-cursor", { scale: 1, duration: 0.16 }, 5.46);
+      tl.fromTo("#s2-ripple", { x: 357, y: 590, scale: 0.3, opacity: 0.95 }, { scale: 1.9, opacity: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 5.35);
+
+      // Move & Click 4: Select Organization card "CA Continuum AI Labs" (t=7.3s)
+      tl.to("#s2-cursor", { x: 357, y: 467, duration: 0.55, ease: "power2.inOut" }, 6.7);
+      tl.to("#s2-cursor", { scale: 0.84, duration: 0.1 }, 7.3);
+      tl.to("#s2-cursor", { scale: 1, duration: 0.16 }, 7.42);
+      tl.fromTo("#s2-ripple", { x: 357, y: 467, scale: 0.3, opacity: 0.95 }, { scale: 1.9, opacity: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 7.3);
+      tl.to("#s2-cursor", { x: 980, y: 360, opacity: 0.85, duration: 0.8, ease: "power2.out" }, 8.0);
+
+      // Reveal fully loaded Continuum AI Labs Enterprise Dashboard smoothly after org selection
+      tl.fromTo("#s2-ws-wrap", { opacity: 0 }, { opacity: 1, duration: 0.38, ease: "power2.out" }, 8.15);
+
+      // Verified Workspace Toast Pop-in + Animated Emerald Checkmark
+      tl.fromTo("#s2-toast", { opacity: 0, y: -18, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.5)" }, 8.45);
+      tl.fromTo("#s2-check-path", { strokeDashoffset: 36 }, { strokeDashoffset: 0, duration: 0.38, ease: "power2.out" }, 8.55);
+      tl.to("#s2-toast", { opacity: 0, y: -10, duration: 0.25 }, 10.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene2"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

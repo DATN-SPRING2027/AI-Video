@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CreateVideo — 2D & 3D Knowledge Graph Viewer</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #0b0e14; color: #e2e8f0; font-family: system-ui, sans-serif; overflow: hidden; }
+    #topbar {
+      position: fixed; top: 12px; right: 16px; z-index: 100;
+      display: flex; gap: 8px; background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.25); border-radius: 10px; padding: 6px;
+      backdrop-filter: blur(8px);
+    }
+    #topbar a {
+      color: #cbd5e1; text-decoration: none; font-size: 13px; font-weight: 600;
+      padding: 6px 12px; border-radius: 6px;
+    }
+    #topbar a.active { background: #38bdf8; color: #0f172a; }
+    #app { position: relative; width: 100vw; height: 100vh; }
+    #credit {
+      position: fixed; bottom: 10px; right: 16px; z-index: 90;
+      font-size: 12px; color: rgba(148, 163, 184, 0.75);
+    }
+    #credit a { color: #38bdf8; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <a href="?mode=2d" id="btn-2d">2D Knowledge Graph</a>
+    <a href="?mode=3d" id="btn-3d">3D Knowledge Graph</a>
+  </div>
+  <div id="app"></div>
+  <div id="credit">
+    Knowledge graphs by <a href="https://github.com/hungnv26/2d-3d-knowledge-graph" target="_blank" rel="noreferrer">2D-3D Knowledge Graph Package</a> by Hung Ngo
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const mode = params.get("mode") === "3d" ? "3d" : "2d";
+    document.getElementById("btn-" + mode).classList.add("active");
+
+    window.KnowledgeGraphConfig = {
+      sources: [
+        {
+          id: "createvideo",
+          label: "CreateVideo Vault",
+          settingsKey: "createvideo.kg." + mode,
+          url: "./links.json",
+          groups: [
+            { query: "tag:video", color: "#38bdf8" },
+            { query: "tag:audio", color: "#a78bfa" },
+            { query: "tag:asr", color: "#34d399" },
+            { query: "tag:graph", color: "#fbbf24" }
+          ]
+        },
+        {
+          id: "meridian",
+          label: "Meridian Archive (Sample)",
+          settingsKey: "meridian.kg." + mode,
+          url: "./meridian-links.json",
+          groups: []
+        }
+      ]
+    };
+
+    const s = document.createElement("script");
+    s.src = mode === "3d" ? "./standalone/force3d-graph.js" : "./standalone/knowledge-graph.js";
+    document.body.appendChild(s);
+  </script>
+</body>
+</html>
+

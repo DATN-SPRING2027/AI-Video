@@ -1,0 +1,11 @@
+{
+  "name": "continuum-auth-signin-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "record": "node record_auth_brave.mjs both",
+    "dev": "npx hyperframes preview",
+    "check": "npx hyperframes check",
+    "render": "npx hyperframes render --quality delivery --output dist/continuum-auth-demo-1080p.mp4"
+  }
+}

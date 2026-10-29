@@ -1,0 +1,1 @@
+Khi đưa vào SAG, cần kiểm tra quyền trước và sau truy xuất. Mỗi bằng chứng giữ mã tin nhắn, thời điểm và nguồn. Nguồn bị thu hồi quyền phải bị loại. Lịch sử được chọn và tài liệu truy xuất chia sẻ ngân sách prompt.

@@ -1,0 +1,51 @@
+1
+00:00:00,350 --> 00:00:03,050
+Trong mọi dự án phần mềm, rủi ro lớn nhất
+
+2
+00:00:03,110 --> 00:00:05,870
+là khoảnh khắc người hiểu rõ hệ thống rời đi.
+
+3
+00:00:05,930 --> 00:00:10,090
+Tài liệu cũ kỹ, chat trôi mất, còn AI thường dễ bịa câu trả lời.
+
+4
+00:00:12,460 --> 00:00:15,640
+Continuum AI biến công việc hằng ngày thành dòng chảy tri thức sống.
+
+5
+00:00:15,700 --> 00:00:18,700
+Mọi Work Note và phiên ghi âm bàn giao được bóc tách tự động,
+
+6
+00:00:18,760 --> 00:00:21,400
+rồi kiểm chứng bởi chuyên gia trước khi kích hoạt ACTIVE.
+
+7
+00:00:27,460 --> 00:00:30,900
+Hệ thống khóa phân quyền Pre-Retrieval ACL trước khi truy hồi dữ liệu.
+
+8
+00:00:30,960 --> 00:00:34,220
+Mọi câu trả lời từ SAG Engine đều đính kèm trích dẫn và mã băm SHA-256,
+
+9
+00:00:34,280 --> 00:00:37,100
+hoặc tự động đánh dấu Knowledge Gap khi thiếu bằng chứng.
+
+10
+00:00:45,470 --> 00:00:49,150
+Từ bản đồ tri thức 2D / 3D trực quan đến lộ trình bàn giao tự động,
+
+11
+00:00:49,210 --> 00:00:53,350
+thành viên kế nhiệm nắm bắt toàn bộ ngữ cảnh dự án ngay từ ngày đầu tiên.
+
+12
+00:01:02,400 --> 00:01:05,760
+Continuum AI — Bảo toàn tri thức, minh bạch dẫn chứng,
+
+13
+00:01:05,820 --> 00:01:08,520
+sẵn sàng cho mọi thế hệ kế tiếp của dự án.

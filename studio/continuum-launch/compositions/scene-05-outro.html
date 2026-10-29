@@ -1,0 +1,295 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #0b0f19;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .s5-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .s5-topbar {
+      position: absolute;
+      top: 52px;
+      left: 88px;
+      right: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .s5-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #94a3b8;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s5-chip {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1.5px solid #10b981;
+      color: #6ee7b7;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Shot 5.1: 3 Architecture Invariants */
+    .s5-shot1 {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 168px;
+      height: 696px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: stretch;
+      z-index: 4;
+    }
+    .s5-pillar {
+      background: #111827;
+      border: 2px solid #1f2937;
+      border-radius: 26px;
+      padding: 42px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+    }
+    .s5-p-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+    .s5-p-title {
+      font-size: 40px;
+      font-weight: 800;
+      color: #f8fafc;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+    .s5-p-desc {
+      font-size: 29px;
+      font-weight: 500;
+      color: #cbd5e1;
+      line-height: 1.42;
+    }
+    .s5-p-foot {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #1f2937;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Shot 5.2: Final Endplate */
+    .s5-shot2 {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 170px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 5;
+      opacity: 0;
+    }
+    .s5-logo-pill {
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1.5px solid #3b82f6;
+      color: #93c5fd;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+    .s5-end-title {
+      font-size: 96px;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #f8fafc;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .s5-end-tagline {
+      font-size: 40px;
+      font-weight: 500;
+      color: #e2e8f0;
+      max-width: 1320px;
+      line-height: 1.35;
+      margin-bottom: 38px;
+    }
+    .s5-end-meta {
+      padding: 16px 32px;
+      border-radius: 16px;
+      background: #111827;
+      border: 1.5px solid #334155;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 22px;
+    }
+    .s5-credit {
+      font-size: 28px;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+  </style>
+
+  <div data-hf-id="hf-lrbr" id="root" data-composition-id="scene5" data-width="1920" data-height="1080" data-hold="true">
+    <div data-hf-id="hf-xf7s" class="s5-bg-grid" data-layout-ignore></div>
+
+    <div data-hf-id="hf-efhd" class="s5-topbar">
+      <div data-hf-id="hf-99ma" class="s5-eyebrow">05 / ARCHITECTURAL INVARIANTS</div>
+      <div data-hf-id="hf-p5j6" class="s5-chip">CONTINUUM AI • READY FOR HANDOVER</div>
+    </div>
+
+    <!-- Shot 5.1 (0.0s - 6.0s): 3 Architecture Invariant Pillars -->
+    <div data-hf-id="hf-hdsy" id="s5-shot1" class="s5-shot1">
+      <div data-hf-id="hf-6vex" id="s5-p1" class="s5-pillar" style="border-top: 5px solid #10b981">
+        <div data-hf-id="hf-yeow">
+          <div data-hf-id="hf-0nu5" class="s5-p-num" style="color: #34d399">INVARIANT 01</div>
+          <div data-hf-id="hf-xa7v" class="s5-p-title">Human-Verified Truth</div>
+          <div data-hf-id="hf-4yzl" class="s5-p-desc">
+            Mọi ghi chú AI bóc tách đều đi qua phê duyệt của chuyên gia trước khi trở thành tri thức chính thức.
+          </div>
+        </div>
+        <div data-hf-id="hf-9j6y" class="s5-p-foot" style="color: #6ee7b7">PROPOSED → ACTIVE</div>
+      </div>
+
+      <div data-hf-id="hf-bmq6" id="s5-p2" class="s5-pillar" style="border-top: 5px solid #3b82f6">
+        <div data-hf-id="hf-y7yw">
+          <div data-hf-id="hf-sgl7" class="s5-p-num" style="color: #60a5fa">INVARIANT 02</div>
+          <div data-hf-id="hf-ue56" class="s5-p-title">Pre-Retrieval Scoped ACL</div>
+          <div data-hf-id="hf-wjc8" class="s5-p-desc">
+            Khóa phân quyền P_eff ngay tại cổng trước khi chạm vào LanceDB và SAG Engine.
+          </div>
+        </div>
+        <div data-hf-id="hf-gsyk" class="s5-p-foot" style="color: #93c5fd">ZERO DATA LEAKAGE</div>
+      </div>
+
+      <div data-hf-id="hf-epod" id="s5-p3" class="s5-pillar" style="border-top: 5px solid #f59e0b">
+        <div data-hf-id="hf-x11t">
+          <div data-hf-id="hf-o6b1" class="s5-p-num" style="color: #fbbf24">INVARIANT 03</div>
+          <div data-hf-id="hf-0ii5" class="s5-p-title">Evidence-Grounded SAG</div>
+          <div data-hf-id="hf-h6qk" class="s5-p-desc">
+            Bắt buộc đính kèm trích dẫn dòng, mã băm SHA-256 và tự động phát hiện Knowledge Gap.
+          </div>
+        </div>
+        <div data-hf-id="hf-breg" class="s5-p-foot" style="color: #fde68a">SHA-256 CITATIONS</div>
+      </div>
+    </div>
+
+    <!-- Shot 5.2 (6.0s - 13.0s): Final Endplate -->
+    <div data-hf-id="hf-boyb" id="s5-shot2" class="s5-shot2" data-hold="true">
+      <div data-hf-id="hf-9vbi" id="s5-end-pill" class="s5-logo-pill">CAPSTONE PROJECT • SOFTWARE ENGINEERING &amp; AI</div>
+      <div data-hf-id="hf-5fr0" id="s5-end-title" class="s5-end-title">CONTINUUM AI</div>
+      <div data-hf-id="hf-q9g0" id="s5-end-tag" class="s5-end-tagline">
+        Nền tảng kế thừa và chuyển giao tri thức dự án phần mềm
+      </div>
+      <div data-hf-id="hf-mumd" id="s5-end-meta" class="s5-end-meta">
+        Zero-Hallucination SAG • Scoped RBAC • 2D/3D Knowledge Graph
+      </div>
+      <div data-hf-id="hf-5wqd" id="s5-credit" class="s5-credit">
+        Knowledge graphs by 2D-3D Knowledge Graph Package by Hung Ngo
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Shot 5.1: Staggered 0.5s beats (F1860, F1875, F1890)
+      tl.fromTo(
+        "#s5-p1",
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        0.0
+      );
+      tl.fromTo(
+        "#s5-p2",
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        0.5
+      );
+      tl.fromTo(
+        "#s5-p3",
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        1.0
+      );
+      tl.to(
+        "#s5-shot1",
+        { opacity: 0, duration: 0.3, ease: "power2.in" },
+        5.7
+      );
+
+      // Shot 5.2 (6.0s - 13.0s): Endplate Hold
+      tl.fromTo(
+        "#s5-shot2",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "none" },
+        6.0
+      );
+      tl.fromTo(
+        "#s5-end-pill",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+        6.05
+      );
+      tl.fromTo(
+        "#s5-end-title",
+        { opacity: 0, scale: 0.95, y: 22 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        6.15
+      );
+      tl.fromTo(
+        "#s5-end-tag",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        6.3
+      );
+      tl.fromTo(
+        "#s5-end-meta",
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" },
+        6.45
+      );
+      tl.fromTo(
+        "#s5-credit",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4, ease: "power2.out" },
+        6.6
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene5"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>
+

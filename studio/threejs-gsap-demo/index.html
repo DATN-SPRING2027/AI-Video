@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="./assets/vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #050814;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        color: #f8fafc;
+      }
+      #root {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+      }
+      #webgl {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+      .hud {
+        position: absolute;
+        left: 96px;
+        bottom: 88px;
+        z-index: 10;
+        max-width: 980px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 10px 24px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.14);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        color: #38bdf8;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+      }
+      p {
+        margin-top: 14px;
+        font-size: 28px;
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+      <canvas id="webgl" data-layout-allow-overflow></canvas>
+      <div id="hud-panel" class="hud" data-start="0" data-duration="5" data-track-index="0">
+        <div class="tag" id="tag">Three.js + GSAP + HyperFrames</div>
+        <h1 id="heading">3D Knowledge Universe</h1>
+        <p id="caption">Deterministic frame-accurate WebGL camera choreography exported straight to 1080p MP4</p>
+      </div>
+    </div>
+
+    <script type="module">
+      import * as THREE from "./assets/vendor/three.module.js";
+
+      const canvas = document.getElementById("webgl");
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+      renderer.setSize(1920, 1080, false);
+      renderer.setPixelRatio(1);
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x050814, 0.032);
+
+      const camera = new THREE.PerspectiveCamera(50, 1920 / 1080, 0.1, 200);
+      camera.position.set(0, 4, 22);
+
+      scene.add(new THREE.AmbientLight(0x94a3b8, 1.4));
+      const keyLight = new THREE.PointLight(0x38bdf8, 80, 60);
+      keyLight.position.set(10, 12, 14);
+      scene.add(keyLight);
+
+      const group = new THREE.Group();
+      scene.add(group);
+
+      // Deterministic pseudo-random generator so every frame seek is 100% reproducible
+      let seed = 42;
+      const rand = () => {
+        seed = (seed * 1664525 + 1013904223) % 4294967296;
+        return seed / 4294967296;
+      };
+
+      const palette = [0x38bdf8, 0xa78bfa, 0x34d399, 0xf472b6];
+      const nodes = [];
+      const nodeGeo = new THREE.SphereGeometry(0.28, 24, 24);
+
+      for (let i = 0; i < 48; i++) {
+        const mat = new THREE.MeshStandardMaterial({
+          color: palette[i % palette.length],
+          emissive: palette[i % palette.length],
+          emissiveIntensity: 0.45,
+          roughness: 0.25,
+        });
+        const mesh = new THREE.Mesh(nodeGeo, mat);
+        const radius = 3.5 + rand() * 7.5;
+        const theta = rand() * Math.PI * 2;
+        const phi = Math.acos(2 * rand() - 1);
+        mesh.position.set(
+          radius * Math.sin(phi) * Math.cos(theta),
+          radius * Math.sin(phi) * Math.sin(theta) * 0.7,
+          radius * Math.cos(phi)
+        );
+        group.add(mesh);
+        nodes.push(mesh.position);
+      }
+
+      const linePositions = [];
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          if (nodes[i].distanceTo(nodes[j]) < 5.2) {
+            linePositions.push(nodes[i].x, nodes[i].y, nodes[i].z, nodes[j].x, nodes[j].y, nodes[j].z);
+          }
+        }
+      }
+      const lineGeo = new THREE.BufferGeometry();
+      lineGeo.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
+      const lineMat = new THREE.LineBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.28 });
+      group.add(new THREE.LineSegments(lineGeo, lineMat));
+
+      const state = { angle: 0, camZ: 22, camY: 4 };
+      const renderScene = () => {
+        group.rotation.y = state.angle;
+        group.rotation.x = Math.sin(state.angle * 0.5) * 0.18;
+        camera.position.set(Math.sin(state.angle * 0.35) * 4, state.camY, state.camZ);
+        camera.lookAt(0, 0, 0);
+        renderer.render(scene, camera);
+      };
+
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true, onUpdate: renderScene });
+      tl.fromTo("#tag", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo("#heading", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.65, ease: "power4.out" }, 0.15);
+      tl.fromTo("#caption", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.35);
+      tl.to(state, { angle: Math.PI * 1.15, camZ: 13.5, camY: 1.4, duration: 5, ease: "power1.inOut" }, 0);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+      renderScene();
+    </script>
+  </body>
+</html>

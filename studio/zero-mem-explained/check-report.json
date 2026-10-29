@@ -1,0 +1,595 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 9
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 102.787,
+    "samples": [
+      5.71,
+      17.131,
+      28.552,
+      39.973,
+      51.394,
+      62.814,
+      74.235,
+      85.656,
+      97.077
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      5.71,
+      28.552,
+      51.394,
+      74.235,
+      97.077
+    ],
+    "checked": 39,
+    "passed": 39
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 18,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s1 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s1.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 0,
+        "times": [
+          0,
+          0
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 12.012,
+        "elements": [
+          {
+            "selector": "#s1 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 0,
+            "seconds": 12.012
+          },
+          {
+            "selector": "#s1 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "01 / 08",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 12.012
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.46 s (7.38–11.84 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 7.379,
+        "seconds": 4.461,
+        "floorSeconds": 3,
+        "until": 11.84
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s2 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s2.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 12.012,
+        "times": [
+          12.012,
+          12.012
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 12.87,
+        "elements": [
+          {
+            "selector": "#s2 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 12.012,
+            "seconds": 12.87
+          },
+          {
+            "selector": "#s2 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "02 / 08",
+            "fontPx": 26,
+            "time": 12.012,
+            "seconds": 12.87
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.63 s (20.08–24.71 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 20.077,
+        "seconds": 4.633,
+        "floorSeconds": 3,
+        "until": 24.71
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s3 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s3.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 24.882,
+        "times": [
+          24.882,
+          24.882
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 13.899,
+        "elements": [
+          {
+            "selector": "#s3 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 24.882,
+            "seconds": 13.899
+          },
+          {
+            "selector": "#s3 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "03 / 08",
+            "fontPx": 26,
+            "time": 24.882,
+            "seconds": 13.899
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.98 s (33.63–38.61 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 33.633,
+        "seconds": 4.976,
+        "floorSeconds": 3,
+        "until": 38.609
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s4 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s4.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 38.781,
+        "times": [
+          38.781,
+          38.781
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 12.356,
+        "elements": [
+          {
+            "selector": "#s4 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 38.781,
+            "seconds": 12.356
+          },
+          {
+            "selector": "#s4 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "04 / 08",
+            "fontPx": 26,
+            "time": 38.781,
+            "seconds": 12.356
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.46 s (46.50–50.97 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 46.503,
+        "seconds": 4.462,
+        "floorSeconds": 3,
+        "until": 50.965
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s5 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s5.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 51.136,
+        "times": [
+          51.136,
+          51.136
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 12.012,
+        "elements": [
+          {
+            "selector": "#s5 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 51.136,
+            "seconds": 12.012
+          },
+          {
+            "selector": "#s5 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "05 / 08",
+            "fontPx": 26,
+            "time": 51.136,
+            "seconds": 12.012
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.29 s (58.69–62.98 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 58.686,
+        "seconds": 4.29,
+        "floorSeconds": 3,
+        "until": 62.976
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s6 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s6.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 63.148,
+        "times": [
+          63.148,
+          63.148
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 14.071,
+        "elements": [
+          {
+            "selector": "#s6 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 63.148,
+            "seconds": 14.071
+          },
+          {
+            "selector": "#s6 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "06 / 08",
+            "fontPx": 26,
+            "time": 63.148,
+            "seconds": 14.071
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.09 s (64.69–67.78 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 64.692,
+        "seconds": 3.089,
+        "floorSeconds": 3,
+        "until": 67.781
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.09 s (68.30–71.39 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 68.296,
+        "seconds": 3.089,
+        "floorSeconds": 3,
+        "until": 71.385
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.98 s (72.07–77.05 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 72.071,
+        "seconds": 4.976,
+        "floorSeconds": 3,
+        "until": 77.047
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s7 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s7.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 77.219,
+        "times": [
+          77.219,
+          77.219
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 12.012,
+        "elements": [
+          {
+            "selector": "#s7 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 77.219,
+            "seconds": 12.012
+          },
+          {
+            "selector": "#s7 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "07 / 08",
+            "fontPx": 26,
+            "time": 77.219,
+            "seconds": 12.012
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.29 s (84.77–89.06 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 84.769,
+        "seconds": 4.29,
+        "floorSeconds": 3,
+        "until": 89.059
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"SAG × ZERO-MEM • Minh hoạ từ hình tha...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+        "selector": "#s8 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s8.html",
+        "bbox": {
+          "x": 100,
+          "y": 1009,
+          "width": 655.45,
+          "height": 29
+        },
+        "time": 89.231,
+        "times": [
+          89.231,
+          89.231
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 13.556,
+        "elements": [
+          {
+            "selector": "#s8 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)",
+            "text": "SAG × ZERO-MEM • Minh hoạ từ hình tham chiếu của bạn",
+            "fontPx": 24,
+            "time": 89.231,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#s8 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5)",
+            "text": "08 / 08",
+            "fontPx": 26,
+            "time": 89.231,
+            "seconds": 13.556
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.09 s (90.60–93.69 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 90.604,
+        "seconds": 3.088,
+        "floorSeconds": 3,
+        "until": 93.692
+      }
+    ],
+    "enabled": true,
+    "step": 0.17199999999999704,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.210",
+    "latestVersion": "0.8.210",
+    "updateAvailable": false
+  }
+}

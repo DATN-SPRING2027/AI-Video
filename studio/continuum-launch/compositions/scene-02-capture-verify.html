@@ -1,0 +1,487 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #f9fafb;
+      font-family: "Inter", sans-serif;
+      color: #0f172a;
+      overflow: hidden;
+    }
+    .s2-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .s2-topbar {
+      position: absolute;
+      top: 52px;
+      left: 88px;
+      right: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .s2-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: #334155;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s2-service-chip {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #dbeafe;
+      border: 1.5px solid #3b82f6;
+      color: #1e40af;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Shot 2.1: Brand Reveal */
+    .s2-hero-wrap {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 190px;
+      height: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 4;
+    }
+    .s2-hero-kicker {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: #dbeafe;
+      border: 1.5px solid #3b82f6;
+      color: #1e3a8a;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+    .s2-hero-title {
+      font-size: 92px;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #0f172a;
+      line-height: 1.06;
+      margin-bottom: 24px;
+    }
+    .s2-hero-sub {
+      max-width: 1280px;
+      font-size: 40px;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.35;
+    }
+
+    /* Shot 2.2 & 2.3: 2-Column Workspace + SME Verification */
+    .s2-workspace {
+      position: absolute;
+      left: 88px;
+      right: 88px;
+      top: 152px;
+      height: 716px;
+      display: grid;
+      grid-template-columns: 684px 216px 844px;
+      align-items: center;
+      z-index: 5;
+      opacity: 0;
+    }
+    .s2-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+    .s2-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 24px;
+      padding: 32px 36px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06);
+    }
+    .s2-card-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 10px;
+      font-variant-numeric: tabular-nums;
+    }
+    .s2-card-title {
+      font-size: 35px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .s2-card-desc {
+      font-size: 28px;
+      font-weight: 500;
+      color: #475569;
+      line-height: 1.38;
+    }
+    .s2-wave-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 46px;
+      margin: 14px 0;
+    }
+    .s2-wave-bar {
+      width: 10px;
+      border-radius: 99px;
+      background: #2563eb;
+    }
+
+    /* Center Connector */
+    .s2-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .s2-conn-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1d4ed8;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Right Verification Card */
+    .s2-verify-card {
+      position: relative;
+      background: #ffffff;
+      border: 2.5px solid #94a3b8;
+      border-radius: 28px;
+      padding: 38px 42px;
+      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.1);
+    }
+    .s2-verify-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      gap: 16px;
+    }
+    .s2-wn-id {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #334155;
+      font-variant-numeric: tabular-nums;
+    }
+    .s2-badge-wrap {
+      position: relative;
+      height: 64px;
+      min-width: 356px;
+    }
+    .s2-badge-proposed,
+    .s2-badge-active {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 800;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .s2-badge-proposed {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      color: #92400e;
+    }
+    .s2-badge-active {
+      background: #d1fae5;
+      border: 2px solid #10b981;
+      color: #065f46;
+      opacity: 0;
+    }
+    .s2-verify-title {
+      font-size: 38px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.24;
+      margin-bottom: 18px;
+    }
+    .s2-bullet {
+      font-size: 29px;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.42;
+      margin-bottom: 10px;
+    }
+    .s2-sme-bar {
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1.5px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .s2-sme-role {
+      font-size: 28px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .s2-approve-btn {
+      padding: 14px 28px;
+      border-radius: 14px;
+      background: #1d4ed8;
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .s2-audit-row {
+      margin-top: 18px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      color: #065f46;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      opacity: 0;
+    }
+    .s2-cursor {
+      position: absolute;
+      right: 68px;
+      bottom: 84px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.88);
+      border: 3px solid #ffffff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+      opacity: 0;
+      z-index: 12;
+    }
+  </style>
+
+  <div data-hf-id="hf-wq2t" id="root" data-composition-id="scene2" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-0jjr" class="s2-bg-grid" data-layout-ignore></div>
+
+    <div data-hf-id="hf-3bg8" class="s2-topbar">
+      <div data-hf-id="hf-x6d3" class="s2-eyebrow">02 / CONTINUOUS CAPTURE &amp; HUMAN-IN-THE-LOOP</div>
+      <div data-hf-id="hf-rxnc" class="s2-service-chip">svc_capture → svc_lifecycle</div>
+    </div>
+
+    <!-- Shot 2.1 (0.0s - 3.0s): Hero Brand Reveal -->
+    <div data-hf-id="hf-ot71" id="s2-hero" class="s2-hero-wrap">
+      <div data-hf-id="hf-sw8e" id="s2-kicker" class="s2-hero-kicker">LIVING SOFTWARE KNOWLEDGE PLATFORM</div>
+      <div data-hf-id="hf-j5yv" id="s2-title" class="s2-hero-title">Continuum AI</div>
+      <div data-hf-id="hf-tqu8" id="s2-sub" class="s2-hero-sub">
+        Nền tảng kế thừa &amp; kiểm chứng tri thức phần mềm
+      </div>
+    </div>
+
+    <!-- Shot 2.2 & 2.3 (3.0s - 15.0s): Capture -> PROPOSED -> SME Approve -> ACTIVE -->
+    <div data-hf-id="hf-i2s3" id="s2-workspace" class="s2-workspace" data-hold="true">
+      <div data-hf-id="hf-mmc9" id="s2-left" class="s2-col-left">
+        <div data-hf-id="hf-7qru" id="s2-task-card" class="s2-card">
+          <div data-hf-id="hf-esyy" class="s2-card-tag">TASK #TASK-209 • continuum_task</div>
+          <div data-hf-id="hf-kz5u" class="s2-card-title">Cô lập MongoDB 7.0 cho Task Service</div>
+          <div data-hf-id="hf-vzct" class="s2-card-desc">Commit &amp; thảo luận kỹ thuật được ghi nhận theo ngữ cảnh dự án</div>
+        </div>
+
+        <div data-hf-id="hf-veq5" id="s2-audio-card" class="s2-card">
+          <div data-hf-id="hf-m5fb" class="s2-card-tag">HANDOVER STREAM • /ws/handover</div>
+          <div data-hf-id="hf-y4l1" class="s2-wave-row" data-layout-ignore>
+            <div data-hf-id="hf-swyd" class="s2-wave-bar" style="height: 18px"></div>
+            <div data-hf-id="hf-tlc1" class="s2-wave-bar" style="height: 36px"></div>
+            <div data-hf-id="hf-p5y2" class="s2-wave-bar" style="height: 44px"></div>
+            <div data-hf-id="hf-1d2i" class="s2-wave-bar" style="height: 26px"></div>
+            <div data-hf-id="hf-4xfi" class="s2-wave-bar" style="height: 40px"></div>
+            <div data-hf-id="hf-ne4u" class="s2-wave-bar" style="height: 22px"></div>
+            <div data-hf-id="hf-sdw0" class="s2-wave-bar" style="height: 46px"></div>
+            <div data-hf-id="hf-wt9z" class="s2-wave-bar" style="height: 30px"></div>
+            <div data-hf-id="hf-70bz" class="s2-wave-bar" style="height: 38px"></div>
+            <div data-hf-id="hf-qm2s" class="s2-wave-bar" style="height: 20px"></div>
+            <div data-hf-id="hf-na5w" class="s2-wave-bar" style="height: 42px"></div>
+            <div data-hf-id="hf-dwkc" class="s2-wave-bar" style="height: 28px"></div>
+          </div>
+          <div data-hf-id="hf-3awa" class="s2-card-desc">“Tách riêng replica set rs0 để tránh nghẽn bảng IAM cốt lõi...”</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-sgab" id="s2-conn" class="s2-connector">
+        <svg data-hf-id="hf-2k27" width="124" height="56" viewBox="0 0 124 56" fill="none" data-layout-ignore>
+          <path data-hf-id="hf-pbye"
+            id="s2-arrow-line"
+            d="M8 28 H108 M92 12 L112 28 L92 44"
+            stroke="#2563EB"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div data-hf-id="hf-fii8" class="s2-conn-label">AI Extract</div>
+      </div>
+
+      <div data-hf-id="hf-rfr6" id="s2-verify-card" class="s2-verify-card">
+        <div data-hf-id="hf-ouqd" class="s2-verify-top">
+          <div data-hf-id="hf-btz6" class="s2-wn-id">WORK NOTE #WN-209</div>
+          <div data-hf-id="hf-zyr2" class="s2-badge-wrap">
+            <div data-hf-id="hf-qc62" id="s2-badge-prop" class="s2-badge-proposed" data-layout-allow-overlap>PROPOSED • DRAFT</div>
+            <div data-hf-id="hf-cxog" id="s2-badge-act" class="s2-badge-active" data-layout-allow-overlap>ACTIVE • v2.0</div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-l9sf" class="s2-verify-title">Quyết định tách Database-Per-Service (ADR-003)</div>
+        <div data-hf-id="hf-n2xa" class="s2-bullet">• Task Service sử dụng MongoDB rs0 độc lập thay vì chung PostgreSQL</div>
+        <div data-hf-id="hf-mz1w" class="s2-bullet">• Liên kết dẫn chứng tới ADR-003, ADR-009 &amp; phiên bàn giao Sprint 8</div>
+
+        <div data-hf-id="hf-tzsd" class="s2-sme-bar">
+          <div data-hf-id="hf-vfpk" class="s2-sme-role">SME Inbox: Team Leader xác nhận</div>
+          <div data-hf-id="hf-uxoq" id="s2-approve-btn" class="s2-approve-btn">Approve &amp; Activate</div>
+        </div>
+
+        <div data-hf-id="hf-er1a" id="s2-audit-row" class="s2-audit-row">
+          continuum_audit • Verified by SME • sha256:7c893940
+        </div>
+
+        <div data-hf-id="hf-japl" id="s2-cursor" class="s2-cursor" data-layout-ignore></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Shot 2.1 (0.0s - 3.0s): Brand Reveal on Beat F0360
+      tl.fromTo(
+        "#s2-kicker",
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" },
+        0
+      );
+      tl.fromTo(
+        "#s2-title",
+        { opacity: 0, y: 26, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "power3.out" },
+        0.06
+      );
+      tl.fromTo(
+        "#s2-sub",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+        0.16
+      );
+      tl.to(
+        "#s2-hero",
+        { opacity: 0, duration: 0.25, ease: "power2.in" },
+        2.78
+      );
+
+      // Shot 2.2 (3.0s - 9.0s): Capture Sources -> AI Extract -> PROPOSED Card
+      tl.fromTo(
+        "#s2-workspace",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.2, ease: "none" },
+        3.0
+      );
+      tl.fromTo(
+        "#s2-task-card",
+        { opacity: 0, x: -36 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" },
+        3.05
+      );
+      tl.fromTo(
+        "#s2-audio-card",
+        { opacity: 0, x: -36 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" },
+        3.25
+      );
+      tl.fromTo(
+        "#s2-conn",
+        { opacity: 0, scale: 0.85 },
+        { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" },
+        4.0
+      );
+      tl.fromTo(
+        "#s2-verify-card",
+        { opacity: 0, x: 42 },
+        { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
+        4.35
+      );
+
+      // Shot 2.3 (9.0s - 15.0s): Focus on SME Inbox & Approve at t = 10.5s (F0675)
+      tl.to(
+        "#s2-left, #s2-conn",
+        { opacity: 0.45, duration: 0.6, ease: "power2.inOut" },
+        9.0
+      );
+      tl.to(
+        "#s2-verify-card",
+        { scale: 1.02, transformOrigin: "100% 50%", borderColor: "#10b981", duration: 0.6, ease: "power2.inOut" },
+        9.0
+      );
+      tl.fromTo(
+        "#s2-cursor",
+        { opacity: 0, x: 90, y: 70 },
+        { opacity: 1, x: 0, y: 0, duration: 0.55, ease: "power2.out" },
+        9.75
+      );
+      tl.to(
+        "#s2-approve-btn",
+        { scale: 0.94, duration: 0.1, ease: "power2.in" },
+        10.45
+      );
+      tl.to(
+        "#s2-approve-btn",
+        { scale: 1, backgroundColor: "#047857", duration: 0.22, ease: "back.out(1.4)" },
+        10.55
+      );
+      tl.to(
+        "#s2-badge-prop",
+        { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" },
+        10.5
+      );
+      tl.fromTo(
+        "#s2-badge-act",
+        { opacity: 0, scale: 1.28 },
+        { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.4)" },
+        10.55
+      );
+      tl.fromTo(
+        "#s2-audit-row",
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+        10.85
+      );
+      tl.to(
+        "#s2-cursor",
+        { opacity: 0, duration: 0.25 },
+        11.4
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["scene2"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>
+

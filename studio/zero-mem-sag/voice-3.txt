@@ -1,0 +1,1 @@
+Zero Mem đề xuất giữ nguyên hội thoại làm nguồn gốc. Từ đó, tạo hai góc nhìn: đồ thị kết nối thực thể và cấu trúc thời gian của từng phiên.

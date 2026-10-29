@@ -1,0 +1,1 @@
+Ví dụ, câu hỏi về quyết định của nhóm giúp tìm lại đúng tin nhắn đã chốt, kèm thời điểm và nguồn. Những chi tiết liên quan được đưa vào prompt cùng tài liệu của SAG.

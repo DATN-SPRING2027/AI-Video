@@ -1,0 +1,11 @@
+1
+00:00:00,800 --> 00:00:05,080
+Bắt đầu làm việc trên Continuum AI nhanh chóng và bảo mật với hai phương thức đăng nhập linh hoạt.
+
+2
+00:00:05,660 --> 00:00:11,220
+Với tài khoản doanh nghiệp, chỉ cần nhập email, mật khẩu và chọn tổ chức để truy cập ngay vào không gian làm việc của bạn.
+
+3
+00:00:11,740 --> 00:00:19,260
+Hoặc tiện lợi hơn nữa, nhấn Continue with Google ngay trên trình duyệt để xác thực một chạm chuẩn OAuth 2.0, sẵn sàng cộng tác tức thì cùng đội ngũ.

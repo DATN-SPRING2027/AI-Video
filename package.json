@@ -1,0 +1,27 @@
+{
+  "name": "createvideo-ai-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local AI Video Studio: HyperFrames + 2D/3D Knowledge Graph + GSAP + Three.js + Playwright + ComfyUI/Wan 2.2 + Piper TTS + ACE-Step 1.5 + Whisper + FFmpeg",
+  "type": "module",
+  "scripts": {
+    "studio": "npm --prefix studio/demo-video run dev",
+    "render:demo": "npm --prefix studio/demo-video run render",
+    "graph:demo": "node 2d-3d-knowledge-graph/demo/serve.mjs",
+    "graph:notes": "node studio/knowledge-graph-viewer/serve.mjs"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.81.0",
+    "2d-3d-knowledge-graph": "file:./2d-3d-knowledge-graph",
+    "3d-force-graph": "^1.80.1",
+    "d3-force": "^3.0.0",
+    "gsap": "^3.14.2",
+    "hyperframes": "^0.8.210",
+    "lottie-web": "^5.13.0",
+    "playwright": "^1.58.2",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

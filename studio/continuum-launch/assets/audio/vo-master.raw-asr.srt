@@ -1,0 +1,35 @@
+1
+00:00:00,110 --> 00:00:04,590
+Trong mọi dự án phần mềm, dùi do lớn nhất là khoảnh khác người hiểu rõ hệ thống dời đi,
+
+2
+00:00:05,190 --> 00:00:09,970
+tài liệu cú ký, tin nhắn trôi mất, còn trí tuệ nhân tạo thông thường lại dễ bịa ra câu trả lời.
+
+3
+00:00:12,460 --> 00:00:15,640
+Cơn tì níu UMAI biến công việc hàng này thành rong trải chi thức sống.
+
+4
+00:00:16,280 --> 00:00:21,280
+Mọi ghi chú và phiên ghi âm bàn giao đều được bóp tách tự động, rồi kiểm chứng bởi chuyên gia trước khi kích hoạt.
+
+5
+00:00:27,460 --> 00:00:29,820
+Hệ thống khoa phân quyền ngay trước khi truy hồi giữ liệu.
+
+6
+00:00:29,820 --> 00:00:36,980
+Mọi câu trả lời từ S. Anger-Engin đều đính kèm trích dẫn và mã băm minh bạch hoặc tự động đánh dấu khoảng chống trì thức khi thiếu bằng trứng.
+
+7
+00:00:45,470 --> 00:00:49,150
+Từ bản đồ trì thức hai chiều, ba chiều trực quan đến lộ trình bàn giao tự động,
+
+8
+00:00:49,710 --> 00:00:53,230
+thành viên kế nhiệm có thể nắm bắt toàn bộ ngứa cảnh dự án nay từ ngày đầu tiên.
+
+9
+00:01:02,400 --> 00:01:08,400
+Cơn tì níu UMAI bảo toàn trì thức, minh bạch dẫn trứng, sẵn sàng cho mọi thế hệ kế tiếp của dự án.

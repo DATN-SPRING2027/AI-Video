@@ -1,0 +1,103 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: visible;
+      font-family: "Inter", sans-serif;
+    }
+    .cap-stage {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 34px;
+      height: 86px;
+      overflow: visible;
+    }
+    .cap-group {
+      position: absolute;
+      left: 140px;
+      right: 140px;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: visible;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .cap-pill {
+      display: inline-block;
+      max-width: 1580px;
+      padding: 11px 28px;
+      border-radius: 14px;
+      background: rgba(8, 12, 24, 0.9);
+      border: 1.5px solid rgba(96, 165, 250, 0.45);
+      color: #f8fafc;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    }
+  </style>
+
+  <div id="root" data-composition-id="captions" data-width="1920" data-height="1080">
+    <div class="cap-stage">
+      <div id="cap-g1" class="cap-group" data-layout-allow-caption-zone>
+        <span class="cap-pill">Bắt đầu làm việc trên Continuum AI nhanh chóng và bảo mật</span>
+      </div>
+      <div id="cap-g2" class="cap-group" data-layout-allow-caption-zone>
+        <span class="cap-pill">với hai phương thức đăng nhập linh hoạt.</span>
+      </div>
+      <div id="cap-g3" class="cap-group" data-layout-allow-caption-zone>
+        <span class="cap-pill">Với tài khoản doanh nghiệp, chỉ cần nhập email, mật khẩu và chọn tổ chức</span>
+      </div>
+      <div id="cap-g4" class="cap-group" data-layout-allow-caption-zone>
+        <span class="cap-pill">để truy cập ngay vào không gian làm việc của bạn.</span>
+      </div>
+      <div id="cap-g5" class="cap-group" data-layout-allow-caption-zone>
+        <span class="cap-pill">Hoặc tiện lợi hơn nữa, nhấn Continue with Google ngay trên trình duyệt</span>
+      </div>
+      <div id="cap-g6" class="cap-group" data-layout-allow-caption-zone>
+        <span class="cap-pill">để xác thực một chạm chuẩn OAuth 2.0, sẵn sàng cộng tác tức thì cùng đội ngũ.</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const CUES = [
+        { id: "#cap-g1", start: 0.80, end: 3.12 },
+        { id: "#cap-g2", start: 3.18, end: 5.08 },
+        { id: "#cap-g3", start: 5.66, end: 8.64 },
+        { id: "#cap-g4", start: 8.70, end: 11.22 },
+        { id: "#cap-g5", start: 11.74, end: 15.18 },
+        { id: "#cap-g6", start: 15.24, end: 19.26 }
+      ];
+
+      const tl = gsap.timeline({ paused: true });
+      for (const cue of CUES) {
+        tl.set(cue.id, { visibility: "visible", opacity: 0 }, cue.start);
+        tl.fromTo(
+          cue.id,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" },
+          cue.start
+        );
+        tl.to(
+          cue.id,
+          { opacity: 0, duration: 0.12, ease: "power2.in" },
+          Math.max(cue.start + 0.16, cue.end - 0.12)
+        );
+        tl.set(cue.id, { opacity: 0, visibility: "hidden" }, cue.end);
+      }
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["captions"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

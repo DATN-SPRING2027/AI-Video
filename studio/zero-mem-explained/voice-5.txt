@@ -1,0 +1,1 @@
+Bước ba: truy xuất và kết hợp. Hệ thống tìm ứng viên từ graph và cấu trúc thời gian, hợp nhất điểm rồi mở rộng có giới hạn. Những đoạn nối quan hệ và ngữ cảnh lân cận giúp tránh lấy một câu rời rạc thiếu ý.

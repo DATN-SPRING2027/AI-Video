@@ -1,0 +1,241 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #060b18;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .a3-vid {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .a3-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        95deg,
+        rgba(6, 11, 24, 0.90) 0%,
+        rgba(6, 11, 24, 0.62) 48%,
+        rgba(6, 11, 24, 0.25) 100%
+      );
+      z-index: 4;
+    }
+    .a3-graph-card {
+      position: absolute;
+      left: 92px;
+      top: 176px;
+      width: 820px;
+      z-index: 10;
+    }
+    .a3-graph-box {
+      position: absolute;
+      right: 84px;
+      top: 126px;
+      width: 880px;
+      height: 640px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid rgba(56, 189, 248, 0.48);
+      box-shadow: 0 30px 72px rgba(0, 0, 0, 0.65);
+      background: #14161b;
+      z-index: 6;
+    }
+    .a3-tag {
+      display: inline-block;
+      padding: 10px 26px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.18);
+      border: 1.5px solid rgba(56, 189, 248, 0.55);
+      color: #7dd3fc;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .a3-title {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #ffffff;
+      margin-bottom: 22px;
+    }
+    .a3-cyan {
+      color: #38bdf8;
+    }
+    .a3-desc {
+      font-size: 31px;
+      font-weight: 500;
+      line-height: 1.42;
+      color: #cbd5e1;
+    }
+    .a3-qa-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      opacity: 0;
+    }
+    .a3-ui-frame {
+      position: absolute;
+      left: 92px;
+      top: 118px;
+      width: 940px;
+      height: 620px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 2px solid rgba(96, 165, 250, 0.42);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.62);
+      background: #0f172a;
+    }
+    .a3-qa-col {
+      position: absolute;
+      right: 88px;
+      top: 126px;
+      width: 740px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .a3-q-box {
+      padding: 22px 28px;
+      border-radius: 20px;
+      background: rgba(30, 58, 138, 0.88);
+      border: 1.5px solid rgba(96, 165, 250, 0.55);
+      font-size: 29px;
+      font-weight: 600;
+      line-height: 1.38;
+      color: #eff6ff;
+    }
+    .a3-a-box {
+      padding: 24px 28px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.94);
+      border: 2px solid rgba(52, 211, 153, 0.65);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5);
+    }
+    .a3-a-head {
+      font-size: 31px;
+      font-weight: 800;
+      color: #6ee7b7;
+      margin-bottom: 12px;
+    }
+    .a3-a-body {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+    }
+    .a3-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .a3-pill {
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      font-size: 28px;
+      font-weight: 700;
+      color: #a7f3d0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act3" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <!-- Beat 3A: 3D Knowledge Graph Network inside sleek glass frame -->
+    <div id="a3-v1-wrap" class="a3-graph-box" data-layout-ignore>
+      <video
+        id="a3-v1"
+        class="clip"
+        src="assets/broll/graph-3d-network.mp4"
+        data-start="0"
+        data-duration="6.2"
+        data-track-index="1"
+        muted
+        playsinline
+        style="width: 100%; height: 100%; object-fit: cover"
+      ></video>
+    </div>
+
+    <!-- Beat 3B: Executive Office B-Roll Backdrop -->
+    <div id="a3-v2-wrap" class="a3-vid" style="z-index: 2; opacity: 0" data-layout-ignore>
+      <video
+        id="a3-v2"
+        class="clip"
+        src="assets/broll/broll-05-ai-clarity.mp4"
+        data-start="5.4"
+        data-hf-media-start-basis="local"
+        data-duration="7.0"
+        data-track-index="2"
+        muted
+        playsinline
+        style="width: 1920px; height: 1080px; object-fit: cover; filter: brightness(0.36)"
+      ></video>
+    </div>
+
+    <div class="a3-shade" data-layout-ignore></div>
+
+    <div id="a3-b1" class="a3-graph-card">
+      <div class="a3-tag">AI ĐỐI CHIẾU NGUỒN GỐC CHÍNH XÁC</div>
+      <div class="a3-title">Hỏi Tự Nhiên Như Đang<br /><span class="a3-cyan">Trò Chuyện Với Người Đi Trước</span></div>
+      <div class="a3-desc">Tự động liên kết biên bản họp, tài liệu và đầu việc để ai cũng tra cứu được ngay.</div>
+    </div>
+
+    <div id="a3-b2" class="a3-qa-stage" data-layout-allow-overlap>
+      <div class="a3-ui-frame" data-layout-ignore>
+        <img
+          id="a3-ui"
+          class="clip"
+          src="assets/ui/ui-03-aichat.png"
+          data-start="0"
+          data-duration="12.4"
+          data-track-index="3"
+          alt="Continuum AI Chat"
+          style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
+        />
+      </div>
+
+      <div class="a3-qa-col">
+        <div id="a3-q" class="a3-q-box">
+          💬 “Vì sao tháng trước công ty điều chỉnh quy trình duyệt hợp đồng khách hàng?”
+        </div>
+        <div id="a3-a" class="a3-a-box">
+          <div class="a3-a-head">✓ Trả lời tức thì • Chỉ rõ tài liệu gốc</div>
+          <div class="a3-a-body">
+            Theo <strong>Biên bản họp Ban Giám đốc (12/10)</strong>: rút gọn bước ký duyệt để phản hồi khách hàng trong 24 giờ.
+          </div>
+          <div class="a3-badges">
+            <span class="a3-pill">Không suy diễn</span>
+            <span class="a3-pill">Bảo mật theo cấp quyền</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a3-b1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.08);
+      tl.fromTo("#a3-v1-wrap", { opacity: 0, x: 26, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out" }, 0.12);
+
+      // Switch to Real AI Chat + Verified Citation Proof at 5.65s ("Hệ thống trả lời tức thì...")
+      tl.to("#a3-b1", { opacity: 0, y: -18, duration: 0.32 }, 5.5);
+      tl.to("#a3-v1-wrap", { opacity: 0, scale: 0.96, duration: 0.35 }, 5.5);
+      tl.fromTo("#a3-v2-wrap", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 5.55);
+      tl.fromTo("#a3-b2", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 5.75);
+      tl.fromTo("#a3-q", { opacity: 0, x: 28 }, { opacity: 1, x: 0, duration: 0.42, ease: "power2.out" }, 5.95);
+      tl.fromTo("#a3-a", { opacity: 0, y: 24, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.4)" }, 6.65);
+      tl.to("#a3-b2", { opacity: 0, duration: 0.28 }, 12.05);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act3"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

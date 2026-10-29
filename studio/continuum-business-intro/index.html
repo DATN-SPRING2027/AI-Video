@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Continuum AI — Giới Thiệu Giải Pháp Cho Doanh Nghiệp (50s)</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #070b14;
+        font-family: "Inter", sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #main-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 30% 20%, #172554 0%, #090e1c 56%, #050811 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="50"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="main-bg" data-layout-ignore></div>
+
+      <!-- Hồi 1: Nỗi đau (0.0s -> 14.4s) -->
+      <div
+        id="act1"
+        class="clip"
+        data-composition-id="act1"
+        data-composition-src="compositions/act-01-pain.html"
+        data-track-kind="graphics"
+        data-start="0"
+        data-duration="14.4"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 1"
+      ></div>
+
+      <!-- Hồi 2: Giải pháp Continuum AI (14.4s -> 26.0s) -->
+      <div
+        id="act2"
+        class="clip"
+        data-composition-id="act2"
+        data-composition-src="compositions/act-02-solution.html"
+        data-track-kind="graphics"
+        data-start="14.4"
+        data-duration="11.6"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 2"
+      ></div>
+
+      <!-- Hồi 3: Công nghệ dễ hiểu & có kiểm chứng (26.0s -> 38.4s) -->
+      <div
+        id="act3"
+        class="clip"
+        data-composition-id="act3"
+        data-composition-src="compositions/act-03-ai-clarity.html"
+        data-track-kind="graphics"
+        data-start="26.0"
+        data-duration="12.4"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 3"
+      ></div>
+
+      <!-- Hồi 4: Kết quả & Lời kết thương hiệu (38.4s -> 50.0s) -->
+      <div
+        id="act4"
+        class="clip"
+        data-composition-id="act4"
+        data-composition-src="compositions/act-04-outcome.html"
+        data-track-kind="graphics"
+        data-start="38.4"
+        data-duration="11.6"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 4"
+      ></div>
+
+      <!-- Phụ đề tiếng Việt chuẩn chính tả -->
+      <div
+        id="captions"
+        class="clip"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions-overlay.html"
+        data-track-kind="captions"
+        data-start="0"
+        data-duration="50"
+        data-track-index="2"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 10"
+      ></div>
+
+      <!-- Giọng đọc Nam (45.44s) -->
+      <audio
+        id="vo-track"
+        class="clip"
+        src="assets/audio/voiceover.wav"
+        data-start="1.0"
+        data-duration="45.44"
+        data-track-index="3"
+        data-volume="1"
+      ></audio>
+
+      <!-- Nhạc nền doanh nghiệp (92s gốc -> cắt 50s kèm fade-in/out êm) -->
+      <audio
+        id="bgm-track"
+        class="clip"
+        src="assets/audio/bgm.mp3"
+        data-start="0"
+        data-duration="50"
+        data-track-index="4"
+        data-volume="0.16"
+        data-fade-in="1.0"
+        data-fade-out="2.8"
+      ></audio>
+
+      <!-- Hiệu ứng âm thanh chuyển cảnh thương mại (SFX) -->
+      <audio id="sfx-w1" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="0.15" data-duration="0.55" data-track-index="5" data-volume="0.28"></audio>
+      <audio id="sfx-w2" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="7.05" data-duration="0.55" data-track-index="5" data-volume="0.25"></audio>
+      <audio id="sfx-c1" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="14.35" data-duration="1.1" data-track-index="6" data-volume="0.30"></audio>
+      <audio id="sfx-p1" class="clip" src="assets/sfx/pop.mp3" data-start="18.65" data-duration="0.3" data-track-index="7" data-volume="0.28"></audio>
+      <audio id="sfx-c2" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="25.95" data-duration="1.1" data-track-index="6" data-volume="0.30"></audio>
+      <audio id="sfx-ch1" class="clip" src="assets/sfx/chime.mp3" data-start="32.65" data-duration="2.2" data-track-index="7" data-volume="0.26"></audio>
+      <audio id="sfx-w3" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="38.4" data-duration="0.55" data-track-index="5" data-volume="0.28"></audio>
+      <audio id="sfx-sp1" class="clip" src="assets/sfx/sparkle.mp3" data-start="43.1" data-duration="1.8" data-track-index="7" data-volume="0.30"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

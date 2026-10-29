@@ -1,0 +1,236 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #081126;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .a2-vid {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .a2-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        100deg,
+        rgba(8, 17, 38, 0.93) 0%,
+        rgba(12, 25, 56, 0.82) 48%,
+        rgba(8, 17, 38, 0.45) 100%
+      );
+      z-index: 4;
+    }
+    .a2-hero {
+      position: absolute;
+      left: 112px;
+      top: 190px;
+      width: 1080px;
+      z-index: 10;
+    }
+    .a2-pill {
+      display: inline-block;
+      padding: 10px 26px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
+    }
+    .a2-title {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .a2-blue {
+      color: #60a5fa;
+    }
+    .a2-sub {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.42;
+      color: #cbd5e1;
+    }
+    .a2-split {
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      opacity: 0;
+    }
+    .a2-left-col {
+      position: absolute;
+      left: 88px;
+      top: 148px;
+      width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .a2-left-h2 {
+      font-size: 50px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #ffffff;
+    }
+    .a2-feat {
+      padding: 20px 24px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      font-size: 29px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #f1f5f9;
+    }
+    .a2-browser {
+      position: absolute;
+      right: 76px;
+      top: 118px;
+      width: 1040px;
+      height: 632px;
+      border-radius: 22px;
+      background: #0f172a;
+      border: 2px solid rgba(96, 165, 250, 0.45);
+      box-shadow: 0 34px 80px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+    }
+    .a2-bar {
+      height: 42px;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 8px;
+    }
+    .a2-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .a2-screen {
+      position: relative;
+      width: 1040px;
+      height: 590px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act2" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a2-v1-wrap" class="a2-vid" style="z-index: 1" data-layout-ignore>
+      <video
+        id="a2-v1"
+        class="clip"
+        src="assets/broll/broll-03-solution-team.mp4"
+        data-start="0"
+        data-duration="5.0"
+        data-track-index="1"
+        muted
+        playsinline
+        style="width: 1920px; height: 1080px; object-fit: cover"
+      ></video>
+    </div>
+
+    <div id="a2-v2-wrap" class="a2-vid" style="z-index: 2; opacity: 0" data-layout-ignore>
+      <video
+        id="a2-v2"
+        class="clip"
+        src="assets/broll/broll-04-solution-handover.mp4"
+        data-start="3.9"
+        data-hf-media-start-basis="local"
+        data-duration="7.7"
+        data-track-index="2"
+        muted
+        playsinline
+        style="width: 1920px; height: 1080px; object-fit: cover; filter: brightness(0.42)"
+      ></video>
+    </div>
+
+    <div class="a2-shade" data-layout-ignore></div>
+
+    <!-- Beat 2A: Giới thiệu Continuum AI -->
+    <div id="a2-hero" class="a2-hero">
+      <div class="a2-pill">GIẢI PHÁP CONTINUUM AI</div>
+      <div class="a2-title">Bộ Nhớ Chung <span class="a2-blue">Không Bao Giờ Thất Lạc</span> Của Cả Công Ty</div>
+      <div class="a2-sub">Lưu trọn tiến độ, tài liệu và quyết định dự án tại một nơi.</div>
+    </div>
+
+    <!-- Beat 2B: Sản phẩm thật + Lợi ích bàn giao -->
+    <div id="a2-split" class="a2-split" data-layout-allow-overlap>
+      <div class="a2-left-col">
+        <div class="a2-pill">TRỰC QUAN • DỄ SỬ DỤNG</div>
+        <div class="a2-left-h2">Gọn Gàng Theo Từng Phòng Ban</div>
+        <div class="a2-feat">✓ Mọi đầu việc, tài liệu &amp; ghi chú hằng ngày tự động ngăn nắp</div>
+        <div class="a2-feat" style="border-color: rgba(52, 211, 153, 0.55); color: #ecfdf5">
+          ✓ Bàn giao cho người mới chỉ trong vài phút
+        </div>
+      </div>
+
+      <div id="a2-win" class="a2-browser" data-layout-allow-overflow>
+        <div class="a2-bar" data-layout-ignore>
+          <span class="a2-dot" style="background: #ef4444"></span>
+          <span class="a2-dot" style="background: #f59e0b"></span>
+          <span class="a2-dot" style="background: #10b981"></span>
+        </div>
+        <div class="a2-screen" data-layout-ignore>
+          <div id="a2-ui1-wrap" style="position: absolute; inset: 0">
+            <img
+              id="a2-ui1"
+              class="clip"
+              src="assets/ui/ui-01-dashboard.png"
+              data-start="0"
+              data-duration="11.6"
+              data-track-index="3"
+              alt="Continuum AI Dashboard"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
+            />
+          </div>
+          <div id="a2-ui2-wrap" style="position: absolute; inset: 0; opacity: 0">
+            <img
+              id="a2-ui2"
+              class="clip"
+              src="assets/ui/ui-02-worknotes.png"
+              data-start="0"
+              data-duration="11.6"
+              data-track-index="4"
+              alt="Continuum AI Work Notes"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a2-v1-wrap", { scale: 1.0 }, { scale: 1.06, duration: 4.5, ease: "none" }, 0);
+      tl.fromTo("#a2-hero", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.08);
+
+      // Transition at 4.1s ("Mọi đầu việc, tài liệu và ghi chú hằng ngày...")
+      tl.to("#a2-hero", { opacity: 0, y: -18, duration: 0.32, ease: "power2.in" }, 3.95);
+      tl.fromTo("#a2-v2-wrap", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 4.0);
+      tl.fromTo("#a2-split", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 4.25);
+      tl.fromTo("#a2-win", { x: 40, scale: 0.96 }, { x: 0, scale: 1, duration: 0.55, ease: "power3.out" }, 4.25);
+
+      // Crossfade to Work Notes / Handover view at 8.1s ("giúp việc bàn giao cho người mới...")
+      tl.fromTo("#a2-ui2-wrap", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 8.1);
+      tl.to("#a2-split", { opacity: 0, duration: 0.28 }, 11.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act2"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

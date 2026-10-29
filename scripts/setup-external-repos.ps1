@@ -16,6 +16,7 @@ New-Item -ItemType Directory -Force -Path "saas-demo-templates" | Out-Null
 
 Clone-IfMissing "https://github.com/comfyanonymous/ComfyUI.git" "ComfyUI"
 Clone-IfMissing "https://github.com/ace-step/ACE-Step-1.5.git" "ACE-Step-1.5"
+Clone-IfMissing "https://github.com/harry0703/MoneyPrinterTurbo.git" "MoneyPrinterTurbo"
 Clone-IfMissing "https://github.com/hungnv26/2d-3d-knowledge-graph.git" "2d-3d-knowledge-graph"
 Clone-IfMissing "https://github.com/codeverbojan/remotion-cinematic.git" "saas-demo-templates/remotion-cinematic"
 Clone-IfMissing "https://github.com/Co-Messi/supercut.git" "saas-demo-templates/supercut"

@@ -1,0 +1,99 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      font-family: "Inter", sans-serif;
+    }
+    .cap-wrap {
+      position: absolute;
+      left: 140px;
+      right: 140px;
+      bottom: 34px;
+      display: flex;
+      justify-content: center;
+      z-index: 50;
+    }
+    .cap-pill {
+      position: absolute;
+      bottom: 0;
+      max-width: 1520px;
+      padding: 14px 32px;
+      border-radius: 18px;
+      background: rgba(7, 11, 22, 0.88);
+      border: 1.5px solid rgba(148, 163, 184, 0.32);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+      color: #f8fafc;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.38;
+      text-align: center;
+      opacity: 0;
+    }
+    .cap-hl {
+      color: #60a5fa;
+      font-weight: 700;
+    }
+    .cap-ok {
+      color: #34d399;
+      font-weight: 700;
+    }
+    .cap-warn {
+      color: #fbbf24;
+      font-weight: 700;
+    }
+  </style>
+
+  <div id="root" data-composition-id="captions" data-width="1920" data-height="1080" data-layout-allow-overlap>
+    <div class="cap-wrap" data-layout-allow-overlap>
+      <div id="c1" class="cap-pill">Trong mỗi doanh nghiệp, điều đáng lo nhất không chỉ là khi <span class="cap-warn">một nhân sự giỏi rời đi</span>,</div>
+      <div id="c2" class="cap-pill">mà là toàn bộ <span class="cap-warn">kinh nghiệm, lịch sử công việc</span> và lý do sau các quyết định cũng rời đi theo họ.</div>
+      <div id="c3" class="cap-pill">Người mới mất hàng tuần mò mẫm từng tệp tin rời rạc, còn <span class="cap-warn">dự án bị chậm nhịp</span>.</div>
+
+      <div id="c4" class="cap-pill"><span class="cap-hl">Continuum AI</span> ra đời như <span class="cap-ok">bộ nhớ chung không bao giờ thất lạc</span> của cả công ty.</div>
+      <div id="c5" class="cap-pill">Mọi đầu việc, tài liệu và ghi chú hằng ngày đều được sắp xếp gọn gàng theo từng phòng ban,</div>
+      <div id="c6" class="cap-pill">giúp việc <span class="cap-ok">bàn giao cho người mới</span> chỉ gói gọn trong vài phút.</div>
+
+      <div id="c7" class="cap-pill">Nhờ <span class="cap-hl">trí tuệ nhân tạo có kiểm chứng nguồn gốc</span>, nhân viên chỉ cần đặt câu hỏi tự nhiên như hỏi người đi trước.</div>
+      <div id="c8" class="cap-pill">Hệ thống trả lời tức thì, <span class="cap-ok">chỉ rõ thông tin lấy từ tài liệu nào</span>,</div>
+      <div id="c9" class="cap-pill">không suy diễn sai lệch và <span class="cap-ok">bảo mật chặt chẽ</span> theo từng cấp quyền.</div>
+
+      <div id="c10" class="cap-pill">Người bàn giao nhẹ nhàng, người tiếp nhận tự tin — doanh nghiệp vận hành liền mạch mỗi ngày.</div>
+      <div id="c11" class="cap-pill"><span class="cap-hl">Continuum AI</span> — Giữ trọn tri thức, bứt phá đường dài.</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const cues = [
+        ["#c1", 1.0, 6.2],
+        ["#c2", 6.45, 9.85],
+        ["#c3", 10.15, 14.25],
+        ["#c4", 14.55, 18.35],
+        ["#c5", 18.65, 22.9],
+        ["#c6", 23.15, 25.8],
+        ["#c7", 26.1, 31.45],
+        ["#c8", 31.8, 35.15],
+        ["#c9", 35.35, 38.2],
+        ["#c10", 38.55, 42.8],
+        ["#c11", 43.1, 47.4],
+      ];
+
+      for (const [sel, start, end] of cues) {
+        tl.fromTo(
+          sel,
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false },
+          start
+        );
+        tl.to(sel, { opacity: 0, y: -6, duration: 0.18, ease: "power1.in" }, end - 0.18);
+      }
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["captions"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

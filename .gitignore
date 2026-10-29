@@ -28,6 +28,7 @@ __pycache__/
 # ============================================================================
 ACE-Step-1.5/
 ComfyUI/
+MoneyPrinterTurbo/
 hyperframes/
 2d-3d-knowledge-graph/
 saas-demo-templates/
@@ -39,6 +40,7 @@ piper-tts/voices/*.onnx
 # Temporary Render Intermediates & Raw Frame Dumps
 # ============================================================================
 studio/*/dist/_render-*.mp4
+**/*.hf-transaction*
 studio/*/captures/frames/
 studio/*/assets/audio/_acestep_out/
 *.tmp

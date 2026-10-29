@@ -34,6 +34,7 @@ Thư mục `F:\LEARN KÌ 8\ĐATN\CreateVideo` đã được cài đặt đầy �
 | **11** | **FFmpeg (`v8.1.1-full_build`)** | [`./ffmpeg-tools/media_pipeline.ps1`](./ffmpeg-tools/media_pipeline.ps1) | Ghép video + giọng thuyết minh Piper + nhạc nền ACE-Step + đóng phụ đề `.srt` ra MP4 hoàn chỉnh | Đã nâng cấp `full-compose` |
 | **12** | **SaaS Demo Templates & Auto-Zoom Pack (6 MIT Repos)** | [`./saas-demo-templates`](./saas-demo-templates) | Trọn bộ `remotion-cinematic`, `supercut` CLI, `programatic-demo`, `playwright-recast` CLI, `claude-remotion-editor`, `saas-product-demo-video` (Playwright + Auto-Zoom kiểu *Screen Studio*) | Đã cài & build CLI |
 | **13** | **Lottie Runtime + 454 Animations & 32 SaaS SFX/BGM** | [`./studio/assets-library`](./studio/assets-library) & [`./studio/vendor/lottie`](./studio/vendor/lottie) | Offline `lottie-web` + `dotlottie-web`, 25 curated SaaS Lottie `.json` (trên tổng 454 file MIT) và 4 nhóm âm thanh UI chuẩn SaaS (*Click, Typing, Whoosh, Pop/Chime* + BGM CC0/MIT) | Đã cài & kiểm thử 100% |
+| **14** | **MoneyPrinterTurbo (`v1.3.0`)** | [`./MoneyPrinterTurbo`](./MoneyPrinterTurbo) | Tìm kiếm & tải tự động B-Roll thực tế chất lượng Full HD `1080p` từ Pexels/Pixabay (`app.services.material`) để kết hợp với HyperFrames | Đã tích hợp B-Roll Pipeline |
 
 ---
 
@@ -60,12 +61,15 @@ CreateVideo/
 │   ├── user/default/workflows/     # wan22_ti2v_5b_6gb_vram.json (Workflow nạp sẵn cho 6GB VRAM)
 │   └── generate_wan22_api.py       # CLI gọi tự động Wan 2.2 qua REST API
 ├── piper-tts/                      # Giọng đọc AI offline (.venv Python 3.11 + speak.py + 4 giọng Việt/Anh)
+├── MoneyPrinterTurbo/              # Kho tải tự động video B-Roll 1080p thực tế từ Pexels/Pixabay (.venv Python 3.11)
 ├── ACE-Step-1.5/                   # AI sáng tác nhạc nền (Gradio cổng 7860 / API cổng 8001)
 ├── whisper/                        # Nhận diện giọng nói GPU/CPU + xuất .srt / word-timestamps .json
 ├── ffmpeg-tools/                   # Script media_pipeline.ps1 (add-voiceover, mix-bgm, burn-srt, full-compose)
 ├── studio/                         # Không gian sản xuất video thực tế
 │   ├── vendor/                     # Bản offline của GSAP (25 plugins), Three.js & Lottie/dotLottie (WASM)
 │   ├── assets-library/             # Kho dùng chung: 454 Lottie JSON (25 curated SaaS) & 32 file SFX/BGM (Click, Typing, Whoosh, Pop/Chime)
+│   ├── auth-signin-demo/           # Video 24s demo Đăng nhập Email & Google OAuth thực tế qua Brave CDP (:9333)
+│   ├── continuum-business-intro/   # Video 50s giới thiệu Continuum AI cho doanh nghiệp/khách hàng (4 hồi, giọng Nam, B-Roll Pexels + Live UI)
 │   ├── continuum-launch/           # Dự án video ra mắt Continuum AI
 │   ├── demo-video/                 # Dự án mẫu Motion Graphics 2D (HTML + GSAP -> MP4)
 │   ├── threejs-gsap-demo/          # Dự án mẫu Vũ trụ 3D (Three.js + GSAP Camera + HyperFrames -> MP4)

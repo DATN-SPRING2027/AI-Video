@@ -1,0 +1,189 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 32%, #1e3a8a 0%, #091022 56%, #050811 100%);
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .a4-vid {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .a4-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 10, 22, 0.65) 0%, rgba(6, 10, 22, 0.88) 100%);
+      z-index: 2;
+    }
+    .a4-pillars {
+      position: absolute;
+      left: 100px;
+      right: 100px;
+      top: 230px;
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      z-index: 10;
+    }
+    .a4-pcard {
+      flex: 1;
+      padding: 34px 30px;
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid rgba(96, 165, 250, 0.45);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .a4-pnum {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 14px;
+    }
+    .a4-ptitle {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.28;
+      color: #ffffff;
+    }
+    .a4-finale {
+      position: absolute;
+      left: 140px;
+      right: 140px;
+      top: 108px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 15;
+      opacity: 0;
+    }
+    .a4-shots {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+    .a4-shot {
+      width: 540px;
+      height: 304px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(148, 163, 184, 0.38);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
+      background: #0f172a;
+    }
+    .a4-brand {
+      font-size: 78px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .a4-tagline {
+      font-size: 36px;
+      font-weight: 600;
+      color: #93c5fd;
+      margin-bottom: 32px;
+    }
+    .a4-cta {
+      padding: 18px 42px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 700;
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.55);
+    }
+  </style>
+
+  <div id="root" data-composition-id="act4" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a4-v1-wrap" class="a4-vid" style="z-index: 1" data-layout-ignore>
+      <video
+        id="a4-v1"
+        class="clip"
+        src="assets/broll/broll-06-outcome-success.mp4"
+        data-start="0"
+        data-duration="5.2"
+        data-track-index="1"
+        muted
+        playsinline
+        style="width: 1920px; height: 1080px; object-fit: cover"
+      ></video>
+      <div class="a4-shade"></div>
+    </div>
+
+    <!-- Beat 4A: 3 Giá trị cốt lõi -->
+    <div id="a4-pillars" class="a4-pillars">
+      <div id="a4-p1" class="a4-pcard">
+        <div class="a4-pnum">01 • BÀN GIAO</div>
+        <div class="a4-ptitle">Người rời đi<br />nhẹ nhàng</div>
+      </div>
+      <div id="a4-p2" class="a4-pcard">
+        <div class="a4-pnum">02 • TIẾP NHẬN</div>
+        <div class="a4-ptitle">Người mới vào<br />tự tin bắt nhịp</div>
+      </div>
+      <div id="a4-p3" class="a4-pcard" style="border-color: rgba(52, 211, 153, 0.55)">
+        <div class="a4-pnum" style="color: #34d399">03 • VẬN HÀNH</div>
+        <div class="a4-ptitle">Doanh nghiệp chạy<br />liền mạch mỗi ngày</div>
+      </div>
+    </div>
+
+    <!-- Beat 4B: Brand Finale -->
+    <div id="a4-finale" class="a4-finale">
+      <div class="a4-shots" data-layout-ignore>
+        <div class="a4-shot">
+          <img
+            id="a4-s1"
+            class="clip"
+            src="assets/ui/ui-01-dashboard.png"
+            data-start="0"
+            data-duration="11.6"
+            data-track-index="2"
+            alt="Continuum Dashboard"
+            style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
+          />
+        </div>
+        <div class="a4-shot">
+          <img
+            id="a4-s2"
+            class="clip"
+            src="assets/ui/ui-03-aichat.png"
+            data-start="0"
+            data-duration="11.6"
+            data-track-index="3"
+            alt="Continuum AI Chat"
+            style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
+          />
+        </div>
+      </div>
+      <div class="a4-brand">Continuum AI</div>
+      <div class="a4-tagline">Giữ trọn tri thức • Bứt phá đường dài</div>
+      <div class="a4-cta">BỘ NHỚ THÔNG MINH CHO MỌI DOANH NGHIỆP</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a4-p1", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.12);
+      tl.fromTo("#a4-p2", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.55);
+      tl.fromTo("#a4-p3", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 1.65);
+
+      // Brand Finale Reveal at 4.55s ("Continuum AI, giữ trọn tri thức, bứt phá đường dài.")
+      tl.to("#a4-pillars", { opacity: 0, y: -18, duration: 0.35 }, 4.4);
+      tl.to("#a4-v1-wrap", { opacity: 0, duration: 0.5 }, 4.45);
+      tl.fromTo("#a4-finale", { opacity: 0, y: 26, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power3.out" }, 4.65);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act4"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

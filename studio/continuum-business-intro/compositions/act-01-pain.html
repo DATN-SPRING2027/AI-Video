@@ -1,0 +1,148 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #070b14;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .a1-video-layer {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .a1-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        96deg,
+        rgba(6, 10, 20, 0.93) 0%,
+        rgba(6, 10, 20, 0.80) 46%,
+        rgba(6, 10, 20, 0.28) 100%
+      );
+      z-index: 4;
+    }
+    .a1-panel {
+      position: absolute;
+      left: 112px;
+      top: 148px;
+      width: 1020px;
+      z-index: 10;
+    }
+    .a1-tag {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1.5px solid rgba(251, 191, 36, 0.55);
+      color: #fde68a;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+    .a1-h1 {
+      font-size: 62px;
+      font-weight: 800;
+      line-height: 1.16;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin-bottom: 32px;
+    }
+    .a1-accent {
+      color: #fbbf24;
+    }
+    .a1-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .a1-card {
+      padding: 20px 28px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1.5px solid rgba(251, 191, 36, 0.36);
+      font-size: 30px;
+      font-weight: 600;
+      color: #f1f5f9;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+    }
+  </style>
+
+  <div id="root" data-composition-id="act1" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a1-v1-wrap" class="a1-video-layer" style="z-index: 1" data-layout-ignore>
+      <video
+        id="a1-v1"
+        class="clip"
+        src="assets/broll/broll-01-pain-leaving.mp4"
+        data-start="0"
+        data-duration="7.5"
+        data-track-index="1"
+        muted
+        playsinline
+        style="width: 1920px; height: 1080px; object-fit: cover"
+      ></video>
+    </div>
+
+    <div id="a1-v2-wrap" class="a1-video-layer" style="z-index: 2; opacity: 0" data-layout-ignore>
+      <video
+        id="a1-v2"
+        class="clip"
+        src="assets/broll/broll-02-pain-overwhelmed.mp4"
+        data-start="6.9"
+        data-hf-media-start-basis="local"
+        data-duration="7.5"
+        data-track-index="2"
+        muted
+        playsinline
+        style="width: 1920px; height: 1080px; object-fit: cover"
+      ></video>
+    </div>
+
+    <div class="a1-shade" data-layout-ignore></div>
+
+    <!-- Beat 1A: Nhân sự giỏi rời đi -->
+    <div id="a1-b1" class="a1-panel">
+      <div class="a1-tag">NỖI ĐAU CHUNG CỦA DOANH NGHIỆP</div>
+      <div class="a1-h1">Nhân sự giỏi rời đi —<br /><span class="a1-accent">Kinh nghiệm cũng biến mất</span></div>
+      <div class="a1-list">
+        <div id="a1-c1" class="a1-card">⚠ Mất toàn bộ lịch sử công việc &amp; lý do đằng sau quyết định</div>
+        <div id="a1-c2" class="a1-card">⚠ Tri thức quý giá nằm rời rạc trong trí nhớ từng cá nhân</div>
+      </div>
+    </div>
+
+    <!-- Beat 1B: Người mới mò mẫm, dự án chậm nhịp -->
+    <div id="a1-b2" class="a1-panel" style="opacity: 0">
+      <div class="a1-tag">HỆ QUẢ KHI ĐỨT GÃY BÀN GIAO</div>
+      <div class="a1-h1">Hàng tuần mò mẫm —<br /><span class="a1-accent">Dự án bị chậm nhịp</span></div>
+      <div class="a1-list">
+        <div class="a1-card">⏳ Tài liệu mỗi nơi một bản, tin nhắn cũ trôi thất lạc</div>
+        <div class="a1-card">⏳ Quản lý tốn hàng giờ giải thích lại những việc đã làm</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Subtle cinematic Ken-Burns motion on Pexels B-Roll
+      tl.fromTo("#a1-v1-wrap", { scale: 1.0 }, { scale: 1.07, duration: 7.4, ease: "none" }, 0);
+      tl.fromTo("#a1-b1", { opacity: 1, y: 0 }, { opacity: 1, y: 0, duration: 0.1 }, 0);
+      tl.fromTo("#a1-c1", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 1.2);
+      tl.fromTo("#a1-c2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 2.6);
+
+      // Crossfade to Beat 1B at 7.1s (matches "Người mới mất hàng tuần mò mẫm...")
+      tl.to("#a1-b1", { opacity: 0, y: -18, duration: 0.35, ease: "power2.in" }, 6.95);
+      tl.fromTo("#a1-v2-wrap", { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1.0, duration: 0.6, ease: "power2.out" }, 7.0);
+      tl.fromTo("#a1-b2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 7.35);
+      tl.to("#a1-b2", { opacity: 0, duration: 0.28 }, 14.05);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act1"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

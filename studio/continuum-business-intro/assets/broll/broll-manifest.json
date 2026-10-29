@@ -1,0 +1,56 @@
+[
+  {
+    "id": "broll-01-pain-leaving",
+    "query": "employee packing box office",
+    "provider": "pexels",
+    "source_duration": 15,
+    "trimmed_seconds": 7.5,
+    "file": "assets/broll/broll-01-pain-leaving.mp4",
+    "size_mb": 4.68
+  },
+  {
+    "id": "broll-02-pain-overwhelmed",
+    "query": "stressed office worker laptop paperwork",
+    "provider": "pexels",
+    "source_duration": 14,
+    "trimmed_seconds": 7.5,
+    "file": "assets/broll/broll-02-pain-overwhelmed.mp4",
+    "size_mb": 4.41
+  },
+  {
+    "id": "broll-03-solution-team",
+    "query": "modern office team collaboration laptop",
+    "provider": "pexels",
+    "source_duration": 6,
+    "trimmed_seconds": 8.0,
+    "file": "assets/broll/broll-03-solution-team.mp4",
+    "size_mb": 3.89
+  },
+  {
+    "id": "broll-04-solution-handover",
+    "query": "mentor training new employee laptop office",
+    "provider": "pexels",
+    "source_duration": 8,
+    "trimmed_seconds": 8.0,
+    "file": "assets/broll/broll-04-solution-handover.mp4",
+    "size_mb": 4.54
+  },
+  {
+    "id": "broll-05-ai-clarity",
+    "query": "confident manager working laptop modern office",
+    "provider": "pexels",
+    "source_duration": 15,
+    "trimmed_seconds": 7.5,
+    "file": "assets/broll/broll-05-ai-clarity.mp4",
+    "size_mb": 2.75
+  },
+  {
+    "id": "broll-06-outcome-success",
+    "query": "business team handshake office success",
+    "provider": "pexels",
+    "source_duration": 7,
+    "trimmed_seconds": 7.5,
+    "file": "assets/broll/broll-06-outcome-success.mp4",
+    "size_mb": 4.02
+  }
+]

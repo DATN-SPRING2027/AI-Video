@@ -1,0 +1,12 @@
+{
+  "name": "continuum-business-intro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch-broll": "..\\..\\MoneyPrinterTurbo\\.venv\\Scripts\\python.exe scripts/fetch_pexels_broll.py",
+    "capture-ui": "node scripts/capture_continuum_screens.mjs",
+    "dev": "npx hyperframes preview",
+    "check": "npx hyperframes check",
+    "render": "npx hyperframes render --quality delivery --output dist/continuum-business-intro-1080p.mp4"
+  }
+}

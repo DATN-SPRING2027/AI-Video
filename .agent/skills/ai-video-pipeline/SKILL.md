@@ -1,11 +1,26 @@
 ---
 name: ai-video-pipeline
-description: End-to-end local AI video production orchestrator inside CreateVideo combining Piper TTS, Whisper SRT, HyperFrames + GSAP + Three.js + 2D/3D Knowledge Graph, ComfyUI/Wan 2.2 (6GB VRAM GGUF), ACE-Step 1.5 Music, and FFmpeg post-production.
+description: End-to-end local AI video production orchestrator inside CreateVideo combining LucyLab/TikTok/Piper TTS, Whisper word-timestamps, HyperFrames + GSAP Product Motion Ads (16:9 & 9:16), MoneyPrinterTurbo Pexels B-Roll, ComfyUI/Wan 2.2 (6GB VRAM GGUF), ACE-Step 1.5 Music, and FFmpeg post-production.
 ---
 
 # AI Video Studio Pipeline (CreateVideo)
 
-Use this skill whenever the user asks to generate a complete explainer, motion graphics, 3D knowledge-graph, or AI B-roll video from a single prompt inside `F:\LEARN KÌ 8\ĐATN\CreateVideo`.
+Use this skill whenever the user asks to generate a complete product intro, B2B explainer, motion graphics, 3D knowledge-graph, or AI/Pexels B-roll video inside `F:\LEARN KÌ 8\ĐATN\CreateVideo`.
+
+> **Mandatory Reference Playbook for Product / Business Intro Videos:**
+> Always read [`F:\LEARN KÌ 8\ĐATN\CreateVideo\WORKFLOW_PRODUCT_MOTION_VIDEO.md`](../../../WORKFLOW_PRODUCT_MOTION_VIDEO.md) and inspect the reference projects `studio/continuum-business-intro` (`16:9`) & `studio/continuum-business-intro-9x16` (`9:16`) before building any product or customer-facing video.
+
+## Non-Negotiable Brand & Quality Rules
+
+1. **Official Brand Assets Only (Never Mock Logos):**
+   - For any **Continuum AI** video, ALWAYS copy the exact official logo files from `F:\LEARN KÌ 8\ĐATN\DATN_FE\public\images\logo\continuum-mark.png` (`512x512`) and `continuum-lockup-light.png` (`1200x273`) into `assets/brand/`. Never hand-draw fake SVG or gradient-box substitutes for the product logo.
+   - When the same icon mark appears multiple times inside one HyperFrames composition (e.g. multiple floating toasts), render repeated instances via CSS `background: url("assets/brand/continuum-mark.png") center / contain no-repeat` to keep `npx hyperframes lint --json` at `0` warnings (`duplicate_media_discovery_risk`).
+2. **Product Motion Ad Standards (`16:9` & Native `9:16`):**
+   - Speak plain business/customer outcomes (never dump internal engineering acronyms like `RBAC`, `PKCE`, `RAG`, `Vector DB` in business intros).
+   - Combine tactile daylight desk staging, live interactive UI choreography, SVG hand-drawn marker circles (`stroke-dashoffset`), out-of-frame 3D pop-out/fan cards, native-aspect Pexels B-roll (`MoneyPrinterTurbo`) with floating app toasts, word-by-word Whisper karaoke captions, and 3-layer audio (`voiceover.wav` + BGM `~0.19` + micro-foley SFX).
+   - For `9:16` (`1080x1920`), re-layout natively for vertical phone viewing (never letterbox or shrink a `16:9` canvas).
+3. **Mandatory 5-Step QA Gate Before Handoff:**
+   - `npx hyperframes lint --json` (`errorCount: 0`, `warningCount: 0`) → `npx hyperframes snapshot --at ... --no-end` (visually inspect every PNG frame via `read_file`) → `npx hyperframes check --json` → `npx hyperframes render --quality delivery` → `ffprobe` verification + zero-waste cleanup of temp/unused assets.
 
 ## Hardware Constraints (Mandatory)
 

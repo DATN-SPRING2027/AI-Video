@@ -2,6 +2,9 @@
 
 Thư mục `F:\LEARN KÌ 8\ĐATN\CreateVideo` đã được cài đặt đầy đủ **11 thành phần** để tự động hóa toàn bộ quy trình sản xuất video từ một câu lệnh: **Kịch bản → Giọng thuyết minh (TTS) → Phụ đề word-timestamp → Đồ thị tri thức 2D/3D + Motion Graphics (GSAP/Three.js/HyperFrames) → Cảnh quay AI thực tế (ComfyUI + Wan 2.2) → Nhạc nền AI (ACE-Step 1.5) → Ghép xuất MP4 1080p/4K (FFmpeg)**.
 
+> **📘 Tài liệu Quy trình Thực chiến (Playbook):**
+> - [**`WORKFLOW_PRODUCT_MOTION_VIDEO.md`**](./WORKFLOW_PRODUCT_MOTION_VIDEO.md) — Quy trình chuẩn 7 bước & 8 kỹ thuật sản xuất bộ đôi video giới thiệu sản phẩm **Product Motion Ad (`16:9` & `9:16`)** cho doanh nghiệp (kèm quy tắc bắt buộc dùng logo gốc từ `DATN_FE`, phối âm 3 lớp và cổng kiểm định chất lượng 5 bước).
+
 ---
 
 ## 1. Cấu Hình Phần Cứng Thực Tế & Tối Ưu Hóa Đã Áp Dụng

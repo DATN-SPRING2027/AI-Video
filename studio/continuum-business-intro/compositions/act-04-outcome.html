@@ -12,7 +12,7 @@
     #brand-finale {
       position: absolute;
       left: 50%;
-      top: 58px;
+      top: 50px;
       transform: translateX(-50%);
       text-align: center;
       z-index: 18;
@@ -20,37 +20,17 @@
       width: 1200px;
     }
     .brand-lockup {
-      display: inline-flex;
-      align-items: center;
-      gap: 22px;
-      margin-bottom: 14px;
-    }
-    .brand-squircle {
-      position: relative;
-      width: 88px;
-      height: 88px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
-      box-shadow: 0 20px 44px rgba(79, 70, 229, 0.38);
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 14px;
     }
-    .brand-spark-dot {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #34d399;
-      box-shadow: 0 0 18px #34d399;
-    }
-    .brand-wordmark {
-      font-size: 74px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: #0f172a;
+    .brand-lockup-img {
+      height: 122px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 36px rgba(37, 99, 235, 0.22));
     }
     .brand-tagline {
       font-size: 36px;
@@ -158,15 +138,13 @@
   <div id="root" data-composition-id="act4" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
     <!-- Top Brand Finale Lockup -->
     <div id="brand-finale">
-      <div class="brand-lockup">
-        <div id="b-mark" class="brand-squircle" data-layout-ignore>
-          <svg viewBox="0 0 48 48" width="52" height="52" fill="none">
-            <path d="M14 32C14 22 21 16 34 16" stroke="#a5b4fc" stroke-width="5.5" stroke-linecap="round" />
-            <path d="M14 24C22 24 26 32 34 32" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" />
-          </svg>
-          <span class="brand-spark-dot"></span>
-        </div>
-        <span class="brand-wordmark">Continuum AI</span>
+      <div class="brand-lockup" data-layout-ignore>
+        <img
+          id="b-mark"
+          src="assets/brand/continuum-lockup-light.png"
+          alt="Continuum AI"
+          class="brand-lockup-img"
+        />
       </div>
       <div id="b-tag" class="brand-tagline">Bộ nhớ thông minh cho mọi doanh nghiệp</div>
       <div id="b-cta" class="brand-cta-pill">continuum.ai • Trải nghiệm ngay</div>
@@ -191,7 +169,10 @@
     <div id="a4-device">
       <div class="a4-screen">
         <div class="exec-top">
-          <span class="exec-h">Tổng Quan Vận Hành Doanh Nghiệp</span>
+          <span class="exec-h" style="display: inline-flex; align-items: center; gap: 14px">
+            <img src="assets/brand/continuum-mark.png" alt="Continuum AI" style="width: 42px; height: 42px; object-fit: contain; display: block" data-layout-ignore />
+            <span>Tổng Quan Vận Hành Doanh Nghiệp</span>
+          </span>
           <span class="exec-live">● Vận hành liền mạch</span>
         </div>
 

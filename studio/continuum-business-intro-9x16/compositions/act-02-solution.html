@@ -52,11 +52,12 @@
       font-weight: 800;
       color: #0f172a;
     }
-    .hub-logo-dot {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+    .hub-logo-img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
     }
     #handover-btn {
       padding: 12px 24px;
@@ -219,17 +220,11 @@
       opacity: 0;
     }
     .toast-app-ic {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: #ffffff;
-      font-size: 28px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: url("assets/brand/continuum-mark.png") center / contain no-repeat;
       flex-shrink: 0;
+      filter: drop-shadow(0 8px 16px rgba(37, 99, 235, 0.25));
     }
     .toast-main {
       font-size: 28px;
@@ -251,7 +246,7 @@
         <div class="a2-screen">
           <div class="hub-header">
             <div class="hub-brand">
-              <span class="hub-logo-dot" data-layout-ignore></span>
+              <img src="assets/brand/continuum-mark.png" alt="Continuum AI" class="hub-logo-img" data-layout-ignore />
               <span>Continuum AI</span>
             </div>
             <div id="handover-btn">✨ Bàn giao 1 chạm</div>
@@ -370,17 +365,17 @@
       ></video>
 
       <div id="mt-1" class="floating-app-toast">
-        <div class="toast-app-ic" data-layout-ignore>C</div>
+        <div class="toast-app-ic" data-layout-ignore></div>
         <div class="toast-main">Đã tự lưu Biên bản họp sáng vào Dự án</div>
         <div class="toast-time">09:00</div>
       </div>
       <div id="mt-2" class="floating-app-toast">
-        <div class="toast-app-ic" data-layout-ignore>C</div>
+        <div class="toast-app-ic" data-layout-ignore></div>
         <div class="toast-main">Đã ghi nhận Quyết định chốt hợp đồng</div>
         <div class="toast-time">14:30</div>
       </div>
       <div id="mt-3" class="floating-app-toast">
-        <div class="toast-app-ic" data-layout-ignore>C</div>
+        <div class="toast-app-ic" data-layout-ignore></div>
         <div class="toast-main">Đã tự xếp Tiến độ cuối ngày gọn gàng</div>
         <div class="toast-time">18:15</div>
       </div>

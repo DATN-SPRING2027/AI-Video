@@ -52,16 +52,12 @@
       opacity: 0;
       z-index: 30;
     }
-    .hero-ic {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 26px;
+    .hero-ic-img {
+      width: 54px;
+      height: 54px;
+      background: url("assets/brand/continuum-mark.png") center / contain no-repeat;
+      display: block;
+      flex-shrink: 0;
     }
     /* Vertical Sleek Device Bezel (820x1100, exact Mibi vertical hero proportions) */
     #a1-device {
@@ -333,15 +329,15 @@
       <div id="fc-2" class="fan-card" style="background: linear-gradient(135deg, #7c3aed, #6d28d9)" data-layout-ignore>
         <span>💬 Thảo luận</span><span>Đã kết nối</span>
       </div>
-      <div id="fc-3" class="fan-card" style="background: linear-gradient(135deg, #059669, #047857)" data-layout-ignore>
+      <div id="fc-3" class="fan-card" style="background: linear-gradient(135deg, #059669, #047857); align-items: flex-end; text-align: right" data-layout-ignore>
         <span>📋 Biên bản</span><span>Đã kết nối</span>
       </div>
-      <div id="fc-4" class="fan-card" style="background: linear-gradient(135deg, #ea580c, #c2410c)" data-layout-ignore>
+      <div id="fc-4" class="fan-card" style="background: linear-gradient(135deg, #ea580c, #c2410c); align-items: flex-end; text-align: right" data-layout-ignore>
         <span>📊 Tiến độ</span><span>Đã kết nối</span>
       </div>
 
       <div id="a1-hero-bar">
-        <span class="hero-ic" data-layout-ignore>🔒</span>
+        <span class="hero-ic-img" data-layout-ignore></span>
         <span>✨ Kết nối trọn vẹn tài liệu &amp; lịch sử dự án</span>
       </div>
 
@@ -422,7 +418,7 @@
           <!-- Continuum Hero Screen Reveal -->
           <div id="screen-continuum" data-layout-ignore>
             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px">
-              <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg,#4f46e5,#0ea5e9)"></div>
+              <img src="assets/brand/continuum-mark.png" alt="Continuum AI" style="width: 58px; height: 58px; object-fit: contain; display: block" />
               <div style="font-size: 34px; font-weight: 900; color: #0f172a">Continuum AI Labs</div>
             </div>
             <div style="padding: 28px; border-radius: 26px; background: linear-gradient(135deg,#1e1b4b,#4f46e5); color: #ffffff; margin-bottom: 24px">

@@ -3,210 +3,419 @@
     #root {
       position: absolute;
       inset: 0;
-      background: #081126;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
       font-family: "Inter", sans-serif;
-      color: #f8fafc;
+    }
+    #a2-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 960px 440px;
+    }
+    #a2-device {
+      position: absolute;
+      left: 400px;
+      top: 118px;
+      width: 1120px;
+      height: 684px;
+      border-radius: 34px;
+      background: #0f172a;
+      padding: 16px;
+      box-shadow:
+        0 40px 85px rgba(15, 23, 42, 0.28),
+        0 12px 26px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+      z-index: 5;
+    }
+    .a2-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      background: #f8fafc;
       overflow: hidden;
     }
-    .a2-vid {
+    /* Crisp Interactive Continuum Hub UI */
+    .hub-header {
+      height: 76px;
+      background: #ffffff;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hub-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .hub-logo-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+    }
+    .hub-sync-pill {
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      color: #047857;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .hub-body {
+      padding: 28px 32px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .kpi-card {
+      padding: 20px 24px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+    .kpi-val {
+      font-size: 40px;
+      font-weight: 900;
+      color: #4f46e5;
+      font-variant-numeric: tabular-nums;
+    }
+    .kpi-lbl {
+      font-size: 26px;
+      font-weight: 600;
+      color: #475569;
+      margin-top: 4px;
+    }
+    .proj-item {
+      padding: 20px 26px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 27px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .proj-status {
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    /* Out-of-Frame 3D Pop-Out Cards (Mibi 00:27-00:29 style!) */
+    .popout-card {
+      position: absolute;
+      right: 78px;
+      width: 470px;
+      padding: 20px 26px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 2px solid #c7d2fe;
+      box-shadow: 0 26px 54px rgba(15, 23, 42, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      z-index: 14;
+      opacity: 0;
+    }
+    .popout-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+    .popout-title {
+      font-size: 27px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .popout-sub {
+      font-size: 26px;
+      font-weight: 600;
+      color: #475569;
+    }
+    /* Handover One-Tap Button & Spring Modal Sheet (11.4s - 16.1s) */
+    #handover-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border-radius: 16px;
+      background: linear-gradient(90deg, #4f46e5, #6366f1);
+      color: #ffffff;
+      font-size: 27px;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.35);
+    }
+    #handover-sheet {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      bottom: 26px;
+      padding: 30px 36px;
+      border-radius: 28px;
+      background: #ffffff;
+      border: 2px solid #a5b4fc;
+      box-shadow: 0 -18px 60px rgba(15, 23, 42, 0.24);
+      z-index: 20;
+      opacity: 0;
+    }
+    .sheet-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .sheet-badge {
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 26px;
+      font-weight: 800;
+    }
+    .five-min-highlight {
+      position: relative;
+      display: inline-block;
+      padding: 8px 24px;
+      font-size: 36px;
+      font-weight: 900;
+      color: #059669;
+      white-space: nowrap;
+    }
+    /* 3-Shot Fast Pexels B-Roll Montage + Floating Continuum Toasts (4.20s - 7.25s) */
+    #a2-montage {
+      position: absolute;
+      inset: 0;
+      z-index: 35;
+      opacity: 0;
+      background: #090d16;
+    }
+    .montage-vid {
       position: absolute;
       inset: 0;
       width: 1920px;
       height: 1080px;
+      object-fit: cover;
+      filter: brightness(0.68) contrast(1.06);
     }
-    .a2-shade {
+    .floating-app-toast {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        100deg,
-        rgba(8, 17, 38, 0.93) 0%,
-        rgba(12, 25, 56, 0.82) 48%,
-        rgba(8, 17, 38, 0.45) 100%
-      );
-      z-index: 4;
-    }
-    .a2-hero {
-      position: absolute;
-      left: 112px;
-      top: 190px;
-      width: 1080px;
-      z-index: 10;
-    }
-    .a2-pill {
-      display: inline-block;
-      padding: 10px 26px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #2563eb, #4f46e5);
-      color: #ffffff;
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 26px;
-      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
-    }
-    .a2-title {
-      font-size: 64px;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: #ffffff;
-      margin-bottom: 24px;
-    }
-    .a2-blue {
-      color: #60a5fa;
-    }
-    .a2-sub {
-      font-size: 32px;
-      font-weight: 500;
-      line-height: 1.42;
-      color: #cbd5e1;
-    }
-    .a2-split {
-      position: absolute;
-      inset: 0;
-      z-index: 12;
-      opacity: 0;
-    }
-    .a2-left-col {
-      position: absolute;
-      left: 88px;
-      top: 148px;
-      width: 650px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .a2-left-h2 {
-      font-size: 50px;
-      font-weight: 800;
-      line-height: 1.18;
-      color: #ffffff;
-    }
-    .a2-feat {
-      padding: 20px 24px;
-      border-radius: 18px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1.5px solid rgba(56, 189, 248, 0.4);
-      font-size: 29px;
-      font-weight: 600;
-      line-height: 1.35;
-      color: #f1f5f9;
-    }
-    .a2-browser {
-      position: absolute;
-      right: 76px;
-      top: 118px;
-      width: 1040px;
-      height: 632px;
-      border-radius: 22px;
-      background: #0f172a;
-      border: 2px solid rgba(96, 165, 250, 0.45);
-      box-shadow: 0 34px 80px rgba(0, 0, 0, 0.65);
-      overflow: hidden;
-    }
-    .a2-bar {
-      height: 42px;
-      background: #1e293b;
+      left: 50%;
+      top: 74px;
+      transform: translateX(-50%);
+      width: 980px;
+      padding: 22px 32px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.38);
       display: flex;
       align-items: center;
-      padding: 0 18px;
-      gap: 8px;
+      justify-content: space-between;
+      z-index: 45;
+      opacity: 0;
     }
-    .a2-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+    .toast-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
-    .a2-screen {
-      position: relative;
-      width: 1040px;
-      height: 590px;
-      overflow: hidden;
-      background: #ffffff;
+    .toast-app-ic {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .toast-main {
+      font-size: 29px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .toast-time {
+      font-size: 26px;
+      font-weight: 700;
+      color: #4f46e5;
     }
   </style>
 
   <div id="root" data-composition-id="act2" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
-    <div id="a2-v1-wrap" class="a2-vid" style="z-index: 1" data-layout-ignore>
-      <video
-        id="a2-v1"
-        class="clip"
-        src="assets/broll/broll-03-solution-team.mp4"
-        data-start="0"
-        data-duration="5.0"
-        data-track-index="1"
-        muted
-        playsinline
-        style="width: 1920px; height: 1080px; object-fit: cover"
-      ></video>
-    </div>
+    <div id="a2-stage">
+      <div id="a2-device">
+        <div class="a2-screen">
+          <div class="hub-header">
+            <div class="hub-brand">
+              <span class="hub-logo-dot" data-layout-ignore></span>
+              <span>Continuum AI • Không Gian Chung</span>
+            </div>
+            <div id="handover-btn">✨ Bàn giao 1 chạm</div>
+          </div>
 
-    <div id="a2-v2-wrap" class="a2-vid" style="z-index: 2; opacity: 0" data-layout-ignore>
-      <video
-        id="a2-v2"
-        class="clip"
-        src="assets/broll/broll-04-solution-handover.mp4"
-        data-start="3.9"
-        data-hf-media-start-basis="local"
-        data-duration="7.7"
-        data-track-index="2"
-        muted
-        playsinline
-        style="width: 1920px; height: 1080px; object-fit: cover; filter: brightness(0.42)"
-      ></video>
-    </div>
+          <div class="hub-body">
+            <div class="kpi-grid">
+              <div id="k1" class="kpi-card">
+                <div class="kpi-val">100%</div>
+                <div class="kpi-lbl">Tài liệu tập trung</div>
+              </div>
+              <div id="k2" class="kpi-card">
+                <div class="kpi-val">06</div>
+                <div class="kpi-lbl">Phòng ban kết nối</div>
+              </div>
+              <div id="k3" class="kpi-card">
+                <div class="kpi-val">Tự động</div>
+                <div class="kpi-lbl">Lưu lịch sử quyết định</div>
+              </div>
+            </div>
 
-    <div class="a2-shade" data-layout-ignore></div>
+            <div id="p1" class="proj-item">
+              <span>🚀 Dự án Mở rộng Khách hàng Doanh nghiệp</span>
+              <span class="proj-status">Đã gom 48 tài liệu</span>
+            </div>
+            <div id="p2" class="proj-item">
+              <span>📑 Quy trình Hợp đồng &amp; Pháp chế Q4</span>
+              <span class="proj-status">Đã lưu 19 biên bản</span>
+            </div>
+            <div id="p3" class="proj-item">
+              <span>🤝 Hồ sơ Tiếp nhận Nhân sự Mới</span>
+              <span class="proj-status" style="background: #ecfdf5; color: #047857">Sẵn sàng bàn giao</span>
+            </div>
+          </div>
 
-    <!-- Beat 2A: Giới thiệu Continuum AI -->
-    <div id="a2-hero" class="a2-hero">
-      <div class="a2-pill">GIẢI PHÁP CONTINUUM AI</div>
-      <div class="a2-title">Bộ Nhớ Chung <span class="a2-blue">Không Bao Giờ Thất Lạc</span> Của Cả Công Ty</div>
-      <div class="a2-sub">Lưu trọn tiến độ, tài liệu và quyết định dự án tại một nơi.</div>
-    </div>
-
-    <!-- Beat 2B: Sản phẩm thật + Lợi ích bàn giao -->
-    <div id="a2-split" class="a2-split" data-layout-allow-overlap>
-      <div class="a2-left-col">
-        <div class="a2-pill">TRỰC QUAN • DỄ SỬ DỤNG</div>
-        <div class="a2-left-h2">Gọn Gàng Theo Từng Phòng Ban</div>
-        <div class="a2-feat">✓ Mọi đầu việc, tài liệu &amp; ghi chú hằng ngày tự động ngăn nắp</div>
-        <div class="a2-feat" style="border-color: rgba(52, 211, 153, 0.55); color: #ecfdf5">
-          ✓ Bàn giao cho người mới chỉ trong vài phút
+          <!-- Spring Modal Sheet: One-Tap Handover (12.8s - 16.1s) -->
+          <div id="handover-sheet">
+            <div class="sheet-top">
+              <span class="sheet-badge">✨ Hồ sơ Bàn giao chuẩn</span>
+              <span class="five-min-highlight">
+                Bắt nhịp trong 5 phút
+                <svg viewBox="0 0 450 96" width="450" height="96" style="position: absolute; left: -12px; top: -10px; pointer-events: none">
+                  <path
+                    id="green-circle-handover"
+                    d="M24,50 C20,16 145,10 250,14 C368,18 432,34 426,58 C420,82 292,90 165,86 C54,82 18,66 42,40"
+                    fill="none"
+                    stroke="#10b981"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    pathLength="1"
+                    style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div style="font-size: 28px; font-weight: 600; color: #334155">
+              ✓ Toàn bộ mục tiêu, lịch sử quyết định &amp; đầu việc đang chạy đã sẵn sàng cho người mới.
+            </div>
+          </div>
         </div>
       </div>
 
-      <div id="a2-win" class="a2-browser" data-layout-allow-overflow>
-        <div class="a2-bar" data-layout-ignore>
-          <span class="a2-dot" style="background: #ef4444"></span>
-          <span class="a2-dot" style="background: #f59e0b"></span>
-          <span class="a2-dot" style="background: #10b981"></span>
+      <!-- 3 Out-of-Frame Pop-Out Knowledge Cards (7.3s - 11.4s) -->
+      <div id="pop-1" class="popout-card" style="top: 156px">
+        <div class="popout-icon" style="background: #4f46e5" data-layout-ignore>📋</div>
+        <div>
+          <div class="popout-title">Đã lưu Biên bản họp sáng</div>
+          <div class="popout-sub">Tự gắn vào Dự án Kinh doanh</div>
         </div>
-        <div class="a2-screen" data-layout-ignore>
-          <div id="a2-ui1-wrap" style="position: absolute; inset: 0">
-            <img
-              id="a2-ui1"
-              class="clip"
-              src="assets/ui/ui-01-dashboard.png"
-              data-start="0"
-              data-duration="11.6"
-              data-track-index="3"
-              alt="Continuum AI Dashboard"
-              style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
-            />
-          </div>
-          <div id="a2-ui2-wrap" style="position: absolute; inset: 0; opacity: 0">
-            <img
-              id="a2-ui2"
-              class="clip"
-              src="assets/ui/ui-02-worknotes.png"
-              data-start="0"
-              data-duration="11.6"
-              data-track-index="4"
-              alt="Continuum AI Work Notes"
-              style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
-            />
-          </div>
+      </div>
+      <div id="pop-2" class="popout-card" style="top: 332px">
+        <div class="popout-icon" style="background: #0ea5e9" data-layout-ignore>✅</div>
+        <div>
+          <div class="popout-title">Đã chốt Phương án Hợp đồng</div>
+          <div class="popout-sub">Lưu rõ người duyệt &amp; lý do</div>
         </div>
+      </div>
+      <div id="pop-3" class="popout-card" style="top: 508px">
+        <div class="popout-icon" style="background: #10b981" data-layout-ignore>📊</div>
+        <div>
+          <div class="popout-title">Đã cập nhật Tiến độ cuối ngày</div>
+          <div class="popout-sub">12/12 đầu việc hoàn tất</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-Shot Fast Pexels B-Roll Montage ("Sáng họp nhanh, chiều chốt việc, tối cập nhật tiến độ") -->
+    <div id="a2-montage" data-layout-allow-overlap>
+      <video
+        id="m-v1"
+        class="clip montage-vid"
+        src="assets/broll/broll-03-solution-team.mp4"
+        data-start="4.15"
+        data-hf-media-start-basis="local"
+        data-duration="1.15"
+        data-track-index="1"
+        muted
+        playsinline
+      ></video>
+      <video
+        id="m-v2"
+        class="clip montage-vid"
+        src="assets/broll/broll-04-solution-handover.mp4"
+        data-start="5.20"
+        data-hf-media-start-basis="local"
+        data-duration="1.10"
+        data-track-index="2"
+        muted
+        playsinline
+        style="opacity: 0"
+      ></video>
+      <video
+        id="m-v3"
+        class="clip montage-vid"
+        src="assets/broll/broll-05-ai-clarity.mp4"
+        data-start="6.20"
+        data-hf-media-start-basis="local"
+        data-duration="1.15"
+        data-track-index="3"
+        muted
+        playsinline
+        style="opacity: 0"
+      ></video>
+
+      <div id="mt-1" class="floating-app-toast">
+        <div class="toast-left">
+          <div class="toast-app-ic" data-layout-ignore>C</div>
+          <div class="toast-main">Đã tự lưu Biên bản họp sáng • Phòng Kinh doanh</div>
+        </div>
+        <div class="toast-time">09:00</div>
+      </div>
+      <div id="mt-2" class="floating-app-toast">
+        <div class="toast-left">
+          <div class="toast-app-ic" data-layout-ignore>C</div>
+          <div class="toast-main">Đã ghi nhận Quyết định chốt hợp đồng mới</div>
+        </div>
+        <div class="toast-time">14:30</div>
+      </div>
+      <div id="mt-3" class="floating-app-toast">
+        <div class="toast-left">
+          <div class="toast-app-ic" data-layout-ignore>C</div>
+          <div class="toast-main">Đã tự xếp Tiến độ cuối ngày gọn vào dự án</div>
+        </div>
+        <div class="toast-time">18:15</div>
       </div>
     </div>
   </div>
@@ -215,18 +424,55 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
 
-      tl.fromTo("#a2-v1-wrap", { scale: 1.0 }, { scale: 1.06, duration: 4.5, ease: "none" }, 0);
-      tl.fromTo("#a2-hero", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.08);
+      // 0.0s - 4.2s: Camera zooms into Continuum Hub ("Mọi dự án, đầu việc... tự gom gọn về một chỗ")
+      tl.fromTo("#a2-stage", { scale: 1.0 }, { scale: 1.24, y: 28, duration: 1.1, ease: "power3.inOut" }, 0.15);
+      tl.fromTo("#k1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0.25);
+      tl.fromTo("#k2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0.40);
+      tl.fromTo("#k3", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0.55);
+      tl.fromTo("#p1", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 1.05);
+      tl.fromTo("#p2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 1.25);
+      tl.fromTo("#p3", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 1.45);
 
-      // Transition at 4.1s ("Mọi đầu việc, tài liệu và ghi chú hằng ngày...")
-      tl.to("#a2-hero", { opacity: 0, y: -18, duration: 0.32, ease: "power2.in" }, 3.95);
-      tl.fromTo("#a2-v2-wrap", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 4.0);
-      tl.fromTo("#a2-split", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 4.25);
-      tl.fromTo("#a2-win", { x: 40, scale: 0.96 }, { x: 0, scale: 1, duration: 0.55, ease: "power3.out" }, 4.25);
+      // 4.20s - 7.25s: 3-Shot Fast B-Roll Montage + Popping App Toasts!
+      tl.to("#a2-montage", { opacity: 1, duration: 0.16 }, 4.20);
+      tl.fromTo("#mt-1", { opacity: 0, y: -32, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 4.30);
 
-      // Crossfade to Work Notes / Handover view at 8.1s ("giúp việc bàn giao cho người mới...")
-      tl.fromTo("#a2-ui2-wrap", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 8.1);
-      tl.to("#a2-split", { opacity: 0, duration: 0.28 }, 11.25);
+      // Shot 2 at 5.22s ("chiều chốt việc")
+      tl.set("#mt-1", { opacity: 0 }, 5.22);
+      tl.to("#m-v2", { opacity: 1, duration: 0.12 }, 5.22);
+      tl.fromTo("#mt-2", { opacity: 0, y: -32, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 5.28);
+
+      // Shot 3 at 6.22s ("tối cập nhật tiến độ")
+      tl.set("#mt-2", { opacity: 0 }, 6.22);
+      tl.to("#m-v3", { opacity: 1, duration: 0.12 }, 6.22);
+      tl.fromTo("#mt-3", { opacity: 0, y: -32, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 6.28);
+
+      // Prepare Out-of-Frame Pop-Out Desk Stage before cutting back at 7.25s
+      tl.set("#a2-stage", { scale: 1.0, y: 0 }, 7.20);
+      tl.set("#a2-device", { x: -220, scale: 0.92 }, 7.20);
+      tl.to("#a2-montage", { opacity: 0, duration: 0.18 }, 7.25);
+
+      // 7.45s: 3 Knowledge Cards shoot OUT of the device frame into right space!
+      tl.fromTo("#pop-1", { opacity: 0, x: -320, scale: 0.82 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.55)" }, 7.42);
+      tl.fromTo("#pop-2", { opacity: 0, x: -320, scale: 0.82 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.55)" }, 7.72);
+      tl.fromTo("#pop-3", { opacity: 0, x: -320, scale: 0.82 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.55)" }, 8.02);
+
+      // 11.40s: "Cần bàn giao cho người mới? Một chạm mở hồ sơ..."
+      tl.to(["#pop-1", "#pop-2", "#pop-3"], { opacity: 0, x: 80, duration: 0.3, ease: "power2.in" }, 11.35);
+      tl.to("#a2-device", { x: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 11.40);
+      tl.to("#a2-stage", { scale: 1.22, y: 18, duration: 0.65, ease: "power3.inOut" }, 11.55);
+
+      // Button tap pulse at 13.15s ("Một chạm mở hồ sơ")
+      tl.to("#handover-btn", { scale: 0.91, duration: 0.12, yoyo: true, repeat: 1 }, 13.15);
+
+      // Spring Modal Sheet slides up + Green Hand-drawn SVG Circle around "5 phút"!
+      tl.fromTo(
+        "#handover-sheet",
+        { opacity: 0, y: 120, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" },
+        13.35
+      );
+      tl.to("#green-circle-handover", { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 14.35);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["act2"] = tl;

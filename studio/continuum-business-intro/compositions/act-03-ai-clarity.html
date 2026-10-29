@@ -3,216 +3,315 @@
     #root {
       position: absolute;
       inset: 0;
-      background: #060b18;
-      font-family: "Inter", sans-serif;
-      color: #f8fafc;
-      overflow: hidden;
-    }
-    .a3-vid {
-      position: absolute;
-      inset: 0;
       width: 1920px;
       height: 1080px;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
     }
-    .a3-shade {
+    #a3-stage {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        95deg,
-        rgba(6, 11, 24, 0.90) 0%,
-        rgba(6, 11, 24, 0.62) 48%,
-        rgba(6, 11, 24, 0.25) 100%
-      );
-      z-index: 4;
+      transform-origin: 960px 440px;
     }
-    .a3-graph-card {
+    #a3-device {
       position: absolute;
-      left: 92px;
-      top: 176px;
-      width: 820px;
-      z-index: 10;
+      left: 400px;
+      top: 118px;
+      width: 1120px;
+      height: 684px;
+      border-radius: 34px;
+      background: #0f172a;
+      padding: 16px;
+      box-shadow:
+        0 40px 85px rgba(15, 23, 42, 0.28),
+        0 12px 26px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+      z-index: 5;
     }
-    .a3-graph-box {
-      position: absolute;
-      right: 84px;
-      top: 126px;
-      width: 880px;
-      height: 640px;
-      border-radius: 24px;
+    .a3-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      background: #f8fafc;
       overflow: hidden;
-      border: 2px solid rgba(56, 189, 248, 0.48);
-      box-shadow: 0 30px 72px rgba(0, 0, 0, 0.65);
-      background: #14161b;
-      z-index: 6;
     }
-    .a3-tag {
-      display: inline-block;
-      padding: 10px 26px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.18);
-      border: 1.5px solid rgba(56, 189, 248, 0.55);
-      color: #7dd3fc;
+    .chat-head {
+      height: 74px;
+      background: #ffffff;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-head-title {
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ai-badge {
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 26px;
+      font-weight: 800;
+    }
+    .chat-body {
+      padding: 28px 34px;
+    }
+    /* Typing Input Bar */
+    .ask-bar {
+      padding: 20px 26px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 2.5px solid #6366f1;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 24px;
     }
-    .a3-title {
-      font-size: 54px;
-      font-weight: 800;
-      line-height: 1.18;
-      color: #ffffff;
-      margin-bottom: 22px;
-    }
-    .a3-cyan {
-      color: #38bdf8;
-    }
-    .a3-desc {
-      font-size: 31px;
-      font-weight: 500;
-      line-height: 1.42;
-      color: #cbd5e1;
-    }
-    .a3-qa-stage {
-      position: absolute;
-      inset: 0;
-      z-index: 12;
-      opacity: 0;
-    }
-    .a3-ui-frame {
-      position: absolute;
-      left: 92px;
-      top: 118px;
-      width: 940px;
-      height: 620px;
-      border-radius: 22px;
+    .type-mask {
       overflow: hidden;
-      border: 2px solid rgba(96, 165, 250, 0.42);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.62);
-      background: #0f172a;
-    }
-    .a3-qa-col {
-      position: absolute;
-      right: 88px;
-      top: 126px;
-      width: 740px;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-    .a3-q-box {
-      padding: 22px 28px;
-      border-radius: 20px;
-      background: rgba(30, 58, 138, 0.88);
-      border: 1.5px solid rgba(96, 165, 250, 0.55);
-      font-size: 29px;
-      font-weight: 600;
-      line-height: 1.38;
-      color: #eff6ff;
-    }
-    .a3-a-box {
-      padding: 24px 28px;
-      border-radius: 20px;
-      background: rgba(15, 23, 42, 0.94);
-      border: 2px solid rgba(52, 211, 153, 0.65);
-      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5);
-    }
-    .a3-a-head {
-      font-size: 31px;
-      font-weight: 800;
-      color: #6ee7b7;
-      margin-bottom: 12px;
-    }
-    .a3-a-body {
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 1.4;
-      color: #f1f5f9;
-      margin-bottom: 16px;
-    }
-    .a3-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .a3-pill {
-      padding: 8px 18px;
-      border-radius: 999px;
-      background: rgba(16, 185, 129, 0.16);
-      border: 1px solid rgba(52, 211, 153, 0.45);
+      white-space: nowrap;
       font-size: 28px;
       font-weight: 700;
-      color: #a7f3d0;
+      color: #1e293b;
+      border-right: 3px solid #4f46e5;
+      padding-right: 6px;
+    }
+    .send-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      background: #4f46e5;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    /* AI Answer Card with Verified Citation */
+    #ai-ans-card {
+      padding: 26px 30px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      opacity: 0;
+    }
+    .ans-text {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.42;
+      color: #1e293b;
+      margin-bottom: 18px;
+    }
+    .citation-wrap {
+      position: relative;
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 16px;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      font-size: 27px;
+      font-weight: 800;
+      color: #065f46;
+    }
+    /* Out-of-Frame Connected Knowledge Graph Panel (5.2s - 8.6s) */
+    #graph-pop {
+      position: absolute;
+      right: 48px;
+      top: 150px;
+      width: 504px;
+      height: 530px;
+      border-radius: 28px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 2px solid #38bdf8;
+      box-shadow: 0 32px 68px rgba(15, 23, 42, 0.32);
+      padding: 28px;
+      color: #ffffff;
+      z-index: 15;
+      opacity: 0;
+    }
+    .g-node {
+      position: absolute;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 26px;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+    /* Permission Privacy Pane (8.6s - 12.8s, Mibi FaceID style!) */
+    #perm-pane {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 74px;
+      bottom: 0;
+      background: #f8fafc;
+      padding: 28px 34px;
+      opacity: 0;
+      z-index: 10;
+    }
+    .perm-row {
+      padding: 22px 28px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .val-wrap {
+      position: relative;
+      min-width: 280px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .val-clear {
+      color: #0f172a;
+      font-weight: 900;
+    }
+    .val-masked {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #4f46e5;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      opacity: 0;
+    }
+    /* Center Frosted Shield Overlay (like Mibi Face ID square!) */
+    #shield-toast {
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      transform: translate(-50%, -50%);
+      width: 336px;
+      height: 214px;
+      padding: 0 24px;
+      text-align: center;
+      border-radius: 34px;
+      background: #0f172a;
+      border: 2px solid rgba(129, 140, 248, 0.55);
+      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.42);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      white-space: nowrap;
+      z-index: 25;
+      opacity: 0;
     }
   </style>
 
   <div id="root" data-composition-id="act3" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
-    <!-- Beat 3A: 3D Knowledge Graph Network inside sleek glass frame -->
-    <div id="a3-v1-wrap" class="a3-graph-box" data-layout-ignore>
-      <video
-        id="a3-v1"
-        class="clip"
-        src="assets/broll/graph-3d-network.mp4"
-        data-start="0"
-        data-duration="6.2"
-        data-track-index="1"
-        muted
-        playsinline
-        style="width: 100%; height: 100%; object-fit: cover"
-      ></video>
-    </div>
+    <div id="a3-stage">
+      <div id="a3-device">
+        <div class="a3-screen">
+          <div class="chat-head">
+            <div class="chat-head-title">
+              <span>💬 Hỏi Bộ Nhớ Continuum AI</span>
+            </div>
+            <span class="ai-badge">✓ Đối chiếu nguồn gốc</span>
+          </div>
 
-    <!-- Beat 3B: Executive Office B-Roll Backdrop -->
-    <div id="a3-v2-wrap" class="a3-vid" style="z-index: 2; opacity: 0" data-layout-ignore>
-      <video
-        id="a3-v2"
-        class="clip"
-        src="assets/broll/broll-05-ai-clarity.mp4"
-        data-start="5.4"
-        data-hf-media-start-basis="local"
-        data-duration="7.0"
-        data-track-index="2"
-        muted
-        playsinline
-        style="width: 1920px; height: 1080px; object-fit: cover; filter: brightness(0.36)"
-      ></video>
-    </div>
+          <!-- Part A: Natural Question + Cited Answer (0.0s - 8.6s) -->
+          <div id="qa-pane" class="chat-body">
+            <div class="ask-bar">
+              <div id="type-q" class="type-mask" style="width: 0px">
+                Vì sao tháng trước đổi quy trình hợp đồng?
+              </div>
+              <div id="send-ic" class="send-btn" data-layout-ignore>↑</div>
+            </div>
 
-    <div class="a3-shade" data-layout-ignore></div>
+            <div id="ai-ans-card">
+              <div class="ans-text">
+                Tháng trước công ty rút gọn quy trình ký duyệt còn <strong>2 bước</strong> để phản hồi báo giá cho khách hàng doanh nghiệp trong vòng <strong>24 giờ</strong>.
+              </div>
+              <div class="citation-wrap">
+                📄 Biên bản họp BGĐ • 12/10 • Anh Minh chốt
+                <svg viewBox="0 0 704 96" width="704" height="96" style="position: absolute; left: -18px; top: -14px; pointer-events: none">
+                  <path
+                    id="green-circle-cite"
+                    d="M34,50 C28,14 228,8 386,12 C564,16 686,32 680,56 C674,80 468,88 265,84 C84,80 24,66 58,40"
+                    fill="none"
+                    stroke="#10b981"
+                    stroke-width="5.5"
+                    stroke-linecap="round"
+                    pathLength="1"
+                    style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
 
-    <div id="a3-b1" class="a3-graph-card">
-      <div class="a3-tag">AI ĐỐI CHIẾU NGUỒN GỐC CHÍNH XÁC</div>
-      <div class="a3-title">Hỏi Tự Nhiên Như Đang<br /><span class="a3-cyan">Trò Chuyện Với Người Đi Trước</span></div>
-      <div class="a3-desc">Tự động liên kết biên bản họp, tài liệu và đầu việc để ai cũng tra cứu được ngay.</div>
-    </div>
+          <!-- Part B: Permission Shield & Sensitive Masking (8.6s - 12.8s) -->
+          <div id="perm-pane">
+            <div class="perm-row">
+              <span>📋 Quy trình chăm sóc khách hàng Q4</span>
+              <span style="color: #059669">✓ Công khai nội bộ</span>
+            </div>
+            <div class="perm-row">
+              <span>💰 Hạn mức chiết khấu Đại lý Cấp 1</span>
+              <div class="val-wrap">
+                <span id="vc-1" class="val-clear">4.500.000.000đ</span>
+                <span id="vm-1" class="val-masked">••••••••••đ</span>
+              </div>
+            </div>
+            <div class="perm-row">
+              <span>📑 Phụ lục lương &amp; thưởng Ban Dự án</span>
+              <div class="val-wrap">
+                <span id="vc-2" class="val-clear">185.000.000đ</span>
+                <span id="vm-2" class="val-masked">••••••••••đ</span>
+              </div>
+            </div>
+          </div>
 
-    <div id="a3-b2" class="a3-qa-stage" data-layout-allow-overlap>
-      <div class="a3-ui-frame" data-layout-ignore>
-        <img
-          id="a3-ui"
-          class="clip"
-          src="assets/ui/ui-03-aichat.png"
-          data-start="0"
-          data-duration="12.4"
-          data-track-index="3"
-          alt="Continuum AI Chat"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
-        />
+          <!-- Frosted Permission Shield -->
+          <div id="shield-toast">
+            <svg viewBox="0 0 64 64" width="68" height="68" fill="none" data-layout-ignore>
+              <path d="M32 6L12 15V30C12 43.8 20.5 55.9 32 60C43.5 55.9 52 43.8 52 30V15L32 6Z" fill="#4f46e5" stroke="#a5b4fc" stroke-width="3" />
+              <path d="M23 32L29 38L41 26" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>Phân quyền Cấp bậc</span>
+          </div>
+        </div>
       </div>
 
-      <div class="a3-qa-col">
-        <div id="a3-q" class="a3-q-box">
-          💬 “Vì sao tháng trước công ty điều chỉnh quy trình duyệt hợp đồng khách hàng?”
+      <!-- Connected Knowledge Graph Pop-Out Card on Right (5.2s - 8.6s) -->
+      <div id="graph-pop" data-layout-ignore>
+        <div style="font-size: 27px; font-weight: 800; color: #7dd3fc; margin-bottom: 12px">
+          🔗 Mạng lưới nguồn gốc đã kiểm chứng
         </div>
-        <div id="a3-a" class="a3-a-box">
-          <div class="a3-a-head">✓ Trả lời tức thì • Chỉ rõ tài liệu gốc</div>
-          <div class="a3-a-body">
-            Theo <strong>Biên bản họp Ban Giám đốc (12/10)</strong>: rút gọn bước ký duyệt để phản hồi khách hàng trong 24 giờ.
-          </div>
-          <div class="a3-badges">
-            <span class="a3-pill">Không suy diễn</span>
-            <span class="a3-pill">Bảo mật theo cấp quyền</span>
-          </div>
-        </div>
+        <svg viewBox="0 0 410 410" width="410" height="410" style="position: absolute; left: 28px; top: 82px">
+          <line id="gl-1" x1="195" y1="62" x2="105" y2="205" stroke="#38bdf8" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+          <line id="gl-2" x1="195" y1="62" x2="295" y2="205" stroke="#34d399" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+          <line id="gl-3" x1="105" y1="205" x2="205" y2="338" stroke="#a78bfa" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+          <line id="gl-4" x1="295" y1="205" x2="205" y2="338" stroke="#34d399" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+        </svg>
+        <div id="gn-1" class="g-node" style="left: 118px; top: 112px; background: #2563eb">Dự án Hợp đồng</div>
+        <div id="gn-2" class="g-node" style="left: 22px; top: 256px; background: #059669">Biên bản 12/10</div>
+        <div id="gn-3" class="g-node" style="left: 266px; top: 256px; background: #7c3aed">Anh Minh chốt</div>
+        <div id="gn-4" class="g-node" style="left: 116px; top: 392px; background: #0284c7">Đúng cấp quyền</div>
       </div>
     </div>
   </div>
@@ -221,17 +320,34 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
 
-      tl.fromTo("#a3-b1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.08);
-      tl.fromTo("#a3-v1-wrap", { opacity: 0, x: 26, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out" }, 0.12);
+      // 0.1s - 4.7s: Zoom into AI Chat & Live Typing ("Quên mất vì sao tháng trước đổi quy trình hợp đồng?")
+      tl.fromTo("#a3-stage", { scale: 1.05 }, { scale: 1.24, y: 26, duration: 0.75, ease: "power3.out" }, 0.08);
+      tl.fromTo("#type-q", { width: 0 }, { width: 564, duration: 2.35, ease: "steps(36)" }, 1.10);
+      tl.to("#send-ic", { scale: 0.86, duration: 0.12, yoyo: true, repeat: 1 }, 4.62);
 
-      // Switch to Real AI Chat + Verified Citation Proof at 5.65s ("Hệ thống trả lời tức thì...")
-      tl.to("#a3-b1", { opacity: 0, y: -18, duration: 0.32 }, 5.5);
-      tl.to("#a3-v1-wrap", { opacity: 0, scale: 0.96, duration: 0.35 }, 5.5);
-      tl.fromTo("#a3-v2-wrap", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 5.55);
-      tl.fromTo("#a3-b2", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 5.75);
-      tl.fromTo("#a3-q", { opacity: 0, x: 28 }, { opacity: 1, x: 0, duration: 0.42, ease: "power2.out" }, 5.95);
-      tl.fromTo("#a3-a", { opacity: 0, y: 24, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.4)" }, 6.65);
-      tl.to("#a3-b2", { opacity: 0, duration: 0.28 }, 12.05);
+      // 5.15s: AI Answer Springs Open + Device shifts left + Knowledge Graph Pops Out Right!
+      tl.to("#a3-stage", { scale: 1.0, y: 0, duration: 0.5, ease: "power3.inOut" }, 5.05);
+      tl.to("#a3-device", { x: -215, scale: 0.92, duration: 0.52, ease: "power3.inOut" }, 5.05);
+      tl.fromTo("#ai-ans-card", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.45)" }, 5.18);
+
+      tl.fromTo("#graph-pop", { opacity: 0, x: 90, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.4)" }, 5.30);
+      tl.to(["#gl-1", "#gl-2", "#gl-3", "#gl-4"], { strokeDashoffset: 0, duration: 0.55, stagger: 0.1, ease: "power2.out" }, 5.55);
+
+      // 7.15s: Green Hand-Drawn SVG Marker Circle highlights exact citation ("chỉ rõ biên bản gốc ngày nào, ai chốt")
+      tl.to("#green-circle-cite", { strokeDashoffset: 0, duration: 0.52, ease: "power2.out" }, 7.15);
+
+      // 8.55s: Switch to Permission Shield Privacy Masking ("Không đoán mò, và tự ẩn thông tin nhạy cảm theo cấp quyền")
+      tl.to("#graph-pop", { opacity: 0, x: 90, duration: 0.3 }, 8.55);
+      tl.to("#a3-device", { x: 0, scale: 1, duration: 0.48, ease: "power3.inOut" }, 8.60);
+      tl.to("#a3-stage", { scale: 1.2, y: 16, duration: 0.55, ease: "power3.inOut" }, 8.65);
+      tl.to("#qa-pane", { opacity: 0, duration: 0.2 }, 8.65);
+      tl.to("#perm-pane", { opacity: 1, duration: 0.28 }, 8.72);
+
+      // 10.60s: Frosted Permission Shield pops + Sensitive amounts morph to ••••••••••đ!
+      tl.fromTo("#shield-toast", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 10.55);
+      tl.to(["#vc-1", "#vc-2"], { opacity: 0, filter: "blur(6px)", duration: 0.22 }, 10.85);
+      tl.to(["#vm-1", "#vm-2"], { opacity: 1, duration: 0.25 }, 10.90);
+      tl.to("#shield-toast", { opacity: 0, scale: 0.9, duration: 0.28 }, 12.15);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["act3"] = tl;

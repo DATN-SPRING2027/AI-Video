@@ -1,0 +1,10 @@
+{
+  "name": "continuum-business-intro-9x16",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx hyperframes preview",
+    "check": "npx hyperframes check",
+    "render": "npx hyperframes render --quality delivery --output dist/continuum-business-intro-9x16-1080p.mp4"
+  }
+}

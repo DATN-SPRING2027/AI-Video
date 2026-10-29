@@ -3,168 +3,227 @@
     #root {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 32%, #1e3a8a 0%, #091022 56%, #050811 100%);
-      font-family: "Inter", sans-serif;
-      color: #f8fafc;
-      overflow: hidden;
-    }
-    .a4-vid {
-      position: absolute;
-      inset: 0;
       width: 1920px;
       height: 1080px;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
     }
-    .a4-shade {
+    /* Brand Finale Header at Top-Center of Desk Stage (like Mibi 01:18-01:23) */
+    #brand-finale {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(6, 10, 22, 0.65) 0%, rgba(6, 10, 22, 0.88) 100%);
-      z-index: 2;
-    }
-    .a4-pillars {
-      position: absolute;
-      left: 100px;
-      right: 100px;
-      top: 230px;
-      display: flex;
-      gap: 28px;
-      justify-content: center;
-      z-index: 10;
-    }
-    .a4-pcard {
-      flex: 1;
-      padding: 34px 30px;
-      border-radius: 22px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1.5px solid rgba(96, 165, 250, 0.45);
-      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.5);
+      left: 50%;
+      top: 58px;
+      transform: translateX(-50%);
       text-align: center;
+      z-index: 18;
+      opacity: 0;
+      width: 1200px;
     }
-    .a4-pnum {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 28px;
-      font-weight: 700;
-      color: #60a5fa;
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
       margin-bottom: 14px;
     }
-    .a4-ptitle {
-      font-size: 34px;
+    .brand-squircle {
+      position: relative;
+      width: 88px;
+      height: 88px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
+      box-shadow: 0 20px 44px rgba(79, 70, 229, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-spark-dot {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 18px #34d399;
+    }
+    .brand-wordmark {
+      font-size: 74px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+    .brand-tagline {
+      font-size: 36px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 22px;
+    }
+    .brand-cta-pill {
+      display: inline-block;
+      padding: 16px 46px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
+      color: #ffffff;
+      font-size: 30px;
       font-weight: 800;
-      line-height: 1.28;
+      box-shadow: 0 18px 42px rgba(79, 70, 229, 0.38);
+    }
+    /* Executive Device Frame */
+    #a4-device {
+      position: absolute;
+      left: 400px;
+      top: 108px;
+      width: 1120px;
+      height: 684px;
+      border-radius: 34px;
+      background: #0f172a;
+      padding: 16px;
+      box-shadow:
+        0 40px 85px rgba(15, 23, 42, 0.28),
+        0 12px 26px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+      z-index: 8;
+    }
+    .a4-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      background: #f8fafc;
+      overflow: hidden;
+      padding: 28px 34px;
+    }
+    .exec-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .exec-h {
+      font-size: 30px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .exec-live {
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 26px;
+      font-weight: 800;
+    }
+    .widget-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 22px;
+    }
+    .w-dark {
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
       color: #ffffff;
     }
-    .a4-finale {
-      position: absolute;
-      left: 140px;
-      right: 140px;
-      top: 108px;
+    .w-big {
+      font-size: 56px;
+      font-weight: 900;
+      color: #34d399;
+      font-variant-numeric: tabular-nums;
+      margin: 8px 0;
+    }
+    .w-light {
+      padding: 28px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      z-index: 15;
-      opacity: 0;
+      justify-content: space-between;
     }
-    .a4-shots {
-      display: flex;
-      gap: 32px;
-      margin-bottom: 42px;
-    }
-    .a4-shot {
-      width: 540px;
-      height: 304px;
-      border-radius: 18px;
+    /* Floating Real-Life Celebration Video Card on Left (0.0s - 2.8s) */
+    #team-vid-card {
+      position: absolute;
+      left: 72px;
+      top: 185px;
+      width: 410px;
+      height: 270px;
+      border-radius: 26px;
       overflow: hidden;
-      border: 2px solid rgba(148, 163, 184, 0.38);
-      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
-      background: #0f172a;
-    }
-    .a4-brand {
-      font-size: 78px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      margin-bottom: 14px;
-    }
-    .a4-tagline {
-      font-size: 36px;
-      font-weight: 600;
-      color: #93c5fd;
-      margin-bottom: 32px;
-    }
-    .a4-cta {
-      padding: 18px 42px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #2563eb, #4f46e5);
-      color: #ffffff;
-      font-size: 28px;
-      font-weight: 700;
-      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.55);
+      border: 4px solid #ffffff;
+      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.25);
+      z-index: 14;
+      opacity: 0;
     }
   </style>
 
   <div id="root" data-composition-id="act4" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
-    <div id="a4-v1-wrap" class="a4-vid" style="z-index: 1" data-layout-ignore>
+    <!-- Top Brand Finale Lockup -->
+    <div id="brand-finale">
+      <div class="brand-lockup">
+        <div id="b-mark" class="brand-squircle" data-layout-ignore>
+          <svg viewBox="0 0 48 48" width="52" height="52" fill="none">
+            <path d="M14 32C14 22 21 16 34 16" stroke="#a5b4fc" stroke-width="5.5" stroke-linecap="round" />
+            <path d="M14 24C22 24 26 32 34 32" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" />
+          </svg>
+          <span class="brand-spark-dot"></span>
+        </div>
+        <span class="brand-wordmark">Continuum AI</span>
+      </div>
+      <div id="b-tag" class="brand-tagline">Bộ nhớ thông minh cho mọi doanh nghiệp</div>
+      <div id="b-cta" class="brand-cta-pill">continuum.ai • Trải nghiệm ngay</div>
+    </div>
+
+    <!-- Floating Success B-Roll Card -->
+    <div id="team-vid-card" data-layout-ignore>
       <video
         id="a4-v1"
         class="clip"
         src="assets/broll/broll-06-outcome-success.mp4"
         data-start="0"
-        data-duration="5.2"
+        data-duration="3.2"
         data-track-index="1"
         muted
         playsinline
-        style="width: 1920px; height: 1080px; object-fit: cover"
+        style="width: 100%; height: 100%; object-fit: cover"
       ></video>
-      <div class="a4-shade"></div>
     </div>
 
-    <!-- Beat 4A: 3 Giá trị cốt lõi -->
-    <div id="a4-pillars" class="a4-pillars">
-      <div id="a4-p1" class="a4-pcard">
-        <div class="a4-pnum">01 • BÀN GIAO</div>
-        <div class="a4-ptitle">Người rời đi<br />nhẹ nhàng</div>
-      </div>
-      <div id="a4-p2" class="a4-pcard">
-        <div class="a4-pnum">02 • TIẾP NHẬN</div>
-        <div class="a4-ptitle">Người mới vào<br />tự tin bắt nhịp</div>
-      </div>
-      <div id="a4-p3" class="a4-pcard" style="border-color: rgba(52, 211, 153, 0.55)">
-        <div class="a4-pnum" style="color: #34d399">03 • VẬN HÀNH</div>
-        <div class="a4-ptitle">Doanh nghiệp chạy<br />liền mạch mỗi ngày</div>
-      </div>
-    </div>
+    <!-- Executive Dashboard Showcase -->
+    <div id="a4-device">
+      <div class="a4-screen">
+        <div class="exec-top">
+          <span class="exec-h">Tổng Quan Vận Hành Doanh Nghiệp</span>
+          <span class="exec-live">● Vận hành liền mạch</span>
+        </div>
 
-    <!-- Beat 4B: Brand Finale -->
-    <div id="a4-finale" class="a4-finale">
-      <div class="a4-shots" data-layout-ignore>
-        <div class="a4-shot">
+        <div class="widget-grid">
+          <div class="w-dark">
+            <div style="font-size: 26px; font-weight: 700; color: #cbd5e1">Tri thức &amp; Lịch sử Dự án giữ lại</div>
+            <div class="w-big">100%</div>
+            <div style="font-size: 26px; font-weight: 600; color: #94a3b8">Không gián đoạn khi thay đổi nhân sự</div>
+          </div>
+
+          <div class="w-light">
+            <div>
+              <div style="font-size: 26px; font-weight: 700; color: #64748b">Thời gian bàn giao người mới</div>
+              <div style="font-size: 52px; font-weight: 900; color: #4f46e5; margin-top: 8px">5 phút</div>
+            </div>
+            <div style="font-size: 26px; font-weight: 700; color: #059669">✓ Giảm 85% thời gian hỏi lại</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; border-radius: 18px; overflow: hidden; height: 260px; border: 1.5px solid #e2e8f0" data-layout-ignore>
           <img
-            id="a4-s1"
+            id="a4-real-ui"
             class="clip"
             src="assets/ui/ui-01-dashboard.png"
             data-start="0"
-            data-duration="11.6"
+            data-duration="10.0"
             data-track-index="2"
-            alt="Continuum Dashboard"
-            style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
-          />
-        </div>
-        <div class="a4-shot">
-          <img
-            id="a4-s2"
-            class="clip"
-            src="assets/ui/ui-03-aichat.png"
-            data-start="0"
-            data-duration="11.6"
-            data-track-index="3"
-            alt="Continuum AI Chat"
+            alt="Continuum AI Overview"
             style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
           />
         </div>
       </div>
-      <div class="a4-brand">Continuum AI</div>
-      <div class="a4-tagline">Giữ trọn tri thức • Bứt phá đường dài</div>
-      <div class="a4-cta">BỘ NHỚ THÔNG MINH CHO MỌI DOANH NGHIỆP</div>
     </div>
   </div>
 
@@ -172,14 +231,21 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
 
-      tl.fromTo("#a4-p1", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.12);
-      tl.fromTo("#a4-p2", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.55);
-      tl.fromTo("#a4-p3", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 1.65);
+      // 0.0s - 2.85s: Executive Overview + Floating Celebration B-Roll Card
+      tl.fromTo("#a4-device", { scale: 1.06, x: 95 }, { scale: 1.0, x: 95, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo("#team-vid-card", { opacity: 0, x: -50, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.5)" }, 0.15);
 
-      // Brand Finale Reveal at 4.55s ("Continuum AI, giữ trọn tri thức, bứt phá đường dài.")
-      tl.to("#a4-pillars", { opacity: 0, y: -18, duration: 0.35 }, 4.4);
-      tl.to("#a4-v1-wrap", { opacity: 0, duration: 0.5 }, 4.45);
-      tl.fromTo("#a4-finale", { opacity: 0, y: 26, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power3.out" }, 4.65);
+      // 2.85s ("Continuum AI, bộ nhớ thông minh cho mọi doanh nghiệp"):
+      // Device glides smoothly down to bottom showcase, Brand Lockup springs in at top-center!
+      tl.to("#team-vid-card", { opacity: 0, scale: 0.88, duration: 0.3 }, 2.75);
+      tl.to("#a4-device", { x: 0, y: 318, scale: 0.86, duration: 0.72, ease: "power3.inOut" }, 2.82);
+
+      tl.fromTo("#brand-finale", { opacity: 0, y: 28, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.45)" }, 3.05);
+      tl.fromTo("#b-tag", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.42, ease: "power2.out" }, 3.35);
+      tl.fromTo("#b-cta", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.48, ease: "back.out(1.7)" }, 4.45);
+
+      // Gentle idle glow pulse on CTA pill until 10.0s
+      tl.to("#b-cta", { scale: 1.04, duration: 1.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, 5.1);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["act4"] = tl;

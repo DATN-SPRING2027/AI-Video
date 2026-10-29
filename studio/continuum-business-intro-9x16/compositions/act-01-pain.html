@@ -1,0 +1,555 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+    }
+    #a1-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 540px 760px;
+    }
+    /* Behind-device source cards fanning out at 17.5s */
+    .fan-card {
+      position: absolute;
+      width: 245px;
+      height: 128px;
+      left: 418px;
+      top: 720px;
+      border-radius: 22px;
+      padding: 18px 20px;
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.22);
+      opacity: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #a1-hero-bar {
+      position: absolute;
+      left: 50%;
+      top: 98px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 2px solid #c7d2fe;
+      box-shadow: 0 18px 40px rgba(79, 70, 229, 0.25);
+      font-size: 27px;
+      font-weight: 800;
+      color: #3730a3;
+      white-space: nowrap;
+      opacity: 0;
+      z-index: 30;
+    }
+    .hero-ic {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 26px;
+    }
+    /* Vertical Sleek Device Bezel (820x1100, exact Mibi vertical hero proportions) */
+    #a1-device {
+      position: absolute;
+      left: 130px;
+      top: 215px;
+      width: 820px;
+      height: 1100px;
+      border-radius: 48px;
+      background: #0f172a;
+      padding: 18px;
+      box-shadow:
+        0 42px 90px rgba(15, 23, 42, 0.30),
+        0 14px 30px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2.5px rgba(255, 255, 255, 0.20);
+      z-index: 5;
+    }
+    .dev-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 34px;
+      background: #f8fafc;
+      overflow: hidden;
+    }
+    .dev-island {
+      width: 150px;
+      height: 26px;
+      border-radius: 999px;
+      background: #0f172a;
+      margin: 14px auto 10px auto;
+    }
+    .dev-topbar {
+      padding: 10px 26px 18px 26px;
+      background: #ffffff;
+      border-bottom: 1.5px solid #e2e8f0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .tab-pill {
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #64748b;
+      background: #f1f5f9;
+    }
+    .tab-pill.active-pain {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .pain-pane {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 118px;
+      bottom: 0;
+      padding: 28px;
+      background: #f8fafc;
+    }
+    .resign-toast {
+      padding: 22px 24px;
+      border-radius: 22px;
+      background: #fff1f2;
+      border: 2px solid #fda4af;
+      box-shadow: 0 18px 36px rgba(225, 29, 72, 0.14);
+      margin-bottom: 24px;
+    }
+    .resign-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 10px;
+      background: #e11d48;
+      color: #ffffff;
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .resign-text {
+      font-size: 28px;
+      font-weight: 800;
+      color: #881337;
+      line-height: 1.32;
+    }
+    .file-card {
+      padding: 22px 24px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      margin-bottom: 18px;
+      font-size: 27px;
+      font-weight: 700;
+      color: #1e293b;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+    .file-tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #b45309;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .chat-bubble {
+      padding: 22px 26px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 18px;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.36;
+      color: #334155;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+    }
+    .chat-bubble.urgent {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #b91c1c;
+      font-weight: 800;
+    }
+    .locked-box {
+      margin-top: 80px;
+      padding: 46px 32px;
+      border-radius: 28px;
+      background: #fff1f2;
+      border: 2.5px dashed #fb7185;
+      text-align: center;
+    }
+    .locked-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: #be123c;
+      margin-bottom: 14px;
+      line-height: 1.28;
+    }
+    .locked-sub {
+      font-size: 28px;
+      font-weight: 600;
+      color: #9f1239;
+      line-height: 1.38;
+    }
+    .chaos-stack {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      top: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 15;
+    }
+    .chaos-banner {
+      padding: 22px 26px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.98);
+      border-left: 8px solid #ef4444;
+      box-shadow: 0 20px 44px rgba(15, 23, 42, 0.20);
+      font-size: 27px;
+      font-weight: 800;
+      color: #991b1b;
+      opacity: 0;
+    }
+    /* Mismatch Pane & Side-by-Side Printed Sheet (exact Mibi 00:14 layout!) */
+    .mismatch-card {
+      padding: 32px 28px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      margin-top: 28px;
+    }
+    .mismatch-num {
+      position: relative;
+      display: inline-block;
+      font-size: 56px;
+      font-weight: 900;
+      color: #dc2626;
+      padding: 10px 22px;
+      margin: 18px 0;
+    }
+    #paper-sheet {
+      position: absolute;
+      right: 40px;
+      top: 390px;
+      width: 460px;
+      height: 620px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 30px 65px rgba(15, 23, 42, 0.24);
+      padding: 34px 30px;
+      transform: rotate(3.5deg);
+      opacity: 0;
+      z-index: 8;
+    }
+    .paper-h {
+      font-size: 27px;
+      font-weight: 900;
+      color: #0f172a;
+      border-bottom: 2px solid #cbd5e1;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+    .paper-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 25px;
+      font-weight: 600;
+      color: #475569;
+      padding: 15px 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    .paper-miss {
+      position: relative;
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 33px;
+      font-weight: 900;
+      color: #dc2626;
+    }
+    #screen-blackout {
+      position: absolute;
+      inset: 0;
+      background: #090d16;
+      opacity: 0;
+      z-index: 20;
+    }
+    #screen-continuum {
+      position: absolute;
+      inset: 0;
+      background: #f8fafc;
+      padding: 36px 28px;
+      opacity: 0;
+      z-index: 25;
+    }
+    #a1-broll-cut {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      z-index: 40;
+      background: #090d16;
+    }
+    .broll-toast-warn {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      top: 170px;
+      padding: 24px 30px;
+      border-radius: 26px;
+      background: rgba(15, 23, 42, 0.90);
+      border: 2px solid rgba(251, 113, 133, 0.68);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.48);
+      color: #ffe4e6;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: center;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act1" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a1-stage">
+      <div id="fc-1" class="fan-card" style="background: linear-gradient(135deg, #2563eb, #1d4ed8)" data-layout-ignore>
+        <span>📁 Tài liệu</span><span>Đã kết nối</span>
+      </div>
+      <div id="fc-2" class="fan-card" style="background: linear-gradient(135deg, #7c3aed, #6d28d9)" data-layout-ignore>
+        <span>💬 Thảo luận</span><span>Đã kết nối</span>
+      </div>
+      <div id="fc-3" class="fan-card" style="background: linear-gradient(135deg, #059669, #047857)" data-layout-ignore>
+        <span>📋 Biên bản</span><span>Đã kết nối</span>
+      </div>
+      <div id="fc-4" class="fan-card" style="background: linear-gradient(135deg, #ea580c, #c2410c)" data-layout-ignore>
+        <span>📊 Tiến độ</span><span>Đã kết nối</span>
+      </div>
+
+      <div id="a1-hero-bar">
+        <span class="hero-ic" data-layout-ignore>🔒</span>
+        <span>✨ Kết nối trọn vẹn tài liệu &amp; lịch sử dự án</span>
+      </div>
+
+      <div id="a1-device">
+        <div class="dev-screen">
+          <div class="dev-island" data-layout-ignore></div>
+          <div class="dev-topbar" data-layout-ignore>
+            <span id="tp-1" class="tab-pill active-pain">Kho Drive</span>
+            <span id="tp-2" class="tab-pill">Tin nhắn</span>
+            <span id="tp-3" class="tab-pill">Máy cá nhân</span>
+          </div>
+
+          <div id="pane-drive" class="pain-pane">
+            <div id="resign-card" class="resign-toast" style="opacity: 0">
+              <div class="resign-badge">KHẨN CẤP</div>
+              <div class="resign-text">Trưởng nhóm Dự án xin nghỉ việc — Bàn giao sau 3 ngày!</div>
+            </div>
+            <div id="f1" class="file-card" style="opacity: 0">
+              <div>📄 Hop_dong_VIP_sua_lan7.docx</div>
+              <span class="file-tag">Bản nào mới nhất?</span>
+            </div>
+            <div id="f2" class="file-card" style="opacity: 0">
+              <div>📊 Bao_gia_Q3_nhap_cuoi.xlsx</div>
+              <span class="file-tag">Thiếu ghi chú</span>
+            </div>
+            <div id="f3" class="file-card" style="opacity: 0">
+              <div>📁 Thu_muc_khong_ten_2025/</div>
+              <span class="file-tag">Rời rạc</span>
+            </div>
+          </div>
+
+          <div id="pane-chat" class="pain-pane" style="opacity: 0">
+            <div id="cb1" class="chat-bubble">Ủa lý do đổi điều khoản thanh toán khách B nằm ở đâu nhỉ?</div>
+            <div id="cb2" class="chat-bubble">Hình như tháng trước chốt trong nhóm chat cũ rồi trôi mất...</div>
+            <div id="cb3" class="chat-bubble urgent">⚠️ Lội 400 tin nhắn vẫn không thấy bản chốt!</div>
+          </div>
+
+          <div id="pane-laptop" class="pain-pane" style="opacity: 0">
+            <div id="lock-card" class="locked-box">
+              <div class="locked-title">🔒 Biên bản họp nằm trong máy cá nhân</div>
+              <div class="locked-sub">Nhân sự cũ đã trả máy • Mất trắng lịch sử quyết định</div>
+            </div>
+          </div>
+
+          <div class="chaos-stack">
+            <div id="cbn-1" class="chaos-banner">❗ Không rõ ai duyệt quy trình cũ</div>
+            <div id="cbn-2" class="chaos-banner">❗ Người mới mất cả tuần hỏi lại</div>
+            <div id="cbn-3" class="chaos-banner">❗ Dự án đình trệ vì đứt thông tin</div>
+          </div>
+
+          <div id="pane-mismatch" class="pain-pane" style="opacity: 0">
+            <div style="font-size: 28px; font-weight: 800; color: #64748b">TIẾN ĐỘ NHÂN SỰ MỚI</div>
+            <div class="mismatch-card">
+              <div style="font-size: 32px; font-weight: 800; color: #1e293b">Dự án Trọng điểm Q4</div>
+              <div class="mismatch-num">
+                Chậm 7 ngày
+                <svg viewBox="0 0 430 116" width="430" height="116" style="position: absolute; left: -18px; top: -12px; pointer-events: none">
+                  <path
+                    id="red-circle-1"
+                    d="M28,60 C24,20 140,10 245,14 C355,18 414,38 408,64 C402,94 282,104 162,100 C56,96 18,76 46,46"
+                    fill="none"
+                    stroke="#ef4444"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    pathLength="1"
+                    style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+                  />
+                </svg>
+              </div>
+              <div style="font-size: 28px; font-weight: 600; color: #64748b; line-height: 1.38">
+                Phải lục từng tệp &amp; hỏi lại từ đầu
+              </div>
+            </div>
+          </div>
+
+          <div id="screen-blackout" data-layout-ignore></div>
+
+          <!-- Continuum Hero Screen Reveal -->
+          <div id="screen-continuum" data-layout-ignore>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px">
+              <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg,#4f46e5,#0ea5e9)"></div>
+              <div style="font-size: 34px; font-weight: 900; color: #0f172a">Continuum AI Labs</div>
+            </div>
+            <div style="padding: 28px; border-radius: 26px; background: linear-gradient(135deg,#1e1b4b,#4f46e5); color: #ffffff; margin-bottom: 24px">
+              <div style="font-size: 26px; color: #c7d2fe; font-weight: 700">Bộ nhớ chung toàn doanh nghiệp</div>
+              <div style="font-size: 56px; font-weight: 900; margin: 10px 0">100% Đồng bộ</div>
+              <div style="font-size: 26px; color: #a7f3d0; font-weight: 700">✓ 06 Phòng ban • 02 Dự án trọng điểm</div>
+            </div>
+            <div style="border-radius: 22px; overflow: hidden; height: 590px; border: 2px solid #e2e8f0">
+              <img
+                id="a1-ui-dash"
+                class="clip"
+                src="assets/ui/ui-01-dashboard.png"
+                data-start="0"
+                data-duration="19.1"
+                data-track-index="2"
+                alt="Continuum AI"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: left top"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Printed Checklist Paper Sheet on Right Side of Vertical Desk (12.65s - 15.25s) -->
+      <div id="paper-sheet" data-layout-ignore>
+        <div class="paper-h">PHIẾU BÀN GIAO CŨ</div>
+        <div class="paper-row"><span>Hợp đồng gốc</span><span>Chưa thấy</span></div>
+        <div class="paper-row"><span>Lịch sử giá</span><span>Trôi chat</span></div>
+        <div class="paper-row"><span>Biên bản BGĐ</span><span>Máy riêng</span></div>
+        <div class="paper-row"><span>Đầu việc cũ</span><span>Rời rạc</span></div>
+        <div class="paper-miss">
+          Thiếu 14 tài liệu!
+          <svg viewBox="0 0 390 100" width="390" height="100" style="position: absolute; left: -18px; top: -10px">
+            <path
+              id="red-circle-2"
+              d="M24,52 C20,18 128,10 220,14 C320,18 374,34 368,60 C362,84 252,92 146,88 C50,84 18,68 42,42"
+              fill="none"
+              stroke="#ef4444"
+              stroke-width="5.5"
+              stroke-linecap="round"
+              pathLength="1"
+              style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real-life Moody Vertical B-Roll Cutaway (10.45s - 12.65s) -->
+    <div id="a1-broll-cut" data-layout-allow-overlap>
+      <video
+        id="a1-broll-v1"
+        class="clip"
+        src="assets/broll/broll-01-pain-leaving.mp4"
+        data-start="10.4"
+        data-hf-media-start-basis="local"
+        data-duration="2.35"
+        data-track-index="1"
+        muted
+        playsinline
+        style="width: 1080px; height: 1920px; object-fit: cover; filter: brightness(0.58) contrast(1.12)"
+      ></video>
+      <div id="a1-broll-badge" class="broll-toast-warn">
+        ⚠️ Nhân sự giỏi rời đi — Kinh nghiệm &amp; bối cảnh công việc mất trắng
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a1-device", { opacity: 0, y: 54, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "back.out(1.35)" }, 0.05);
+      tl.fromTo(["#f1", "#f2"], { opacity: 0, y: 16 }, { opacity: 0.58, y: 0, duration: 0.4, stagger: 0.1, ease: "power2.out" }, 0.55);
+      tl.fromTo("#resign-card", { opacity: 0, y: -28, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.6)" }, 2.95);
+
+      tl.to(["#f1", "#f2"], { opacity: 1, duration: 0.25 }, 4.75);
+      tl.fromTo("#f3", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 4.92);
+      tl.to("#a1-stage", { scale: 1.12, y: 36, duration: 1.2, ease: "power2.inOut" }, 4.72);
+
+      tl.to("#pane-drive", { opacity: 0, duration: 0.16 }, 6.30);
+      tl.set("#tp-1", { className: "tab-pill" }, 6.32);
+      tl.set("#tp-2", { className: "tab-pill active-pain" }, 6.32);
+      tl.to("#pane-chat", { opacity: 1, duration: 0.18 }, 6.32);
+      tl.fromTo("#cb1", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 6.35);
+      tl.fromTo("#cb2", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 6.62);
+      tl.fromTo("#cb3", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.5)" }, 6.95);
+
+      tl.to("#pane-chat", { opacity: 0, duration: 0.16 }, 7.76);
+      tl.set("#tp-2", { className: "tab-pill" }, 7.78);
+      tl.set("#tp-3", { className: "tab-pill active-pain" }, 7.78);
+      tl.to("#pane-laptop", { opacity: 1, duration: 0.18 }, 7.78);
+      tl.fromTo("#lock-card", { x: -12 }, { x: 0, duration: 0.35, ease: "elastic.out(1.2, 0.3)" }, 7.82);
+
+      tl.to("#pane-laptop", { opacity: 0, duration: 0.16 }, 9.14);
+      tl.fromTo("#cbn-1", { opacity: 0, y: -24, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(1.5)" }, 9.18);
+      tl.fromTo("#cbn-2", { opacity: 0, y: -24, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(1.5)" }, 9.34);
+      tl.fromTo("#cbn-3", { opacity: 0, y: -24, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(1.5)" }, 9.50);
+
+      tl.to("#a1-broll-cut", { opacity: 1, duration: 0.18 }, 10.45);
+      tl.fromTo("#a1-broll-badge", { opacity: 0, y: -26, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.38, ease: "back.out(1.5)" }, 10.62);
+
+      // Side-by-side Mismatch on vertical desk (exact Mibi 00:14 phone-left + receipt-right!)
+      tl.set(["#pane-laptop", "#cbn-1", "#cbn-2", "#cbn-3"], { opacity: 0 }, 12.55);
+      tl.set("#pane-mismatch", { opacity: 1 }, 12.55);
+      tl.set("#a1-stage", { scale: 1, y: 0 }, 12.55);
+      tl.set("#a1-device", { x: -245, scale: 0.64 }, 12.55);
+      tl.set("#paper-sheet", { opacity: 1, x: 0 }, 12.55);
+
+      tl.to("#a1-broll-cut", { opacity: 0, duration: 0.18 }, 12.65);
+      tl.to("#red-circle-1", { strokeDashoffset: 0, duration: 0.48, ease: "power2.out" }, 13.35);
+      tl.to("#red-circle-2", { strokeDashoffset: 0, duration: 0.48, ease: "power2.out" }, 13.75);
+
+      tl.to("#paper-sheet", { x: 520, rotation: 20, opacity: 0, duration: 0.48, ease: "power3.in" }, 15.25);
+      tl.to("#screen-blackout", { opacity: 1, duration: 0.28, ease: "power2.out" }, 15.28);
+      tl.to("#a1-device", { x: 0, scale: 0.72, duration: 0.62, ease: "power3.inOut" }, 15.35);
+
+      tl.to("#screen-continuum", { opacity: 1, duration: 0.32, ease: "power2.out" }, 17.42);
+      tl.fromTo("#a1-hero-bar", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 17.48);
+      tl.fromTo("#fc-1", { opacity: 0, x: 0, y: 0, rotation: 0 }, { opacity: 1, x: -378, y: -230, rotation: -11, duration: 0.55, ease: "back.out(1.5)" }, 17.55);
+      tl.fromTo("#fc-2", { opacity: 0, x: 0, y: 0, rotation: 0 }, { opacity: 1, x: -378, y: 95, rotation: -6, duration: 0.55, ease: "back.out(1.5)" }, 17.61);
+      tl.fromTo("#fc-3", { opacity: 0, x: 0, y: 0, rotation: 0 }, { opacity: 1, x: 378, y: -220, rotation: 11, duration: 0.55, ease: "back.out(1.5)" }, 17.66);
+      tl.fromTo("#fc-4", { opacity: 0, x: 0, y: 0, rotation: 0 }, { opacity: 1, x: 378, y: 105, rotation: 7, duration: 0.55, ease: "back.out(1.5)" }, 17.72);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act1"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

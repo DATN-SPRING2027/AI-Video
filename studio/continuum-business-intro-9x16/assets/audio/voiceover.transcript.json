@@ -1,0 +1,1396 @@
+{
+  "source": "F:\\LEARN KÌ 8\\ĐATN\\CreateVideo\\studio\\continuum-business-intro\\assets\\audio\\voiceover.wav",
+  "language": "vi",
+  "language_probability": 1,
+  "duration": 54.308,
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 3.18,
+      "text": "Muốn công việc trôi chạy mà sợ nhất lúc nhân sự giò nghỉ việc.",
+      "words": [
+        {
+          "word": " Muốn",
+          "start": 0.0,
+          "end": 0.3,
+          "probability": 0.582
+        },
+        {
+          "word": " công",
+          "start": 0.3,
+          "end": 0.42,
+          "probability": 0.989
+        },
+        {
+          "word": " việc",
+          "start": 0.42,
+          "end": 0.6,
+          "probability": 1.0
+        },
+        {
+          "word": " trôi",
+          "start": 0.6,
+          "end": 0.82,
+          "probability": 0.831
+        },
+        {
+          "word": " chạy",
+          "start": 0.82,
+          "end": 1.2,
+          "probability": 0.66
+        },
+        {
+          "word": " mà",
+          "start": 1.2,
+          "end": 1.56,
+          "probability": 0.844
+        },
+        {
+          "word": " sợ",
+          "start": 1.56,
+          "end": 1.8,
+          "probability": 0.965
+        },
+        {
+          "word": " nhất",
+          "start": 1.8,
+          "end": 1.94,
+          "probability": 0.965
+        },
+        {
+          "word": " lúc",
+          "start": 1.94,
+          "end": 2.14,
+          "probability": 0.988
+        },
+        {
+          "word": " nhân",
+          "start": 2.14,
+          "end": 2.3,
+          "probability": 0.962
+        },
+        {
+          "word": " sự",
+          "start": 2.3,
+          "end": 2.52,
+          "probability": 0.972
+        },
+        {
+          "word": " giò",
+          "start": 2.52,
+          "end": 2.72,
+          "probability": 0.703
+        },
+        {
+          "word": " nghỉ",
+          "start": 2.72,
+          "end": 2.9,
+          "probability": 0.764
+        },
+        {
+          "word": " việc.",
+          "start": 2.9,
+          "end": 3.18,
+          "probability": 0.95
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 3.56,
+      "end": 6.22,
+      "text": "Tài liệu nằm trên đờ giáp, trao đổi trôi trong tỷ nhắn,",
+      "words": [
+        {
+          "word": " Tài",
+          "start": 3.56,
+          "end": 3.82,
+          "probability": 0.899
+        },
+        {
+          "word": " liệu",
+          "start": 3.82,
+          "end": 4.0,
+          "probability": 0.989
+        },
+        {
+          "word": " nằm",
+          "start": 4.0,
+          "end": 4.16,
+          "probability": 0.989
+        },
+        {
+          "word": " trên",
+          "start": 4.16,
+          "end": 4.36,
+          "probability": 1.0
+        },
+        {
+          "word": " đờ",
+          "start": 4.36,
+          "end": 4.54,
+          "probability": 0.555
+        },
+        {
+          "word": " giáp,",
+          "start": 4.54,
+          "end": 4.78,
+          "probability": 0.686
+        },
+        {
+          "word": " trao",
+          "start": 5.14,
+          "end": 5.28,
+          "probability": 0.969
+        },
+        {
+          "word": " đổi",
+          "start": 5.28,
+          "end": 5.4,
+          "probability": 0.656
+        },
+        {
+          "word": " trôi",
+          "start": 5.4,
+          "end": 5.62,
+          "probability": 0.983
+        },
+        {
+          "word": " trong",
+          "start": 5.62,
+          "end": 5.78,
+          "probability": 0.831
+        },
+        {
+          "word": " tỷ",
+          "start": 5.78,
+          "end": 5.92,
+          "probability": 0.627
+        },
+        {
+          "word": " nhắn,",
+          "start": 5.92,
+          "end": 6.22,
+          "probability": 0.954
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 6.6,
+      "end": 8.8,
+      "text": "biên bản lưu máy cá nhân, tìm đầu cũng rối.",
+      "words": [
+        {
+          "word": " biên",
+          "start": 6.6,
+          "end": 6.72,
+          "probability": 0.917
+        },
+        {
+          "word": " bản",
+          "start": 6.72,
+          "end": 6.9,
+          "probability": 0.979
+        },
+        {
+          "word": " lưu",
+          "start": 6.9,
+          "end": 7.1,
+          "probability": 0.747
+        },
+        {
+          "word": " máy",
+          "start": 7.1,
+          "end": 7.3,
+          "probability": 0.945
+        },
+        {
+          "word": " cá",
+          "start": 7.3,
+          "end": 7.42,
+          "probability": 0.987
+        },
+        {
+          "word": " nhân,",
+          "start": 7.42,
+          "end": 7.62,
+          "probability": 0.996
+        },
+        {
+          "word": " tìm",
+          "start": 8.04,
+          "end": 8.2,
+          "probability": 0.99
+        },
+        {
+          "word": " đầu",
+          "start": 8.2,
+          "end": 8.32,
+          "probability": 0.969
+        },
+        {
+          "word": " cũng",
+          "start": 8.32,
+          "end": 8.5,
+          "probability": 0.991
+        },
+        {
+          "word": " rối.",
+          "start": 8.5,
+          "end": 8.8,
+          "probability": 0.698
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 9.32,
+      "end": 11.0,
+      "text": "Người cú đi, kinh nghiệm mất trắng.",
+      "words": [
+        {
+          "word": " Người",
+          "start": 9.32,
+          "end": 9.5,
+          "probability": 0.961
+        },
+        {
+          "word": " cú",
+          "start": 9.5,
+          "end": 9.68,
+          "probability": 0.66
+        },
+        {
+          "word": " đi,",
+          "start": 9.68,
+          "end": 9.92,
+          "probability": 0.995
+        },
+        {
+          "word": " kinh",
+          "start": 10.3,
+          "end": 10.38,
+          "probability": 0.95
+        },
+        {
+          "word": " nghiệm",
+          "start": 10.38,
+          "end": 10.58,
+          "probability": 0.995
+        },
+        {
+          "word": " mất",
+          "start": 10.58,
+          "end": 10.72,
+          "probability": 0.967
+        },
+        {
+          "word": " trắng.",
+          "start": 10.72,
+          "end": 11.0,
+          "probability": 0.846
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 11.62,
+      "end": 13.48,
+      "text": "Người mới vào, cả tuần vẫn loai hoay.",
+      "words": [
+        {
+          "word": " Người",
+          "start": 11.62,
+          "end": 11.76,
+          "probability": 0.981
+        },
+        {
+          "word": " mới",
+          "start": 11.76,
+          "end": 11.92,
+          "probability": 0.999
+        },
+        {
+          "word": " vào,",
+          "start": 11.92,
+          "end": 12.22,
+          "probability": 0.995
+        },
+        {
+          "word": " cả",
+          "start": 12.56,
+          "end": 12.68,
+          "probability": 0.965
+        },
+        {
+          "word": " tuần",
+          "start": 12.68,
+          "end": 12.9,
+          "probability": 0.99
+        },
+        {
+          "word": " vẫn",
+          "start": 12.9,
+          "end": 13.02,
+          "probability": 0.976
+        },
+        {
+          "word": " loai",
+          "start": 13.02,
+          "end": 13.26,
+          "probability": 0.795
+        },
+        {
+          "word": " hoay.",
+          "start": 13.26,
+          "end": 13.48,
+          "probability": 0.831
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 14.06,
+      "end": 15.74,
+      "text": "Thôi, đừng lục tim thủ công nữa.",
+      "words": [
+        {
+          "word": " Thôi,",
+          "start": 14.06,
+          "end": 14.28,
+          "probability": 0.782
+        },
+        {
+          "word": " đừng",
+          "start": 14.68,
+          "end": 14.78,
+          "probability": 0.979
+        },
+        {
+          "word": " lục",
+          "start": 14.78,
+          "end": 14.96,
+          "probability": 0.891
+        },
+        {
+          "word": " tim",
+          "start": 14.96,
+          "end": 15.12,
+          "probability": 0.849
+        },
+        {
+          "word": " thủ",
+          "start": 15.12,
+          "end": 15.34,
+          "probability": 0.985
+        },
+        {
+          "word": " công",
+          "start": 15.34,
+          "end": 15.5,
+          "probability": 0.987
+        },
+        {
+          "word": " nữa.",
+          "start": 15.5,
+          "end": 15.74,
+          "probability": 1.0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 16.3,
+      "end": 17.54,
+      "text": "Để cân tin niu âm ai lò.",
+      "words": [
+        {
+          "word": " Để",
+          "start": 16.3,
+          "end": 16.5,
+          "probability": 0.981
+        },
+        {
+          "word": " cân",
+          "start": 16.5,
+          "end": 16.68,
+          "probability": 0.605
+        },
+        {
+          "word": " tin",
+          "start": 16.68,
+          "end": 16.84,
+          "probability": 0.481
+        },
+        {
+          "word": " niu",
+          "start": 16.84,
+          "end": 17.04,
+          "probability": 0.545
+        },
+        {
+          "word": " âm",
+          "start": 17.04,
+          "end": 17.14,
+          "probability": 0.519
+        },
+        {
+          "word": " ai",
+          "start": 17.14,
+          "end": 17.3,
+          "probability": 0.933
+        },
+        {
+          "word": " lò.",
+          "start": 17.3,
+          "end": 17.54,
+          "probability": 0.81
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 18.16,
+      "end": 21.54,
+      "text": "Mọi dự án, đầu việc và ghi chú hàng ngày tự gom gọn về một chỗ.",
+      "words": [
+        {
+          "word": " Mọi",
+          "start": 18.16,
+          "end": 18.34,
+          "probability": 0.982
+        },
+        {
+          "word": " dự",
+          "start": 18.34,
+          "end": 18.52,
+          "probability": 0.948
+        },
+        {
+          "word": " án,",
+          "start": 18.52,
+          "end": 18.82,
+          "probability": 0.999
+        },
+        {
+          "word": " đầu",
+          "start": 19.18,
+          "end": 19.24,
+          "probability": 0.732
+        },
+        {
+          "word": " việc",
+          "start": 19.24,
+          "end": 19.42,
+          "probability": 0.668
+        },
+        {
+          "word": " và",
+          "start": 19.42,
+          "end": 19.62,
+          "probability": 0.978
+        },
+        {
+          "word": " ghi",
+          "start": 19.62,
+          "end": 19.8,
+          "probability": 0.842
+        },
+        {
+          "word": " chú",
+          "start": 19.8,
+          "end": 19.98,
+          "probability": 0.765
+        },
+        {
+          "word": " hàng",
+          "start": 19.98,
+          "end": 20.14,
+          "probability": 0.947
+        },
+        {
+          "word": " ngày",
+          "start": 20.14,
+          "end": 20.36,
+          "probability": 0.984
+        },
+        {
+          "word": " tự",
+          "start": 20.36,
+          "end": 20.56,
+          "probability": 0.963
+        },
+        {
+          "word": " gom",
+          "start": 20.56,
+          "end": 20.74,
+          "probability": 0.877
+        },
+        {
+          "word": " gọn",
+          "start": 20.74,
+          "end": 20.96,
+          "probability": 0.985
+        },
+        {
+          "word": " về",
+          "start": 20.96,
+          "end": 21.14,
+          "probability": 0.991
+        },
+        {
+          "word": " một",
+          "start": 21.14,
+          "end": 21.26,
+          "probability": 0.971
+        },
+        {
+          "word": " chỗ.",
+          "start": 21.26,
+          "end": 21.54,
+          "probability": 0.991
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 22.2,
+      "end": 24.92,
+      "text": "Sáng học nhanh, chiều chốt việc, tối cập nhật tiến độ.",
+      "words": [
+        {
+          "word": " Sáng",
+          "start": 22.2,
+          "end": 22.34,
+          "probability": 0.979
+        },
+        {
+          "word": " học",
+          "start": 22.34,
+          "end": 22.56,
+          "probability": 0.532
+        },
+        {
+          "word": " nhanh,",
+          "start": 22.56,
+          "end": 22.84,
+          "probability": 0.98
+        },
+        {
+          "word": " chiều",
+          "start": 23.14,
+          "end": 23.3,
+          "probability": 0.937
+        },
+        {
+          "word": " chốt",
+          "start": 23.3,
+          "end": 23.46,
+          "probability": 0.648
+        },
+        {
+          "word": " việc,",
+          "start": 23.46,
+          "end": 23.68,
+          "probability": 0.996
+        },
+        {
+          "word": " tối",
+          "start": 24.08,
+          "end": 24.16,
+          "probability": 0.949
+        },
+        {
+          "word": " cập",
+          "start": 24.16,
+          "end": 24.34,
+          "probability": 0.959
+        },
+        {
+          "word": " nhật",
+          "start": 24.34,
+          "end": 24.52,
+          "probability": 0.769
+        },
+        {
+          "word": " tiến",
+          "start": 24.52,
+          "end": 24.72,
+          "probability": 0.912
+        },
+        {
+          "word": " độ.",
+          "start": 24.72,
+          "end": 24.92,
+          "probability": 0.419
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 25.32,
+      "end": 28.86,
+      "text": "Làm tới đâu, cân tin niu âm ai tự liu, tự sắp xếp tới đó.",
+      "words": [
+        {
+          "word": " Làm",
+          "start": 25.32,
+          "end": 25.68,
+          "probability": 0.665
+        },
+        {
+          "word": " tới",
+          "start": 25.68,
+          "end": 25.8,
+          "probability": 0.993
+        },
+        {
+          "word": " đâu,",
+          "start": 25.8,
+          "end": 26.06,
+          "probability": 0.919
+        },
+        {
+          "word": " cân",
+          "start": 26.46,
+          "end": 26.56,
+          "probability": 0.604
+        },
+        {
+          "word": " tin",
+          "start": 26.56,
+          "end": 26.74,
+          "probability": 0.144
+        },
+        {
+          "word": " niu",
+          "start": 26.74,
+          "end": 26.9,
+          "probability": 0.121
+        },
+        {
+          "word": " âm",
+          "start": 26.9,
+          "end": 27.0,
+          "probability": 0.532
+        },
+        {
+          "word": " ai",
+          "start": 27.0,
+          "end": 27.14,
+          "probability": 0.952
+        },
+        {
+          "word": " tự",
+          "start": 27.14,
+          "end": 27.32,
+          "probability": 0.953
+        },
+        {
+          "word": " liu,",
+          "start": 27.32,
+          "end": 27.62,
+          "probability": 0.571
+        },
+        {
+          "word": " tự",
+          "start": 27.96,
+          "end": 28.08,
+          "probability": 0.985
+        },
+        {
+          "word": " sắp",
+          "start": 28.08,
+          "end": 28.3,
+          "probability": 0.958
+        },
+        {
+          "word": " xếp",
+          "start": 28.3,
+          "end": 28.52,
+          "probability": 0.889
+        },
+        {
+          "word": " tới",
+          "start": 28.52,
+          "end": 28.62,
+          "probability": 0.995
+        },
+        {
+          "word": " đó.",
+          "start": 28.62,
+          "end": 28.86,
+          "probability": 0.997
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 29.48,
+      "end": 30.58,
+      "text": "Cơn bàn ra cho người mới.",
+      "words": [
+        {
+          "word": " Cơn",
+          "start": 29.48,
+          "end": 29.6,
+          "probability": 0.768
+        },
+        {
+          "word": " bàn",
+          "start": 29.6,
+          "end": 29.78,
+          "probability": 0.842
+        },
+        {
+          "word": " ra",
+          "start": 29.78,
+          "end": 29.96,
+          "probability": 0.42
+        },
+        {
+          "word": " cho",
+          "start": 29.96,
+          "end": 30.14,
+          "probability": 0.967
+        },
+        {
+          "word": " người",
+          "start": 30.14,
+          "end": 30.32,
+          "probability": 0.998
+        },
+        {
+          "word": " mới.",
+          "start": 30.32,
+          "end": 30.58,
+          "probability": 0.998
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 31.12,
+      "end": 33.62,
+      "text": "Một chạm mờ hồ sơ, vài phút là bắt nhịt ngay.",
+      "words": [
+        {
+          "word": " Một",
+          "start": 31.12,
+          "end": 31.3,
+          "probability": 0.974
+        },
+        {
+          "word": " chạm",
+          "start": 31.3,
+          "end": 31.58,
+          "probability": 0.864
+        },
+        {
+          "word": " mờ",
+          "start": 31.58,
+          "end": 31.7,
+          "probability": 0.796
+        },
+        {
+          "word": " hồ",
+          "start": 31.7,
+          "end": 31.88,
+          "probability": 0.782
+        },
+        {
+          "word": " sơ,",
+          "start": 31.88,
+          "end": 32.18,
+          "probability": 0.92
+        },
+        {
+          "word": " vài",
+          "start": 32.44,
+          "end": 32.72,
+          "probability": 0.904
+        },
+        {
+          "word": " phút",
+          "start": 32.72,
+          "end": 32.88,
+          "probability": 0.985
+        },
+        {
+          "word": " là",
+          "start": 32.88,
+          "end": 33.06,
+          "probability": 0.98
+        },
+        {
+          "word": " bắt",
+          "start": 33.06,
+          "end": 33.2,
+          "probability": 0.969
+        },
+        {
+          "word": " nhịt",
+          "start": 33.2,
+          "end": 33.44,
+          "probability": 0.923
+        },
+        {
+          "word": " ngay.",
+          "start": 33.44,
+          "end": 33.62,
+          "probability": 0.975
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 34.2,
+      "end": 36.24,
+      "text": "Quên mất vì sao tháng trước đổi quy trình hợp đồng.",
+      "words": [
+        {
+          "word": " Quên",
+          "start": 34.2,
+          "end": 34.32,
+          "probability": 0.884
+        },
+        {
+          "word": " mất",
+          "start": 34.32,
+          "end": 34.5,
+          "probability": 0.857
+        },
+        {
+          "word": " vì",
+          "start": 34.5,
+          "end": 34.7,
+          "probability": 0.776
+        },
+        {
+          "word": " sao",
+          "start": 34.7,
+          "end": 34.88,
+          "probability": 0.468
+        },
+        {
+          "word": " tháng",
+          "start": 34.88,
+          "end": 35.12,
+          "probability": 0.974
+        },
+        {
+          "word": " trước",
+          "start": 35.12,
+          "end": 35.26,
+          "probability": 0.603
+        },
+        {
+          "word": " đổi",
+          "start": 35.26,
+          "end": 35.44,
+          "probability": 0.833
+        },
+        {
+          "word": " quy",
+          "start": 35.44,
+          "end": 35.62,
+          "probability": 0.89
+        },
+        {
+          "word": " trình",
+          "start": 35.62,
+          "end": 35.84,
+          "probability": 0.98
+        },
+        {
+          "word": " hợp",
+          "start": 35.84,
+          "end": 36.04,
+          "probability": 0.988
+        },
+        {
+          "word": " đồng.",
+          "start": 36.04,
+          "end": 36.24,
+          "probability": 0.882
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 36.76,
+      "end": 38.68,
+      "text": "Chỉ cần hỏi tự nhiên như họ người đi trước.",
+      "words": [
+        {
+          "word": " Chỉ",
+          "start": 36.76,
+          "end": 37.0,
+          "probability": 0.97
+        },
+        {
+          "word": " cần",
+          "start": 37.0,
+          "end": 37.14,
+          "probability": 0.998
+        },
+        {
+          "word": " hỏi",
+          "start": 37.14,
+          "end": 37.34,
+          "probability": 0.985
+        },
+        {
+          "word": " tự",
+          "start": 37.34,
+          "end": 37.52,
+          "probability": 0.98
+        },
+        {
+          "word": " nhiên",
+          "start": 37.52,
+          "end": 37.78,
+          "probability": 0.984
+        },
+        {
+          "word": " như",
+          "start": 37.78,
+          "end": 37.92,
+          "probability": 0.973
+        },
+        {
+          "word": " họ",
+          "start": 37.92,
+          "end": 38.08,
+          "probability": 0.796
+        },
+        {
+          "word": " người",
+          "start": 38.08,
+          "end": 38.28,
+          "probability": 0.862
+        },
+        {
+          "word": " đi",
+          "start": 38.28,
+          "end": 38.46,
+          "probability": 0.986
+        },
+        {
+          "word": " trước.",
+          "start": 38.46,
+          "end": 38.68,
+          "probability": 0.99
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 39.28,
+      "end": 43.02,
+      "text": "Cân tin niu âm ai trả lời tức thi, chỉ rõ biên bản gốc ngày nào ai chốt.",
+      "words": [
+        {
+          "word": " Cân",
+          "start": 39.28,
+          "end": 39.48,
+          "probability": 0.99
+        },
+        {
+          "word": " tin",
+          "start": 39.48,
+          "end": 39.64,
+          "probability": 0.722
+        },
+        {
+          "word": " niu",
+          "start": 39.64,
+          "end": 39.86,
+          "probability": 0.993
+        },
+        {
+          "word": " âm",
+          "start": 39.86,
+          "end": 39.94,
+          "probability": 0.999
+        },
+        {
+          "word": " ai",
+          "start": 39.94,
+          "end": 40.1,
+          "probability": 0.995
+        },
+        {
+          "word": " trả",
+          "start": 40.1,
+          "end": 40.3,
+          "probability": 0.895
+        },
+        {
+          "word": " lời",
+          "start": 40.3,
+          "end": 40.44,
+          "probability": 0.996
+        },
+        {
+          "word": " tức",
+          "start": 40.44,
+          "end": 40.62,
+          "probability": 0.977
+        },
+        {
+          "word": " thi,",
+          "start": 40.62,
+          "end": 40.86,
+          "probability": 0.226
+        },
+        {
+          "word": " chỉ",
+          "start": 41.24,
+          "end": 41.38,
+          "probability": 0.993
+        },
+        {
+          "word": " rõ",
+          "start": 41.38,
+          "end": 41.56,
+          "probability": 0.569
+        },
+        {
+          "word": " biên",
+          "start": 41.56,
+          "end": 41.72,
+          "probability": 0.973
+        },
+        {
+          "word": " bản",
+          "start": 41.72,
+          "end": 41.9,
+          "probability": 0.657
+        },
+        {
+          "word": " gốc",
+          "start": 41.9,
+          "end": 42.06,
+          "probability": 0.968
+        },
+        {
+          "word": " ngày",
+          "start": 42.06,
+          "end": 42.26,
+          "probability": 0.947
+        },
+        {
+          "word": " nào",
+          "start": 42.26,
+          "end": 42.52,
+          "probability": 0.998
+        },
+        {
+          "word": " ai",
+          "start": 42.52,
+          "end": 42.78,
+          "probability": 0.733
+        },
+        {
+          "word": " chốt.",
+          "start": 42.78,
+          "end": 43.02,
+          "probability": 0.931
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 43.64,
+      "end": 46.46,
+      "text": "Không đoán mò và tự ấn thông tin nhạy cảm theo cấp quyền.",
+      "words": [
+        {
+          "word": " Không",
+          "start": 43.64,
+          "end": 43.82,
+          "probability": 0.959
+        },
+        {
+          "word": " đoán",
+          "start": 43.82,
+          "end": 44.02,
+          "probability": 0.939
+        },
+        {
+          "word": " mò",
+          "start": 44.02,
+          "end": 44.28,
+          "probability": 0.664
+        },
+        {
+          "word": " và",
+          "start": 44.28,
+          "end": 44.74,
+          "probability": 0.748
+        },
+        {
+          "word": " tự",
+          "start": 44.74,
+          "end": 44.94,
+          "probability": 0.933
+        },
+        {
+          "word": " ấn",
+          "start": 44.94,
+          "end": 45.08,
+          "probability": 0.704
+        },
+        {
+          "word": " thông",
+          "start": 45.08,
+          "end": 45.24,
+          "probability": 0.987
+        },
+        {
+          "word": " tin",
+          "start": 45.24,
+          "end": 45.4,
+          "probability": 0.985
+        },
+        {
+          "word": " nhạy",
+          "start": 45.4,
+          "end": 45.64,
+          "probability": 0.936
+        },
+        {
+          "word": " cảm",
+          "start": 45.64,
+          "end": 45.8,
+          "probability": 0.899
+        },
+        {
+          "word": " theo",
+          "start": 45.8,
+          "end": 45.98,
+          "probability": 0.997
+        },
+        {
+          "word": " cấp",
+          "start": 45.98,
+          "end": 46.16,
+          "probability": 0.959
+        },
+        {
+          "word": " quyền.",
+          "start": 46.16,
+          "end": 46.46,
+          "probability": 0.988
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 47.04,
+      "end": 49.28,
+      "text": "Nhìn bàn hình chính là nắm chọn nhịp chạy cả công ty.",
+      "words": [
+        {
+          "word": " Nhìn",
+          "start": 47.04,
+          "end": 47.22,
+          "probability": 0.988
+        },
+        {
+          "word": " bàn",
+          "start": 47.22,
+          "end": 47.4,
+          "probability": 0.651
+        },
+        {
+          "word": " hình",
+          "start": 47.4,
+          "end": 47.54,
+          "probability": 0.994
+        },
+        {
+          "word": " chính",
+          "start": 47.54,
+          "end": 47.74,
+          "probability": 0.997
+        },
+        {
+          "word": " là",
+          "start": 47.74,
+          "end": 47.9,
+          "probability": 0.997
+        },
+        {
+          "word": " nắm",
+          "start": 47.9,
+          "end": 48.06,
+          "probability": 0.936
+        },
+        {
+          "word": " chọn",
+          "start": 48.06,
+          "end": 48.28,
+          "probability": 0.865
+        },
+        {
+          "word": " nhịp",
+          "start": 48.28,
+          "end": 48.46,
+          "probability": 0.94
+        },
+        {
+          "word": " chạy",
+          "start": 48.46,
+          "end": 48.72,
+          "probability": 0.915
+        },
+        {
+          "word": " cả",
+          "start": 48.72,
+          "end": 48.86,
+          "probability": 0.656
+        },
+        {
+          "word": " công",
+          "start": 48.86,
+          "end": 49.04,
+          "probability": 0.995
+        },
+        {
+          "word": " ty.",
+          "start": 49.04,
+          "end": 49.28,
+          "probability": 0.99
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 49.8,
+      "end": 52.56,
+      "text": "Cân tin niu âm ai, bộ nhớ thông minh cho mọi dân nghiệp.",
+      "words": [
+        {
+          "word": " Cân",
+          "start": 49.8,
+          "end": 50.06,
+          "probability": 0.996
+        },
+        {
+          "word": " tin",
+          "start": 50.06,
+          "end": 50.22,
+          "probability": 0.985
+        },
+        {
+          "word": " niu",
+          "start": 50.22,
+          "end": 50.4,
+          "probability": 0.997
+        },
+        {
+          "word": " âm",
+          "start": 50.4,
+          "end": 50.48,
+          "probability": 1.0
+        },
+        {
+          "word": " ai,",
+          "start": 50.48,
+          "end": 50.74,
+          "probability": 0.997
+        },
+        {
+          "word": " bộ",
+          "start": 51.06,
+          "end": 51.18,
+          "probability": 0.974
+        },
+        {
+          "word": " nhớ",
+          "start": 51.18,
+          "end": 51.38,
+          "probability": 0.994
+        },
+        {
+          "word": " thông",
+          "start": 51.38,
+          "end": 51.56,
+          "probability": 0.994
+        },
+        {
+          "word": " minh",
+          "start": 51.56,
+          "end": 51.8,
+          "probability": 0.764
+        },
+        {
+          "word": " cho",
+          "start": 51.8,
+          "end": 51.92,
+          "probability": 0.988
+        },
+        {
+          "word": " mọi",
+          "start": 51.92,
+          "end": 52.12,
+          "probability": 0.993
+        },
+        {
+          "word": " dân",
+          "start": 52.12,
+          "end": 52.28,
+          "probability": 0.635
+        },
+        {
+          "word": " nghiệp.",
+          "start": 52.28,
+          "end": 52.56,
+          "probability": 0.972
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 52.56,
+      "end": 54.02,
+      "text": "Chạy nghiệp ngay hôm đây.",
+      "words": [
+        {
+          "word": " Chạy",
+          "start": 52.56,
+          "end": 53.32,
+          "probability": 0.857
+        },
+        {
+          "word": " nghiệp",
+          "start": 53.32,
+          "end": 53.5,
+          "probability": 0.846
+        },
+        {
+          "word": " ngay",
+          "start": 53.5,
+          "end": 53.66,
+          "probability": 0.905
+        },
+        {
+          "word": " hôm",
+          "start": 53.66,
+          "end": 53.86,
+          "probability": 0.974
+        },
+        {
+          "word": " đây.",
+          "start": 53.86,
+          "end": 54.02,
+          "probability": 0.614
+        }
+      ]
+    }
+  ]
+}

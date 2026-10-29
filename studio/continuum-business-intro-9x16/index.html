@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Continuum AI — Bộ Nhớ Thông Minh Cho Doanh Nghiệp (v2 Motion Edition • 9:16)</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #d8e1f3;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+      /* Layer 1: Vertical Tactile Daylight Desk Stage (exact Mibi 9:16 spatial proportions) */
+      #desk-stage {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.76) 0%, rgba(255, 255, 255, 0) 56%),
+          linear-gradient(165deg, #e6edfb 0%, #d3def3 52%, #c3d0eb 100%);
+        z-index: 0;
+      }
+      .desk-grain {
+        position: absolute;
+        inset: 0;
+        opacity: 0.045;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.65'/%3E%3C/svg%3E");
+      }
+      .desk-vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 62%, rgba(15, 23, 42, 0.13) 100%);
+      }
+      .prop-sticky {
+        position: absolute;
+        left: -26px;
+        top: -16px;
+        width: 240px;
+        height: 190px;
+        background: linear-gradient(145deg, #fef08a 0%, #fde047 100%);
+        border-radius: 6px 6px 24px 6px;
+        transform: rotate(-12deg);
+        box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14);
+        padding: 46px 24px 18px 46px;
+        color: #1e3a8a;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 1.25;
+      }
+      .prop-pen {
+        position: absolute;
+        right: 48px;
+        top: -12px;
+        width: 260px;
+        height: 20px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #0f172a 0%, #334155 78%, #cbd5e1 80%, #94a3b8 100%);
+        transform: rotate(-42deg);
+        box-shadow: 0 14px 24px rgba(15, 23, 42, 0.2);
+      }
+      .prop-clip {
+        position: absolute;
+        right: 112px;
+        bottom: 330px;
+        width: 72px;
+        height: 26px;
+        border-radius: 999px;
+        border: 4px solid #94a3b8;
+        transform: rotate(-32deg);
+        box-shadow: 0 4px 8px rgba(15, 23, 42, 0.12);
+      }
+      .prop-plant {
+        position: absolute;
+        left: -48px;
+        bottom: -48px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 45% 45%, #b45309 0%, #92400e 66%, #78350f 100%);
+        border: 14px solid #d97706;
+        box-shadow: 18px -12px 42px rgba(15, 23, 42, 0.24);
+      }
+      .prop-saucer {
+        position: absolute;
+        right: -36px;
+        bottom: -40px;
+        width: 316px;
+        height: 316px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #ffffff 0%, #e2e8f0 100%);
+        box-shadow: -16px -12px 44px rgba(15, 23, 42, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .prop-cup {
+        width: 226px;
+        height: 226px;
+        border-radius: 50%;
+        background: #ffffff;
+        padding: 15px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+      }
+      .prop-coffee {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: radial-gradient(circle at 38% 36%, #d99b66 0%, #b06d3b 58%, #7c421c 100%);
+        position: relative;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="58"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="desk-stage" data-layout-ignore>
+        <div class="desk-grain"></div>
+        <div class="prop-sticky">Bàn giao<br />dự án Q4!</div>
+        <div class="prop-pen"></div>
+        <div class="prop-clip"></div>
+        <div class="prop-plant">
+          <svg viewBox="0 0 200 200" width="272" height="272" style="display: block">
+            <g transform="translate(100,100)">
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#22c55e" transform="rotate(0)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#16a34a" transform="rotate(45)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#22c55e" transform="rotate(90)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#16a34a" transform="rotate(135)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#22c55e" transform="rotate(180)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#16a34a" transform="rotate(225)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#22c55e" transform="rotate(270)" />
+              <ellipse cx="0" cy="-54" rx="22" ry="44" fill="#16a34a" transform="rotate(315)" />
+              <ellipse cx="0" cy="-32" rx="16" ry="30" fill="#4ade80" transform="rotate(22)" />
+              <ellipse cx="0" cy="-32" rx="16" ry="30" fill="#86efac" transform="rotate(82)" />
+              <ellipse cx="0" cy="-32" rx="16" ry="30" fill="#4ade80" transform="rotate(142)" />
+              <ellipse cx="0" cy="-32" rx="16" ry="30" fill="#86efac" transform="rotate(202)" />
+              <ellipse cx="0" cy="-32" rx="16" ry="30" fill="#4ade80" transform="rotate(262)" />
+              <ellipse cx="0" cy="-32" rx="16" ry="30" fill="#86efac" transform="rotate(322)" />
+              <circle cx="0" cy="0" r="16" fill="#bbf7d0" />
+            </g>
+          </svg>
+        </div>
+        <div class="prop-saucer">
+          <div class="prop-cup">
+            <div class="prop-coffee">
+              <svg viewBox="0 0 100 100" width="100%" height="100%">
+                <path
+                  d="M50 72 C24 54, 18 28, 36 24 C45 22, 50 32, 50 36 C50 32, 55 22, 64 24 C82 28, 76 54, 50 72 Z"
+                  fill="#fffbeb"
+                  opacity="0.9"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="desk-vignette"></div>
+      </div>
+
+      <div
+        id="act1"
+        class="clip"
+        data-composition-id="act1"
+        data-composition-src="compositions/act-01-pain.html"
+        data-track-kind="graphics"
+        data-start="0"
+        data-duration="19.1"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+
+      <div
+        id="act2"
+        class="clip"
+        data-composition-id="act2"
+        data-composition-src="compositions/act-02-solution.html"
+        data-track-kind="graphics"
+        data-start="19.1"
+        data-duration="16.1"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 3"
+      ></div>
+
+      <div
+        id="act3"
+        class="clip"
+        data-composition-id="act3"
+        data-composition-src="compositions/act-03-ai-clarity.html"
+        data-track-kind="graphics"
+        data-start="35.2"
+        data-duration="12.8"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 4"
+      ></div>
+
+      <div
+        id="act4"
+        class="clip"
+        data-composition-id="act4"
+        data-composition-src="compositions/act-04-outcome.html"
+        data-track-kind="graphics"
+        data-start="48.0"
+        data-duration="10.0"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 5"
+      ></div>
+
+      <div
+        id="captions"
+        class="clip"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions-overlay.html"
+        data-track-kind="captions"
+        data-start="0"
+        data-duration="58"
+        data-track-index="2"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 20"
+      ></div>
+
+      <audio id="vo-track" class="clip" src="assets/audio/voiceover.wav" data-start="1.2" data-duration="54.3" data-track-index="3" data-volume="1"></audio>
+      <audio id="bgm-track" class="clip" src="assets/audio/bgm-upbeat-58s.mp3" data-start="0" data-duration="58" data-track-index="4" data-volume="0.19"></audio>
+
+      <!-- Identical 22 Micro-Foley SFX cues -->
+      <audio id="sfx-01" class="clip" src="assets/sfx/whoosh-snappy.mp3" data-start="0.12" data-duration="0.52" data-track-index="5" data-volume="0.30"></audio>
+      <audio id="sfx-02" class="clip" src="assets/sfx/toast-pop.mp3" data-start="2.95" data-duration="1.10" data-track-index="6" data-volume="0.28"></audio>
+      <audio id="sfx-03" class="clip" src="assets/sfx/click-crisp.mp3" data-start="4.72" data-duration="0.34" data-track-index="5" data-volume="0.32"></audio>
+      <audio id="sfx-04" class="clip" src="assets/sfx/whoosh-swipe.mp3" data-start="6.30" data-duration="0.13" data-track-index="6" data-volume="0.34"></audio>
+      <audio id="sfx-05" class="clip" src="assets/sfx/click-crisp.mp3" data-start="7.76" data-duration="0.34" data-track-index="5" data-volume="0.32"></audio>
+      <audio id="sfx-06" class="clip" src="assets/sfx/error-alert.mp3" data-start="9.20" data-duration="1.20" data-track-index="7" data-volume="0.24"></audio>
+      <audio id="sfx-07" class="clip" src="assets/sfx/whoosh-punchy.mp3" data-start="10.42" data-duration="0.52" data-track-index="5" data-volume="0.28"></audio>
+      <audio id="sfx-08" class="clip" src="assets/sfx/ping-marker.mp3" data-start="13.45" data-duration="1.15" data-track-index="6" data-volume="0.26"></audio>
+      <audio id="sfx-09" class="clip" src="assets/sfx/whoosh-snappy.mp3" data-start="15.25" data-duration="0.52" data-track-index="5" data-volume="0.30"></audio>
+      <audio id="sfx-10" class="clip" src="assets/sfx/bass-hit.mp3" data-start="17.42" data-duration="1.80" data-track-index="7" data-volume="0.28"></audio>
+      <audio id="sfx-11" class="clip" src="assets/sfx/sparkle.mp3" data-start="17.55" data-duration="1.75" data-track-index="8" data-volume="0.30"></audio>
+      <audio id="sfx-12" class="clip" src="assets/sfx/pop-clean.wav" data-start="23.42" data-duration="0.42" data-track-index="5" data-volume="0.34"></audio>
+      <audio id="sfx-13" class="clip" src="assets/sfx/pop-clean.wav" data-start="24.38" data-duration="0.42" data-track-index="6" data-volume="0.36"></audio>
+      <audio id="sfx-14" class="clip" src="assets/sfx/pop-quick.mp3" data-start="25.32" data-duration="0.65" data-track-index="5" data-volume="0.36"></audio>
+      <audio id="sfx-15" class="clip" src="assets/sfx/whoosh-punchy.mp3" data-start="26.55" data-duration="0.52" data-track-index="7" data-volume="0.28"></audio>
+      <audio id="sfx-16" class="clip" src="assets/sfx/click-crisp.mp3" data-start="32.25" data-duration="0.34" data-track-index="5" data-volume="0.34"></audio>
+      <audio id="sfx-17" class="clip" src="assets/sfx/chime-success.mp3" data-start="33.55" data-duration="2.20" data-track-index="8" data-volume="0.28"></audio>
+      <audio id="sfx-18" class="clip" src="assets/sfx/typing-burst.mp3" data-start="36.35" data-duration="1.45" data-track-index="5" data-volume="0.30"></audio>
+      <audio id="sfx-19" class="clip" src="assets/sfx/ui-click-clean.wav" data-start="39.85" data-duration="0.20" data-track-index="6" data-volume="0.34"></audio>
+      <audio id="sfx-20" class="clip" src="assets/sfx/ping-marker.mp3" data-start="42.40" data-duration="1.15" data-track-index="7" data-volume="0.28"></audio>
+      <audio id="sfx-21" class="clip" src="assets/sfx/lock-confirm.wav" data-start="45.85" data-duration="0.32" data-track-index="5" data-volume="0.38"></audio>
+      <audio id="sfx-22" class="clip" src="assets/sfx/sparkle.mp3" data-start="50.95" data-duration="1.75" data-track-index="8" data-volume="0.32"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const mainTl = gsap.timeline({ paused: true });
+      mainTl.to(".prop-plant", { rotation: 3, duration: 14, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      mainTl.to(".prop-saucer", { y: -5, duration: 9, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      window.__timelines["main"] = mainTl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+    }
+    #a3-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 540px 760px;
+    }
+    #a3-device {
+      position: absolute;
+      left: 130px;
+      top: 215px;
+      width: 820px;
+      height: 1100px;
+      border-radius: 48px;
+      background: #0f172a;
+      padding: 18px;
+      box-shadow:
+        0 42px 90px rgba(15, 23, 42, 0.30),
+        0 14px 30px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2.5px rgba(255, 255, 255, 0.20);
+      z-index: 5;
+    }
+    .a3-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 34px;
+      background: #f8fafc;
+      overflow: hidden;
+    }
+    .chat-head {
+      padding: 26px 28px;
+      background: #ffffff;
+      border-bottom: 1.5px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-head-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .ai-badge {
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 25px;
+      font-weight: 800;
+    }
+    .chat-body {
+      padding: 28px;
+    }
+    .ask-bar {
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 2.5px solid #6366f1;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .type-mask {
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e293b;
+      border-right: 3px solid #4f46e5;
+      padding-right: 6px;
+    }
+    .send-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #4f46e5;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    #ai-ans-card {
+      padding: 26px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      margin-bottom: 22px;
+      opacity: 0;
+    }
+    .ans-text {
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.42;
+      color: #1e293b;
+      margin-bottom: 18px;
+    }
+    .citation-wrap {
+      position: relative;
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      font-size: 26px;
+      font-weight: 800;
+      color: #065f46;
+    }
+    /* Inline Connected Knowledge Graph Box inside Vertical Screen */
+    #graph-inline {
+      position: relative;
+      height: 360px;
+      border-radius: 24px;
+      background: #0f172a;
+      border: 2px solid #38bdf8;
+      padding: 22px 24px;
+      color: #ffffff;
+      opacity: 0;
+    }
+    .g-node {
+      position: absolute;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 25px;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+    #perm-pane {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 94px;
+      bottom: 0;
+      background: #f8fafc;
+      padding: 28px;
+      opacity: 0;
+      z-index: 10;
+    }
+    .perm-row {
+      padding: 24px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 18px;
+      font-size: 27px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .val-wrap {
+      position: relative;
+      margin-top: 10px;
+      height: 40px;
+      font-size: 32px;
+      font-variant-numeric: tabular-nums;
+    }
+    .val-clear {
+      color: #0f172a;
+      font-weight: 900;
+    }
+    .val-masked {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4f46e5;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      opacity: 0;
+    }
+    #shield-toast {
+      position: absolute;
+      left: 50%;
+      top: 56%;
+      transform: translate(-50%, -50%);
+      width: 336px;
+      height: 214px;
+      padding: 0 24px;
+      text-align: center;
+      border-radius: 34px;
+      background: #0f172a;
+      border: 2px solid rgba(129, 140, 248, 0.55);
+      box-shadow: 0 28px 60px rgba(15, 23, 42, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      white-space: nowrap;
+      z-index: 25;
+      opacity: 0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act3" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a3-stage">
+      <div id="a3-device">
+        <div class="a3-screen">
+          <div class="chat-head">
+            <span class="chat-head-title">💬 Hỏi Continuum AI</span>
+            <span class="ai-badge">✓ Rõ nguồn gốc</span>
+          </div>
+
+          <div id="qa-pane" class="chat-body">
+            <div class="ask-bar">
+              <div id="type-q" class="type-mask" style="width: 0px">
+                Vì sao đổi quy trình hợp đồng?
+              </div>
+              <div id="send-ic" class="send-btn" data-layout-ignore>↑</div>
+            </div>
+
+            <div id="ai-ans-card">
+              <div class="ans-text">
+                Rút gọn ký duyệt còn <strong>2 bước</strong> để phản hồi báo giá khách hàng trong <strong>24 giờ</strong>.
+              </div>
+              <div class="citation-wrap">
+                📄 Biên bản BGĐ • 12/10 • Anh Minh chốt
+                <svg viewBox="0 0 640 94" width="640" height="94" style="position: absolute; left: -14px; top: -12px; pointer-events: none">
+                  <path
+                    id="green-circle-cite"
+                    d="M30,48 C26,14 205,8 352,12 C515,16 622,32 616,56 C610,78 425,86 242,82 C76,78 22,64 54,38"
+                    fill="none"
+                    stroke="#10b981"
+                    stroke-width="5.5"
+                    stroke-linecap="round"
+                    pathLength="1"
+                    style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div id="graph-inline" data-layout-ignore>
+              <div style="font-size: 25px; font-weight: 800; color: #7dd3fc">🔗 Mạng lưới nguồn gốc đã kiểm chứng</div>
+              <svg viewBox="0 0 680 270" width="680" height="270" style="position: absolute; left: 22px; top: 68px">
+                <line id="gl-1" x1="330" y1="36" x2="145" y2="145" stroke="#38bdf8" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+                <line id="gl-2" x1="330" y1="36" x2="520" y2="145" stroke="#34d399" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+                <line id="gl-3" x1="145" y1="145" x2="335" y2="235" stroke="#a78bfa" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+                <line id="gl-4" x1="520" y1="145" x2="335" y2="235" stroke="#34d399" stroke-width="4" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" />
+              </svg>
+              <div class="g-node" style="left: 230px; top: 76px; background: #2563eb">Dự án Hợp đồng</div>
+              <div class="g-node" style="left: 42px; top: 185px; background: #059669">Biên bản 12/10</div>
+              <div class="g-node" style="left: 432px; top: 185px; background: #7c3aed">Anh Minh chốt</div>
+              <div class="g-node" style="left: 232px; top: 278px; background: #0284c7">Đúng cấp quyền</div>
+            </div>
+          </div>
+
+          <div id="perm-pane">
+            <div class="perm-row">
+              <div>📋 Quy trình chăm sóc khách hàng Q4</div>
+              <div style="color: #059669; margin-top: 8px">✓ Công khai nội bộ</div>
+            </div>
+            <div class="perm-row">
+              <div>💰 Hạn mức chiết khấu Đại lý Cấp 1</div>
+              <div class="val-wrap">
+                <span id="vc-1" class="val-clear">4.500.000.000đ</span>
+                <span id="vm-1" class="val-masked">••••••••••đ</span>
+              </div>
+            </div>
+            <div class="perm-row">
+              <div>📑 Phụ lục lương &amp; thưởng Ban Dự án</div>
+              <div class="val-wrap">
+                <span id="vc-2" class="val-clear">185.000.000đ</span>
+                <span id="vm-2" class="val-masked">••••••••••đ</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="shield-toast">
+            <svg viewBox="0 0 64 64" width="68" height="68" fill="none" data-layout-ignore>
+              <path d="M32 6L12 15V30C12 43.8 20.5 55.9 32 60C43.5 55.9 52 43.8 52 30V15L32 6Z" fill="#4f46e5" stroke="#a5b4fc" stroke-width="3" />
+              <path d="M23 32L29 38L41 26" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>Phân quyền Cấp bậc</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a3-stage", { scale: 1.04 }, { scale: 1.12, y: 18, duration: 0.75, ease: "power3.out" }, 0.08);
+      tl.fromTo("#type-q", { width: 0 }, { width: 432, duration: 2.35, ease: "steps(30)" }, 1.10);
+      tl.to("#send-ic", { scale: 0.86, duration: 0.12, yoyo: true, repeat: 1 }, 4.62);
+
+      tl.to("#a3-stage", { scale: 1.02, y: 0, duration: 0.5, ease: "power3.inOut" }, 5.05);
+      tl.fromTo("#ai-ans-card", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.45)" }, 5.18);
+      tl.fromTo("#graph-inline", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.48, ease: "back.out(1.35)" }, 5.40);
+      tl.to(["#gl-1", "#gl-2", "#gl-3", "#gl-4"], { strokeDashoffset: 0, duration: 0.55, stagger: 0.1, ease: "power2.out" }, 5.60);
+
+      tl.to("#green-circle-cite", { strokeDashoffset: 0, duration: 0.52, ease: "power2.out" }, 7.15);
+
+      tl.to("#qa-pane", { opacity: 0, duration: 0.2 }, 8.65);
+      tl.to("#perm-pane", { opacity: 1, duration: 0.28 }, 8.72);
+      tl.to("#a3-stage", { scale: 1.10, y: 12, duration: 0.5, ease: "power3.inOut" }, 8.70);
+
+      tl.fromTo("#shield-toast", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 10.55);
+      tl.to(["#vc-1", "#vc-2"], { opacity: 0, filter: "blur(6px)", duration: 0.22 }, 10.85);
+      tl.to(["#vm-1", "#vm-2"], { opacity: 1, duration: 0.25 }, 10.90);
+      tl.to("#shield-toast", { opacity: 0, scale: 0.9, duration: 0.28 }, 12.15);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act3"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

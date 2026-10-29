@@ -1,0 +1,200 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      pointer-events: none;
+      font-family: "Inter", sans-serif;
+      overflow: hidden;
+    }
+    /* Mibi-style vertical safe-zone karaoke captions (bottom: 350px, clear of coffee & plant) */
+    .cap-phrase {
+      position: absolute;
+      left: 50%;
+      bottom: 356px;
+      transform: translateX(-50%);
+      width: 920px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 12px;
+      text-align: center;
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      opacity: 0;
+      padding: 16px 28px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+    .cap-phrase.on-dark {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1.5px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.45);
+    }
+    .cw {
+      display: inline-block;
+      color: #64748b;
+    }
+    .cap-phrase.on-dark .cw {
+      color: #94a3b8;
+    }
+  </style>
+
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <div id="kp-1" class="cap-phrase">
+      <span id="kp1-a" class="cw">Muốn</span>
+      <span id="kp1-b" class="cw">công việc</span>
+      <span id="kp1-c" class="cw">trôi chảy,</span>
+    </div>
+
+    <div id="kp-2" class="cap-phrase">
+      <span id="kp2-a" class="cw">mà sợ nhất lúc</span>
+      <span id="kp2-b" class="cw">nhân sự giỏi nghỉ việc?</span>
+    </div>
+
+    <div id="kp-3" class="cap-phrase">
+      <span id="kp3-a" class="cw">Tài liệu</span>
+      <span id="kp3-b" class="cw">nằm trên</span>
+      <span id="kp3-c" class="cw">Drive,</span>
+    </div>
+
+    <div id="kp-4" class="cap-phrase">
+      <span id="kp4-a" class="cw">trao đổi</span>
+      <span id="kp4-b" class="cw">trôi trong</span>
+      <span id="kp4-c" class="cw">tin nhắn,</span>
+    </div>
+
+    <div id="kp-5" class="cap-phrase">
+      <span id="kp5-a" class="cw">biên bản lưu máy cá nhân —</span>
+      <span id="kp5-b" class="cw">tìm đâu cũng rối!</span>
+    </div>
+
+    <div id="kp-6" class="cap-phrase on-dark">
+      <span id="kp6-a" class="cw">Người cũ đi,</span>
+      <span id="kp6-b" class="cw">kinh nghiệm mất trắng.</span>
+    </div>
+
+    <div id="kp-7" class="cap-phrase">
+      <span id="kp7-a" class="cw">Người mới vào,</span>
+      <span id="kp7-b" class="cw">cả tuần</span>
+      <span id="kp7-c" class="cw">vẫn loay hoay.</span>
+    </div>
+
+    <div id="kp-8" class="cap-phrase">
+      <span id="kp8-a" class="cw">Thôi,</span>
+      <span id="kp8-b" class="cw">đừng lục tìm</span>
+      <span id="kp8-c" class="cw">thủ công nữa.</span>
+    </div>
+
+    <div id="kp-9" class="cap-phrase">
+      <span id="kp9-a" class="cw">Để</span>
+      <span id="kp9-b" class="cw">Continuum AI</span>
+      <span id="kp9-c" class="cw">lo.</span>
+    </div>
+
+    <div id="kp-10" class="cap-phrase">
+      <span id="kp10-a" class="cw">Mọi dự án, đầu việc</span>
+      <span id="kp10-b" class="cw">tự gom gọn về một chỗ.</span>
+    </div>
+
+    <div id="kp-11" class="cap-phrase on-dark">
+      <span id="kp11-a" class="cw">Sáng họp nhanh,</span>
+      <span id="kp11-b" class="cw">chiều chốt việc,</span>
+      <span id="kp11-c" class="cw">tối cập nhật tiến độ.</span>
+    </div>
+
+    <div id="kp-12" class="cap-phrase">
+      <span id="kp12-a" class="cw">Làm tới đâu,</span>
+      <span id="kp12-b" class="cw">Continuum AI tự lưu,</span>
+      <span id="kp12-c" class="cw">tự sắp xếp.</span>
+    </div>
+
+    <div id="kp-13" class="cap-phrase">
+      <span id="kp13-a" class="cw">Cần bàn giao</span>
+      <span id="kp13-b" class="cw">cho người mới?</span>
+    </div>
+
+    <div id="kp-14" class="cap-phrase">
+      <span id="kp14-a" class="cw">Một chạm mở hồ sơ,</span>
+      <span id="kp14-b" class="cw">vài phút là bắt nhịp ngay!</span>
+    </div>
+
+    <div id="kp-15" class="cap-phrase">
+      <span id="kp15-a" class="cw">Quên vì sao tháng trước</span>
+      <span id="kp15-b" class="cw">đổi quy trình hợp đồng?</span>
+    </div>
+
+    <div id="kp-16" class="cap-phrase">
+      <span id="kp16-a" class="cw">Chỉ cần hỏi tự nhiên</span>
+      <span id="kp16-b" class="cw">như hỏi người đi trước.</span>
+    </div>
+
+    <div id="kp-17" class="cap-phrase">
+      <span id="kp17-a" class="cw">Trả lời tức thì,</span>
+      <span id="kp17-b" class="cw">chỉ rõ biên bản gốc</span>
+      <span id="kp17-c" class="cw">ai chốt.</span>
+    </div>
+
+    <div id="kp-18" class="cap-phrase">
+      <span id="kp18-a" class="cw">Không đoán mò,</span>
+      <span id="kp18-b" class="cw">tự ẩn thông tin nhạy cảm</span>
+      <span id="kp18-c" class="cw">theo cấp quyền.</span>
+    </div>
+
+    <div id="kp-19" class="cap-phrase">
+      <span id="kp19-a" class="cw">Nhìn màn hình chính</span>
+      <span id="kp19-b" class="cw">là nắm trọn nhịp chạy cả công ty.</span>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const INK = "#0f172a";
+      const HERO_INDIGO = "#4f46e5";
+      const HERO_RED = "#dc2626";
+      const HERO_GREEN = "#047857";
+      const WHITE = "#ffffff";
+      const HERO_SKY = "#38bdf8";
+      const HERO_AMBER = "#fbbf24";
+
+      function phrase(id, tIn, tOut, words) {
+        tl.fromTo(id, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, tIn);
+        words.forEach(function (w) {
+          tl.to(w[0], { color: w[2] || INK, y: w[3] ? -2 : 0, duration: 0.14, ease: "power2.out" }, w[1]);
+        });
+        tl.to(id, { opacity: 0, y: -8, duration: 0.14, ease: "power2.in" }, tOut);
+      }
+
+      phrase("#kp-1", 1.16, 2.52, [["#kp1-a", 1.20, INK], ["#kp1-b", 1.50, INK], ["#kp1-c", 1.80, INK]]);
+      phrase("#kp-2", 2.56, 4.55, [["#kp2-a", 2.60, INK], ["#kp2-b", 3.34, HERO_RED, true]]);
+      phrase("#kp-3", 4.68, 6.20, [["#kp3-a", 4.76, INK], ["#kp3-b", 5.18, INK], ["#kp3-c", 5.54, HERO_RED, true]]);
+      phrase("#kp-4", 6.26, 7.66, [["#kp4-a", 6.34, INK], ["#kp4-b", 6.60, INK], ["#kp4-c", 6.96, HERO_RED, true]]);
+      phrase("#kp-5", 7.72, 10.32, [["#kp5-a", 7.80, INK], ["#kp5-b", 9.22, HERO_RED, true]]);
+      phrase("#kp-6", 10.46, 12.58, [["#kp6-a", 10.52, WHITE], ["#kp6-b", 11.48, HERO_AMBER, true]]);
+      phrase("#kp-7", 12.70, 15.02, [["#kp7-a", 12.82, INK], ["#kp7-b", 13.74, INK], ["#kp7-c", 14.08, HERO_RED, true]]);
+      phrase("#kp-8", 15.18, 17.24, [["#kp8-a", 15.26, INK], ["#kp8-b", 15.86, INK], ["#kp8-c", 16.30, INK]]);
+      phrase("#kp-9", 17.36, 19.04, [["#kp9-a", 17.50, INK], ["#kp9-b", 17.70, HERO_INDIGO, true], ["#kp9-c", 18.48, HERO_INDIGO]]);
+      phrase("#kp-10", 19.22, 23.10, [["#kp10-a", 19.36, INK], ["#kp10-b", 21.54, HERO_INDIGO, true]]);
+      phrase("#kp-11", 23.32, 26.28, [["#kp11-a", 23.40, WHITE], ["#kp11-b", 24.34, WHITE], ["#kp11-c", 25.28, HERO_SKY, true]]);
+      phrase("#kp-12", 26.44, 30.28, [["#kp12-a", 26.52, INK], ["#kp12-b", 27.64, HERO_INDIGO, true], ["#kp12-c", 29.16, HERO_GREEN, true]]);
+      phrase("#kp-13", 30.56, 32.06, [["#kp13-a", 30.68, INK], ["#kp13-b", 31.16, HERO_INDIGO]]);
+      phrase("#kp-14", 32.20, 35.06, [["#kp14-a", 32.32, HERO_INDIGO, true], ["#kp14-b", 33.64, HERO_GREEN, true]]);
+      phrase("#kp-15", 35.28, 37.68, [["#kp15-a", 35.40, INK], ["#kp15-b", 36.44, HERO_INDIGO]]);
+      phrase("#kp-16", 37.84, 40.15, [["#kp16-a", 37.96, HERO_INDIGO, true], ["#kp16-b", 38.96, INK]]);
+      phrase("#kp-17", 40.35, 44.50, [["#kp17-a", 41.28, INK], ["#kp17-b", 42.42, HERO_GREEN, true], ["#kp17-c", 43.70, HERO_GREEN]]);
+      phrase("#kp-18", 44.72, 47.88, [["#kp18-a", 44.84, INK], ["#kp18-b", 45.94, HERO_INDIGO, true], ["#kp18-c", 47.00, INK]]);
+      phrase("#kp-19", 48.12, 50.70, [["#kp19-a", 48.24, INK], ["#kp19-b", 49.12, HERO_INDIGO, true]]);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["captions"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

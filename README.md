@@ -69,7 +69,8 @@ CreateVideo/
 │   ├── vendor/                     # Bản offline của GSAP (25 plugins), Three.js & Lottie/dotLottie (WASM)
 │   ├── assets-library/             # Kho dùng chung: 454 Lottie JSON (25 curated SaaS) & 32 file SFX/BGM (Click, Typing, Whoosh, Pop/Chime)
 │   ├── auth-signin-demo/           # Video 24s demo Đăng nhập Email & Google OAuth thực tế qua Brave CDP (:9333)
-│   ├── continuum-business-intro/   # Video 50s giới thiệu Continuum AI cho doanh nghiệp/khách hàng (4 hồi, giọng Nam, B-Roll Pexels + Live UI)
+│   ├── continuum-business-intro/   # Video 58s Ngang 16:9 (1920x1080) giới thiệu Continuum AI cho doanh nghiệp (Product Motion v2 + B-Roll Pexels)
+│   ├── continuum-business-intro-9x16/ # Video 58s Dọc 9:16 (1080x1920) giới thiệu Continuum AI cho Reels/TikTok/Shorts (Product Motion v2)
 │   ├── continuum-launch/           # Dự án video ra mắt Continuum AI
 │   ├── demo-video/                 # Dự án mẫu Motion Graphics 2D (HTML + GSAP -> MP4)
 │   ├── threejs-gsap-demo/          # Dự án mẫu Vũ trụ 3D (Three.js + GSAP Camera + HyperFrames -> MP4)

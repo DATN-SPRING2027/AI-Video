@@ -1,51 +1,75 @@
 1
-00:00:00,000 --> 00:00:05,100
-Trong mỗi dân nghiệp, điều đáng lo nhất không chỉ là khi một nhân sự giỏi dời đi mà là toàn bộ kích nghiệp.
+00:00:00,000 --> 00:00:03,180
+Muốn công việc trôi chạy mà sợ nhất lúc nhân sự giò nghỉ việc.
 
 2
-00:00:05,540 --> 00:00:08,700
-Lịch sử công việc và lý do đằng sau các quyết định cũng dời đi theo họ.
+00:00:03,560 --> 00:00:06,220
+Tài liệu nằm trên đờ giáp, trao đổi trôi trong tỷ nhắn,
 
 3
-00:00:09,280 --> 00:00:13,200
-Người mới mất hàng tuần mò mấm từng tiếp tin dời dạc, còn giữ án bị chậm nhịp.
+00:00:06,600 --> 00:00:08,800
+biên bản lưu máy cá nhân, tìm đầu cũng rối.
 
 4
-00:00:13,640 --> 00:00:17,140
-Cần tin niềm ai ra đời như bộ nhớ chung không bao giờ thất lạc của cả công ty.
+00:00:09,320 --> 00:00:11,000
+Người cú đi, kinh nghiệm mất trắng.
 
 5
-00:00:17,740 --> 00:00:21,800
-Mọi đầu việc, tai liệu và ghi chú hàng ngày đều được sắp xếp gọn gàng theo từng phòng ban,
+00:00:11,620 --> 00:00:13,480
+Người mới vào, cả tuần vẫn loai hoay.
 
 6
-00:00:22,220 --> 00:00:24,660
-giúp việc bán ra cho người mới chỉ gói gọn trong vài phút.
+00:00:14,060 --> 00:00:15,740
+Thôi, đừng lục tim thủ công nữa.
 
 7
-00:00:25,180 --> 00:00:27,200
-Nhờ trí tuệ nhân tạo có kiểm chứng nguồn gốc,
+00:00:16,300 --> 00:00:17,540
+Để cân tin niu âm ai lò.
 
 8
-00:00:27,200 --> 00:00:30,280
-nhân viên chỉ cần đặt câu hỏi tự nhiên như đang hỏi người đi trước.
+00:00:18,160 --> 00:00:21,540
+Mọi dự án, đầu việc và ghi chú hàng ngày tự gom gọn về một chỗ.
 
 9
-00:00:30,920 --> 00:00:34,040
-Hệ thống trả lời tức thì chỉ rõ thông tin lấy từ tài liệu nào,
+00:00:22,200 --> 00:00:24,920
+Sáng học nhanh, chiều chốt việc, tối cập nhật tiến độ.
 
 10
-00:00:34,400 --> 00:00:37,040
-không suy diễn sai lệch và bạo mật chặt chẽ theo từng cấp quyền.
+00:00:25,320 --> 00:00:28,860
+Làm tới đâu, cân tin niu âm ai tự liu, tự sắp xếp tới đó.
 
 11
-00:00:37,640 --> 00:00:39,860
-Người bàn giao nhẹ nhàng, người tiếp nhận tự tin,
+00:00:29,480 --> 00:00:30,580
+Cơn bàn ra cho người mới.
 
 12
-00:00:40,240 --> 00:00:41,620
-doanh nghiệp vẫn hành liền mạch mỗi ngày.
+00:00:31,120 --> 00:00:33,620
+Một chạm mờ hồ sơ, vài phút là bắt nhịt ngay.
 
 13
-00:00:42,200 --> 00:00:45,220
-Cần tin niềm ai, giữ chọn trì thức, bất phá đường dài.
+00:00:34,200 --> 00:00:36,240
+Quên mất vì sao tháng trước đổi quy trình hợp đồng.
+
+14
+00:00:36,760 --> 00:00:38,680
+Chỉ cần hỏi tự nhiên như họ người đi trước.
+
+15
+00:00:39,280 --> 00:00:43,020
+Cân tin niu âm ai trả lời tức thi, chỉ rõ biên bản gốc ngày nào ai chốt.
+
+16
+00:00:43,640 --> 00:00:46,460
+Không đoán mò và tự ấn thông tin nhạy cảm theo cấp quyền.
+
+17
+00:00:47,040 --> 00:00:49,280
+Nhìn bàn hình chính là nắm chọn nhịp chạy cả công ty.
+
+18
+00:00:49,800 --> 00:00:52,560
+Cân tin niu âm ai, bộ nhớ thông minh cho mọi dân nghiệp.
+
+19
+00:00:52,560 --> 00:00:54,020
+Chạy nghiệp ngay hôm đây.

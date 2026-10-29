@@ -1,0 +1,226 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+    }
+    /* Vertical Brand Finale Lockup at Top-Center (exact Mibi 01:18 - 01:23 vertical hero!) */
+    #brand-finale {
+      position: absolute;
+      left: 50%;
+      top: 230px;
+      transform: translateX(-50%);
+      width: 960px;
+      text-align: center;
+      z-index: 18;
+      opacity: 0;
+    }
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 18px;
+    }
+    .brand-squircle {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
+      box-shadow: 0 22px 46px rgba(79, 70, 229, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-spark-dot {
+      position: absolute;
+      right: 13px;
+      top: 13px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 18px #34d399;
+    }
+    .brand-wordmark {
+      font-size: 76px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+    .brand-tagline {
+      font-size: 36px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 26px;
+      line-height: 1.3;
+    }
+    .brand-cta-pill {
+      display: inline-block;
+      padding: 18px 48px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
+      color: #ffffff;
+      font-size: 31px;
+      font-weight: 800;
+      box-shadow: 0 18px 42px rgba(79, 70, 229, 0.38);
+    }
+    #a4-device {
+      position: absolute;
+      left: 130px;
+      top: 215px;
+      width: 820px;
+      height: 1100px;
+      border-radius: 48px;
+      background: #0f172a;
+      padding: 18px;
+      box-shadow:
+        0 42px 90px rgba(15, 23, 42, 0.30),
+        0 14px 30px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2.5px rgba(255, 255, 255, 0.20);
+      z-index: 8;
+    }
+    .a4-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 34px;
+      background: #f8fafc;
+      overflow: hidden;
+      padding: 32px 28px;
+    }
+    .exec-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .exec-h {
+      font-size: 29px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .exec-live {
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 25px;
+      font-weight: 800;
+    }
+    .w-dark {
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .w-big {
+      font-size: 62px;
+      font-weight: 900;
+      color: #34d399;
+      font-variant-numeric: tabular-nums;
+      margin: 8px 0;
+    }
+    .w-light {
+      padding: 28px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      margin-bottom: 20px;
+    }
+    #team-vid-card {
+      border-radius: 22px;
+      overflow: hidden;
+      height: 360px;
+      border: 2px solid #e2e8f0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act4" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="brand-finale">
+      <div class="brand-lockup">
+        <div id="b-mark" class="brand-squircle" data-layout-ignore>
+          <svg viewBox="0 0 48 48" width="54" height="54" fill="none">
+            <path d="M14 32C14 22 21 16 34 16" stroke="#a5b4fc" stroke-width="5.5" stroke-linecap="round" />
+            <path d="M14 24C22 24 26 32 34 32" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" />
+          </svg>
+          <span class="brand-spark-dot"></span>
+        </div>
+        <span class="brand-wordmark">Continuum AI</span>
+      </div>
+      <div id="b-tag" class="brand-tagline">Bộ nhớ thông minh cho mọi doanh nghiệp</div>
+      <div id="b-cta" class="brand-cta-pill">continuum.ai • Trải nghiệm ngay</div>
+    </div>
+
+    <div id="a4-device">
+      <div class="a4-screen">
+        <div class="exec-top">
+          <span class="exec-h">Tổng Quan Công Ty</span>
+          <span class="exec-live">● Liền mạch</span>
+        </div>
+
+        <div class="w-dark">
+          <div style="font-size: 26px; font-weight: 700; color: #cbd5e1">Tri thức &amp; Lịch sử Dự án giữ lại</div>
+          <div class="w-big">100%</div>
+          <div style="font-size: 26px; font-weight: 600; color: #94a3b8">Không gián đoạn khi thay đổi nhân sự</div>
+        </div>
+
+        <div class="w-light">
+          <div style="font-size: 26px; font-weight: 700; color: #64748b">Thời gian bàn giao người mới</div>
+          <div style="font-size: 54px; font-weight: 900; color: #4f46e5; margin: 6px 0">5 phút</div>
+          <div style="font-size: 26px; font-weight: 700; color: #059669">✓ Giảm 85% thời gian hỏi lại</div>
+        </div>
+
+        <div id="team-vid-card" style="position: relative" data-layout-ignore>
+          <img
+            id="a4-real-ui"
+            class="clip"
+            src="assets/ui/ui-01-dashboard.png"
+            data-start="0"
+            data-duration="10.0"
+            data-track-index="2"
+            alt="Continuum AI Overview"
+            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top"
+          />
+          <video
+            id="a4-v1"
+            class="clip"
+            src="assets/broll/broll-06-outcome-success.mp4"
+            data-start="0"
+            data-duration="3.2"
+            data-track-index="1"
+            muted
+            playsinline
+            style="position: relative; z-index: 2; width: 100%; height: 100%; object-fit: cover"
+          ></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a4-device", { scale: 1.05 }, { scale: 1.0, duration: 0.6, ease: "power3.out" }, 0);
+
+      // 2.82s: Exact Mibi 01:18 vertical finale — device glides down to bottom half, Brand Lockup springs in above!
+      tl.to("#a4-v1", { opacity: 0, duration: 0.32, ease: "power2.out" }, 2.75);
+      tl.to("#a4-device", { y: 505, scale: 0.90, duration: 0.72, ease: "power3.inOut" }, 2.82);
+
+      tl.fromTo("#brand-finale", { opacity: 0, y: 28, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.45)" }, 3.05);
+      tl.fromTo("#b-tag", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.42, ease: "power2.out" }, 3.35);
+      tl.fromTo("#b-cta", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.48, ease: "back.out(1.7)" }, 4.45);
+      tl.to("#b-cta", { scale: 1.04, duration: 1.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, 5.1);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act4"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

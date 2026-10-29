@@ -1,0 +1,433 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+    }
+    #a2-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 540px 760px;
+    }
+    #a2-device {
+      position: absolute;
+      left: 130px;
+      top: 215px;
+      width: 820px;
+      height: 1100px;
+      border-radius: 48px;
+      background: #0f172a;
+      padding: 18px;
+      box-shadow:
+        0 42px 90px rgba(15, 23, 42, 0.30),
+        0 14px 30px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2.5px rgba(255, 255, 255, 0.20);
+      z-index: 5;
+    }
+    .a2-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 34px;
+      background: #f8fafc;
+      overflow: hidden;
+    }
+    .hub-header {
+      padding: 26px 28px;
+      background: #ffffff;
+      border-bottom: 1.5px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hub-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .hub-logo-dot {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+    }
+    #handover-btn {
+      padding: 12px 24px;
+      border-radius: 16px;
+      background: linear-gradient(90deg, #4f46e5, #6366f1);
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 12px 26px rgba(79, 70, 229, 0.34);
+    }
+    .hub-body {
+      padding: 28px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      padding: 22px 24px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+    }
+    .kpi-val {
+      font-size: 44px;
+      font-weight: 900;
+      color: #4f46e5;
+      font-variant-numeric: tabular-nums;
+    }
+    .kpi-lbl {
+      font-size: 26px;
+      font-weight: 600;
+      color: #475569;
+      margin-top: 6px;
+    }
+    .proj-item {
+      padding: 24px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 18px;
+      font-size: 27px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .proj-status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    /* Out-of-Frame Pop-Out Cards on Right of Shifted Phone (exact Mibi 00:28!) */
+    .popout-card {
+      position: absolute;
+      right: 36px;
+      width: 486px;
+      padding: 22px 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 2px solid #c7d2fe;
+      box-shadow: 0 26px 54px rgba(15, 23, 42, 0.22);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      z-index: 14;
+      opacity: 0;
+    }
+    .popout-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+    .popout-title {
+      font-size: 27px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .popout-sub {
+      font-size: 25px;
+      font-weight: 600;
+      color: #475569;
+    }
+    /* Spring Bottom Sheet inside Vertical Screen (exact Mibi 00:34!) */
+    #handover-sheet {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 34px 30px;
+      border-radius: 30px;
+      background: #ffffff;
+      border: 2px solid #a5b4fc;
+      box-shadow: 0 -20px 60px rgba(15, 23, 42, 0.26);
+      z-index: 20;
+      opacity: 0;
+      text-align: center;
+    }
+    .sheet-badge {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .five-min-highlight {
+      position: relative;
+      display: inline-block;
+      padding: 10px 26px;
+      font-size: 40px;
+      font-weight: 900;
+      color: #059669;
+      white-space: nowrap;
+      margin-bottom: 16px;
+    }
+    /* 3-Shot Vertical B-Roll Montage + Top iOS App Banners (4.20s - 7.25s) */
+    #a2-montage {
+      position: absolute;
+      inset: 0;
+      z-index: 35;
+      opacity: 0;
+      background: #090d16;
+    }
+    .montage-vid {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      object-fit: cover;
+      filter: brightness(0.68) contrast(1.06);
+    }
+    .floating-app-toast {
+      position: absolute;
+      left: 58px;
+      right: 58px;
+      top: 190px;
+      padding: 24px 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.42);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      z-index: 45;
+      opacity: 0;
+    }
+    .toast-app-ic {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .toast-main {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.3;
+      flex: 1;
+    }
+    .toast-time {
+      font-size: 25px;
+      font-weight: 700;
+      color: #4f46e5;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act2" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a2-stage">
+      <div id="a2-device">
+        <div class="a2-screen">
+          <div class="hub-header">
+            <div class="hub-brand">
+              <span class="hub-logo-dot" data-layout-ignore></span>
+              <span>Continuum AI</span>
+            </div>
+            <div id="handover-btn">✨ Bàn giao 1 chạm</div>
+          </div>
+
+          <div class="hub-body">
+            <div class="kpi-grid">
+              <div id="k1" class="kpi-card">
+                <div class="kpi-val">100%</div>
+                <div class="kpi-lbl">Tài liệu tập trung</div>
+              </div>
+              <div id="k2" class="kpi-card">
+                <div class="kpi-val">06</div>
+                <div class="kpi-lbl">Phòng ban kết nối</div>
+              </div>
+            </div>
+
+            <div id="p1" class="proj-item">
+              <div>🚀 Dự án Khách hàng Doanh nghiệp</div>
+              <span class="proj-status">Đã gom 48 tài liệu</span>
+            </div>
+            <div id="p2" class="proj-item">
+              <div>📑 Quy trình Hợp đồng &amp; Pháp chế</div>
+              <span class="proj-status">Đã lưu 19 biên bản</span>
+            </div>
+            <div id="p3" class="proj-item">
+              <div>🤝 Hồ sơ Tiếp nhận Nhân sự Mới</div>
+              <span class="proj-status" style="background: #ecfdf5; color: #047857">Sẵn sàng bàn giao</span>
+            </div>
+          </div>
+
+          <div id="handover-sheet">
+            <div class="sheet-badge">✨ Hồ sơ Bàn giao chuẩn</div>
+            <div>
+              <span class="five-min-highlight">
+                Bắt nhịp trong 5 phút
+                <svg viewBox="0 0 470 100" width="470" height="100" style="position: absolute; left: -12px; top: -10px; pointer-events: none">
+                  <path
+                    id="green-circle-handover"
+                    d="M24,52 C20,16 150,10 262,14 C385,18 452,34 446,60 C440,84 305,92 172,88 C56,84 18,68 44,42"
+                    fill="none"
+                    stroke="#10b981"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    pathLength="1"
+                    style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div style="font-size: 27px; font-weight: 600; color: #334155; line-height: 1.38">
+              ✓ Đầy đủ mục tiêu, lịch sử quyết định &amp; đầu việc đang chạy.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pop-1" class="popout-card" style="top: 410px">
+        <div class="popout-icon" style="background: #4f46e5" data-layout-ignore>📋</div>
+        <div>
+          <div class="popout-title">Đã lưu Biên bản họp sáng</div>
+          <div class="popout-sub">Dự án Kinh doanh</div>
+        </div>
+      </div>
+      <div id="pop-2" class="popout-card" style="top: 600px">
+        <div class="popout-icon" style="background: #0ea5e9" data-layout-ignore>✅</div>
+        <div>
+          <div class="popout-title">Đã chốt Hợp đồng mới</div>
+          <div class="popout-sub">Lưu rõ người duyệt</div>
+        </div>
+      </div>
+      <div id="pop-3" class="popout-card" style="top: 790px">
+        <div class="popout-icon" style="background: #10b981" data-layout-ignore>📊</div>
+        <div>
+          <div class="popout-title">Cập nhật Tiến độ ngày</div>
+          <div class="popout-sub">12/12 hoàn tất</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="a2-montage" data-layout-allow-overlap>
+      <video
+        id="m-v1"
+        class="clip montage-vid"
+        src="assets/broll/broll-03-solution-team.mp4"
+        data-start="4.15"
+        data-hf-media-start-basis="local"
+        data-duration="1.15"
+        data-track-index="1"
+        muted
+        playsinline
+      ></video>
+      <video
+        id="m-v2"
+        class="clip montage-vid"
+        src="assets/broll/broll-04-solution-handover.mp4"
+        data-start="5.20"
+        data-hf-media-start-basis="local"
+        data-duration="1.10"
+        data-track-index="2"
+        muted
+        playsinline
+        style="opacity: 0"
+      ></video>
+      <video
+        id="m-v3"
+        class="clip montage-vid"
+        src="assets/broll/broll-05-ai-clarity.mp4"
+        data-start="6.20"
+        data-hf-media-start-basis="local"
+        data-duration="1.15"
+        data-track-index="3"
+        muted
+        playsinline
+        style="opacity: 0"
+      ></video>
+
+      <div id="mt-1" class="floating-app-toast">
+        <div class="toast-app-ic" data-layout-ignore>C</div>
+        <div class="toast-main">Đã tự lưu Biên bản họp sáng vào Dự án</div>
+        <div class="toast-time">09:00</div>
+      </div>
+      <div id="mt-2" class="floating-app-toast">
+        <div class="toast-app-ic" data-layout-ignore>C</div>
+        <div class="toast-main">Đã ghi nhận Quyết định chốt hợp đồng</div>
+        <div class="toast-time">14:30</div>
+      </div>
+      <div id="mt-3" class="floating-app-toast">
+        <div class="toast-app-ic" data-layout-ignore>C</div>
+        <div class="toast-main">Đã tự xếp Tiến độ cuối ngày gọn gàng</div>
+        <div class="toast-time">18:15</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#a2-stage", { scale: 1.0 }, { scale: 1.12, y: 20, duration: 1.1, ease: "power3.inOut" }, 0.15);
+      tl.fromTo("#k1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0.25);
+      tl.fromTo("#k2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0.40);
+      tl.fromTo("#p1", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 1.00);
+      tl.fromTo("#p2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 1.22);
+      tl.fromTo("#p3", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 1.44);
+
+      tl.to("#a2-montage", { opacity: 1, duration: 0.16 }, 4.20);
+      tl.fromTo("#mt-1", { opacity: 0, y: -32, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 4.30);
+
+      tl.set("#mt-1", { opacity: 0 }, 5.22);
+      tl.to("#m-v2", { opacity: 1, duration: 0.12 }, 5.22);
+      tl.fromTo("#mt-2", { opacity: 0, y: -32, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 5.28);
+
+      tl.set("#mt-2", { opacity: 0 }, 6.22);
+      tl.to("#m-v3", { opacity: 1, duration: 0.12 }, 6.22);
+      tl.fromTo("#mt-3", { opacity: 0, y: -32, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, 6.28);
+
+      tl.set("#a2-stage", { scale: 1.0, y: 0 }, 7.20);
+      tl.set("#a2-device", { x: -245, scale: 0.65 }, 7.20);
+      tl.to("#a2-montage", { opacity: 0, duration: 0.18 }, 7.25);
+
+      tl.fromTo("#pop-1", { opacity: 0, x: -240, scale: 0.82 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.55)" }, 7.42);
+      tl.fromTo("#pop-2", { opacity: 0, x: -240, scale: 0.82 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.55)" }, 7.72);
+      tl.fromTo("#pop-3", { opacity: 0, x: -240, scale: 0.82 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "back.out(1.55)" }, 8.02);
+
+      tl.to(["#pop-1", "#pop-2", "#pop-3"], { opacity: 0, x: 80, duration: 0.3, ease: "power2.in" }, 11.35);
+      tl.to("#a2-device", { x: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 11.40);
+      tl.to("#a2-stage", { scale: 1.12, y: -20, duration: 0.65, ease: "power3.inOut" }, 11.55);
+
+      tl.to("#handover-btn", { scale: 0.91, duration: 0.12, yoyo: true, repeat: 1 }, 13.15);
+      tl.fromTo("#handover-sheet", { opacity: 0, y: 140, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 13.35);
+      tl.to("#green-circle-handover", { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 14.35);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act2"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

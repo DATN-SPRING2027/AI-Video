@@ -1,0 +1,507 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: inherit;
+    }
+    #a1-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 540px 960px;
+      will-change: transform;
+    }
+    .kw-pill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: max-content;
+      top: 186px;
+      padding: 15px 40px;
+      border-radius: 999px;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.24);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 40;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    .kw-rose {
+      background: #be123c;
+      border: 2.5px solid #fda4af;
+    }
+    .kw-amber {
+      background: #b45309;
+      border: 2.5px solid #fcd34d;
+    }
+    .kw-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    /* Beat 1A: Vertical Scattered Files & Chat Pings */
+    #pane-scatter {
+      position: absolute;
+      inset: 0;
+    }
+    .scat-card {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 26px;
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 24px 54px rgba(15, 23, 42, 0.14);
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      opacity: 0;
+    }
+    .scat-ico {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      flex-shrink: 0;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .scat-name {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .scat-loc {
+      font-size: 22px;
+      font-weight: 700;
+      color: #475569;
+      margin-top: 6px;
+    }
+    .ping-card {
+      position: absolute;
+      background: #fff1f2;
+      border: 2.5px solid #fda4af;
+      border-radius: 26px;
+      box-shadow: 0 26px 56px rgba(190, 18, 60, 0.18);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      opacity: 0;
+    }
+    .ping-ava {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #be123c;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .ping-msg {
+      font-size: 27px;
+      font-weight: 800;
+      line-height: 1.32;
+      color: #881337;
+    }
+
+    /* Beat 1B: Vertical Manual Search & Wrong Old Version */
+    #pane-manual {
+      position: absolute;
+      left: 80px;
+      top: 320px;
+      width: 920px;
+      height: 1080px;
+      border-radius: 34px;
+      background: #ffffff;
+      border: 2.5px solid #cbd5e1;
+      box-shadow: 0 40px 88px rgba(15, 23, 42, 0.24);
+      overflow: hidden;
+      opacity: 0;
+    }
+    .win-bar {
+      height: 68px;
+      background: #0f172a;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+    .win-dots {
+      display: flex;
+      gap: 10px;
+    }
+    .win-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+    .win-url {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 21px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .search-box {
+      margin: 34px 32px 26px;
+      height: 82px;
+      border-radius: 22px;
+      background: #f8fafc;
+      border: 2.5px solid #94a3b8;
+      padding: 0 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .search-type {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #0f172a;
+      padding-right: 6px;
+    }
+    .res-list {
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .res-row {
+      border-radius: 22px;
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .res-row.wrong-pick {
+      background: #fef3c7;
+      border: 3px solid #d97706;
+    }
+    .res-fn {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 27px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .res-tag {
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 23px;
+      font-weight: 800;
+      background: #b45309;
+      color: #ffffff;
+    }
+    .res-sub {
+      font-size: 23px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    /* Beat 1C: Vertical External Public AI Leak & Hallucination */
+    #pane-public-ai {
+      position: absolute;
+      left: 80px;
+      top: 320px;
+      width: 920px;
+      height: 1100px;
+      border-radius: 34px;
+      background: #ffffff;
+      border: 3px solid #fda4af;
+      box-shadow: 0 42px 92px rgba(15, 23, 42, 0.26);
+      overflow: hidden;
+      opacity: 0;
+    }
+    .pub-body {
+      padding: 36px 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .paste-box {
+      border-radius: 24px;
+      background: #fff1f2;
+      border: 3px dashed #e11d48;
+      padding: 28px 30px;
+      position: relative;
+    }
+    .paste-chip {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 10px;
+      background: #be123c;
+      color: #ffffff;
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .paste-line {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px;
+      font-weight: 800;
+      color: #881337;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    #leak-stamp {
+      align-self: flex-end;
+      padding: 20px 32px;
+      border-radius: 22px;
+      background: #0f172a;
+      border: 3px solid #f43f5e;
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 800;
+      box-shadow: 0 24px 52px rgba(190, 18, 60, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      transform: rotate(-2deg);
+    }
+    .halluc-box {
+      border-radius: 24px;
+      background: #f8fafc;
+      border: 2.5px solid #cbd5e1;
+      padding: 28px 30px;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .halluc-txt {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.38;
+      color: #334155;
+    }
+    .halluc-warn {
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: #be123c;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    #a1-cursor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      z-index: 35;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 14px rgba(15, 23, 42, 0.32));
+    }
+  </style>
+
+  <div id="root" data-composition-id="act1" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="kw-1" class="kw-pill kw-rose"><span class="kw-dot"></span><span>TÀI LIỆU PHÂN TÁN</span></div>
+    <div id="kw-2" class="kw-pill kw-amber"><span class="kw-dot"></span><span>NHẦM BẢN CŨ</span></div>
+    <div id="kw-3" class="kw-pill kw-rose"><span class="kw-dot"></span><span>LỘ MẬT • DỄ BỊA ĐẶT</span></div>
+
+    <div id="a1-cam">
+      <!-- Beat 1A: Vertical Scattered Files & Chat Pings -->
+      <div id="pane-scatter">
+        <div id="sc-1" class="scat-card" style="left: 90px; top: 380px; width: 860px">
+          <div class="scat-ico" style="background: #1d4ed8">DOC</div>
+          <div>
+            <div class="scat-name">SRS_Architecture_v1.docx</div>
+            <div class="scat-loc">Kho Drive • Thư mục 2025</div>
+          </div>
+        </div>
+
+        <div id="sc-2" class="scat-card" style="left: 130px; top: 565px; width: 860px">
+          <div class="scat-ico" style="background: #b45309">PDF</div>
+          <div>
+            <div class="scat-name">DB_Schema_Draft_Old.pdf</div>
+            <div class="scat-loc">Máy cá nhân • Chưa đồng bộ</div>
+          </div>
+        </div>
+
+        <div id="sc-3" class="scat-card" style="left: 90px; top: 750px; width: 860px">
+          <div class="scat-ico" style="background: #047857">XLS</div>
+          <div>
+            <div class="scat-name">Checklist_Release_Q3.xlsx</div>
+            <div class="scat-loc">Email đính kèm • 4 tháng trước</div>
+          </div>
+        </div>
+
+        <div id="pg-1" class="ping-card" style="left: 110px; top: 950px; width: 880px">
+          <div class="ping-ava">TH</div>
+          <div class="ping-msg">@Team: Bản chốt API mới nhất nằm ở nhóm chat nào?</div>
+        </div>
+
+        <div id="pg-2" class="ping-card" style="left: 90px; top: 1145px; width: 900px">
+          <div class="ping-ava">LM</div>
+          <div class="ping-msg">@Anh Minh: Cho em xin lại biên bản bàn giao module Auth!</div>
+          <svg viewBox="0 0 936 160" width="936" height="160" style="position: absolute; left: -18px; top: -16px; pointer-events: none" data-layout-ignore>
+            <path
+              id="red-ring-ping"
+              d="M 468,12 A 450,66 0 1,1 467,12"
+              fill="none"
+              stroke="#e11d48"
+              stroke-width="5.5"
+              stroke-linecap="round"
+              pathLength="1"
+              style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Beat 1B: Manual Search & Wrong Old Version -->
+      <div id="pane-manual">
+        <div class="win-bar">
+          <div class="win-dots">
+            <span class="win-dot" style="background: #fb7185"></span>
+            <span class="win-dot" style="background: #fbbf24"></span>
+            <span class="win-dot" style="background: #34d399"></span>
+          </div>
+          <div class="win-url">Tìm kiếm thủ công • 42 thư mục</div>
+          <div style="width: 36px"></div>
+        </div>
+        <div class="search-box">
+          <div id="manual-q" class="search-type" style="width: 0px">quyết định phân quyền dữ liệu</div>
+          <div style="font-size: 23px; font-weight: 800; color: #475569">4 bản trùng</div>
+        </div>
+        <div class="res-list">
+          <div class="res-row wrong-pick" id="wrong-row">
+            <span class="res-fn">RBAC_Spec_v1_FINAL.docx</span>
+            <span class="res-tag">⚠ BẢN CŨ • ĐÃ LỖI THỜI</span>
+          </div>
+          <div class="res-row">
+            <span class="res-fn">RBAC_Spec_v1_FINAL_fix2.pdf</span>
+            <span class="res-sub">Chưa rõ ai phê duyệt</span>
+          </div>
+          <div class="res-row">
+            <span class="res-fn">Copy_of_Security_Draft.md</span>
+            <span class="res-sub">Bản nháp cá nhân</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beat 1C: Pasting into External Public AI -->
+      <div id="pane-public-ai">
+        <div class="win-bar" style="background: #881337">
+          <div class="win-dots">
+            <span class="win-dot" style="background: #fda4af"></span>
+            <span class="win-dot" style="background: #fde047"></span>
+            <span class="win-dot" style="background: #86efac"></span>
+          </div>
+          <div class="win-url">public-ai-chatbot.com • Máy chủ ngoài</div>
+          <div style="width: 36px"></div>
+        </div>
+        <div class="pub-body">
+          <div class="paste-box">
+            <div class="paste-chip">DÁN TÀI LIỆU NỘI BỘ</div>
+            <div id="pub-paste" class="paste-line" style="width: 0px">
+              [INTERNAL] Cấu trúc DB &amp; khóa tích hợp...
+            </div>
+          </div>
+
+          <div id="leak-stamp" data-layout-ignore>
+            <svg viewBox="0 0 34 34" width="34" height="34" fill="none">
+              <circle cx="17" cy="17" r="15" fill="#e11d48" />
+              <path d="M11 11L23 23M23 11L11 23" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" />
+            </svg>
+            <span>NGUY CƠ RÒ RỈ DỮ LIỆU</span>
+          </div>
+
+          <div id="halluc-card" class="halluc-box">
+            <div class="halluc-txt">AI đại trà bên ngoài trả lời chung chung, tự suy diễn sai lệch vì thiếu bối cảnh dự án...</div>
+            <div class="halluc-warn">✕ KHÔNG NGUỒN GỐC</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="a1-cursor" data-layout-ignore>
+        <svg viewBox="0 0 36 36" width="44" height="44" fill="none">
+          <path d="M7 4L29 16.5L18.5 19.5L14.5 30L7 4Z" fill="#0f172a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Beat 1A (0.0s -> 9.6s): Instant hook on Frame 0 + scattered files fade-in + chat pings + zoom
+      tl.set("#kw-1", { opacity: 1, y: 6 }, 0);
+      tl.set("#sc-1", { opacity: 1, y: 0, scale: 1 }, 0);
+      tl.fromTo(
+        ["#sc-2", "#sc-3"],
+        { opacity: 0, y: 36, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.32, ease: "power3.out" },
+        0.35
+      );
+      tl.fromTo(
+        ["#pg-1", "#pg-2"],
+        { opacity: 0, y: 30, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.55, ease: "back.out(1.4)" },
+        4.65
+      );
+      tl.to("#a1-cam", { scale: 1.08, x: 0, y: -25, duration: 1.6, ease: "power2.inOut" }, 5.6);
+      tl.to("#red-ring-ping", { strokeDashoffset: 0, duration: 0.65, ease: "power2.out" }, 6.9);
+
+      // Beat 1B (9.6s -> 13.7s): Manual search + wrong old version
+      tl.to("#pane-scatter", { opacity: 0, duration: 0.35, ease: "power2.out" }, 9.55);
+      tl.to("#kw-1", { opacity: 0, duration: 0.25 }, 9.55);
+      tl.to("#a1-cam", { scale: 1.0, x: 0, y: 0, duration: 0.45, ease: "power2.out" }, 9.6);
+      tl.fromTo("#pane-manual", { opacity: 0, y: 38, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "power3.out" }, 9.7);
+      tl.to("#kw-2", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 9.85);
+      tl.fromTo("#manual-q", { width: 0 }, { width: 475, duration: 1.35, ease: "steps(26)" }, 10.05);
+      tl.set("#a1-cursor", { x: 640, y: 980 }, 11.15);
+      tl.to("#a1-cursor", { opacity: 1, x: 520, y: 670, duration: 0.45, ease: "power2.out" }, 11.2);
+      tl.to("#a1-cam", { scale: 1.14, x: 0, y: 85, duration: 1.1, ease: "power2.inOut" }, 11.5);
+
+      // Beat 1C (13.7s -> 22.8s): External Public AI paste -> Zoom-in onto Leak & Hallucination
+      tl.to(["#pane-manual", "#a1-cursor"], { opacity: 0, duration: 0.32 }, 13.65);
+      tl.to("#kw-2", { opacity: 0, duration: 0.25 }, 13.65);
+      tl.to("#a1-cam", { scale: 1.0, x: 0, y: 0, duration: 0.45, ease: "power2.out" }, 13.7);
+      tl.fromTo("#pane-public-ai", { opacity: 0, y: 38, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" }, 13.8);
+      tl.to("#kw-3", { opacity: 1, y: 6, duration: 0.42, ease: "power3.out" }, 13.95);
+      tl.fromTo("#pub-paste", { width: 0 }, { width: 690, duration: 1.65, ease: "steps(38)" }, 14.1);
+
+      tl.fromTo("#leak-stamp", { opacity: 0, scale: 0.74 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, 16.4);
+      tl.to("#a1-cam", { scale: 1.13, x: -18, y: 55, duration: 1.35, ease: "power2.inOut" }, 16.5);
+      tl.fromTo("#halluc-card", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 19.05);
+      tl.to("#a1-cam", { scale: 1.08, x: 0, y: 18, duration: 1.2, ease: "power2.inOut" }, 19.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act1"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

@@ -73,6 +73,7 @@ CreateVideo/
 │   ├── assets-library/             # Kho dùng chung: 454 Lottie JSON (25 curated SaaS) & 32 file SFX/BGM (Click, Typing, Whoosh, Pop/Chime)
 │   ├── auth-signin-demo/           # Video 24s demo Đăng nhập Email & Google OAuth thực tế qua Brave CDP (:9333)
 │   ├── continuum-ai-chat-showcase/ # Video 78s Ngang 16:9 (1920x1080) giới thiệu Continuum AI Chat (UI Proof 2x Retina + Zoom/Typing/SFX + Keyword-only)
+│   ├── continuum-ai-chat-showcase-9x16/ # Video 78s Dọc 9:16 (1080x1920) giới thiệu Continuum AI Chat cho Reels/TikTok/Shorts (UI Proof 2x Retina + Keyword-only)
 │   ├── continuum-business-intro/   # Video 58s Ngang 16:9 (1920x1080) giới thiệu Continuum AI cho doanh nghiệp (Product Motion v2 + B-Roll Pexels)
 │   ├── continuum-business-intro-9x16/ # Video 58s Dọc 9:16 (1080x1920) giới thiệu Continuum AI cho Reels/TikTok/Shorts (Product Motion v2)
 │   ├── continuum-launch/           # Dự án video ra mắt Continuum AI

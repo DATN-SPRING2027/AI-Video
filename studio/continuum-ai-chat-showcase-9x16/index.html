@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Continuum AI Chat — Hỏi Tự Nhiên • Trích Dẫn Tận Gốc • Bảo Mật Nội Bộ (9:16)</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/be-vietnam-pro-400-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/be-vietnam-pro-400-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/be-vietnam-pro-400-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 500; font-display: block; src: url("assets/fonts/be-vietnam-pro-500-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 500; font-display: block; src: url("assets/fonts/be-vietnam-pro-500-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 500; font-display: block; src: url("assets/fonts/be-vietnam-pro-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/be-vietnam-pro-600-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/be-vietnam-pro-600-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/be-vietnam-pro-600-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/be-vietnam-pro-700-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/be-vietnam-pro-700-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/be-vietnam-pro-700-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/be-vietnam-pro-800-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/be-vietnam-pro-800-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "Be Vietnam Pro"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/be-vietnam-pro-800-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: block; src: url("assets/fonts/jetbrains-mono-500-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: block; src: url("assets/fonts/jetbrains-mono-500-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: block; src: url("assets/fonts/jetbrains-mono-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/jetbrains-mono-600-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/jetbrains-mono-600-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/jetbrains-mono-600-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/jetbrains-mono-700-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/jetbrains-mono-700-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/jetbrains-mono-700-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/jetbrains-mono-800-vietnamese.woff2") format("woff2"); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/jetbrains-mono-800-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/jetbrains-mono-800-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #dfe7f6;
+        font-family: "Be Vietnam Pro", sans-serif;
+        font-variant-numeric: tabular-nums;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+      #studio-stage {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 24% 18%, rgba(79, 70, 229, 0.14) 0%, rgba(79, 70, 229, 0) 52%),
+          radial-gradient(circle at 80% 78%, rgba(16, 185, 129, 0.11) 0%, rgba(16, 185, 129, 0) 50%),
+          linear-gradient(165deg, #eef3fc 0%, #e1eaf8 54%, #d1def3 100%);
+        z-index: 0;
+      }
+      .studio-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(148, 163, 184, 0.16) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+      .studio-orb-1 {
+        position: absolute;
+        left: -130px;
+        top: -110px;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(99, 102, 241, 0) 70%);
+      }
+      .studio-orb-2 {
+        position: absolute;
+        right: -140px;
+        bottom: -110px;
+        width: 560px;
+        height: 560px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(14, 165, 233, 0.16) 0%, rgba(14, 165, 233, 0) 70%);
+      }
+      #corner-brand {
+        position: absolute;
+        left: 50%;
+        top: 108px;
+        transform: translateX(-50%);
+        width: 244px;
+        height: 54px;
+        background: url("assets/brand/continuum-lockup-light.png") center / contain no-repeat;
+        opacity: 0.96;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="78"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="studio-stage" data-layout-ignore>
+        <div class="studio-grid"></div>
+        <div class="studio-orb-1"></div>
+        <div class="studio-orb-2"></div>
+        <div id="corner-brand"></div>
+      </div>
+
+      <!-- Hồi 1: Điểm đau phân tán & Bất lợi lộ mật / ảo giác khi dùng AI ngoài (0.0s -> 22.8s) -->
+      <div
+        id="act1"
+        class="clip"
+        data-composition-id="act1"
+        data-composition-src="compositions/act-01-pain-risk.html"
+        data-track-kind="graphics"
+        data-start="0"
+        data-duration="22.8"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+
+      <!-- Hồi 2: Continuum AI Chat — Gõ câu hỏi tự nhiên, Suy luận minh bạch & Trích dẫn tận gốc (22.8s -> 42.3s) -->
+      <div
+        id="act2"
+        class="clip"
+        data-composition-id="act2"
+        data-composition-src="compositions/act-02-typing-citation.html"
+        data-track-kind="graphics"
+        data-start="22.8"
+        data-duration="19.5"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 3"
+      ></div>
+
+      <!-- Hồi 3: Bản đồ tư duy 1 chạm, Rẽ nhánh & Đa bản, Đọc giọng nói, Lưu Task Note & Chia sẻ (42.3s -> 61.9s) -->
+      <div
+        id="act3"
+        class="clip"
+        data-composition-id="act3"
+        data-composition-src="compositions/act-03-mindmap-actions.html"
+        data-track-kind="graphics"
+        data-start="42.3"
+        data-duration="19.6"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 4"
+      ></div>
+
+      <!-- Hồi 4: Kiểm toán nguồn, Robot 3D đồng hành, Lá chắn bảo mật & Màn kết Sắp ra mắt (61.9s -> 78.0s) -->
+      <div
+        id="act4"
+        class="clip"
+        data-composition-id="act4"
+        data-composition-src="compositions/act-04-trust-finale.html"
+        data-track-kind="graphics"
+        data-start="61.9"
+        data-duration="16.1"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 5"
+      ></div>
+
+      <!-- Lớp 1: Giọng thuyết minh (74.98s, bắt đầu tại 1.0s -> kết thúc 75.98s) -->
+      <audio
+        id="vo-track"
+        class="clip"
+        src="assets/audio/voiceover.wav"
+        data-start="1.0"
+        data-duration="74.98"
+        data-track-index="2"
+        data-volume="1"
+      ></audio>
+
+      <!-- Lớp 2: Nhạc nền Upbeat SaaS (77.95s có fade-in/out) -->
+      <audio
+        id="bgm-track"
+        class="clip"
+        src="assets/audio/bgm-aichat-78s.mp3"
+        data-start="0"
+        data-duration="77.95"
+        data-track-index="3"
+        data-volume="0.18"
+      ></audio>
+
+      <!-- Lớp 3: 26 điểm Sound Effects (SFX) khớp chuyển động Zoom / Fade / Typing / Click -->
+      <!-- Hồi 1 SFX -->
+      <audio id="sfx-01" class="clip" src="assets/sfx/whoosh-snappy.mp3" data-start="0.15" data-duration="0.52" data-track-index="4" data-volume="0.30"></audio>
+      <audio id="sfx-02" class="clip" src="assets/sfx/pop-quick.mp3" data-start="1.25" data-duration="0.65" data-track-index="5" data-volume="0.30"></audio>
+      <audio id="sfx-03" class="clip" src="assets/sfx/toast-pop.mp3" data-start="4.95" data-duration="1.10" data-track-index="6" data-volume="0.28"></audio>
+      <audio id="sfx-04" class="clip" src="assets/sfx/click-crisp.mp3" data-start="9.95" data-duration="0.34" data-track-index="4" data-volume="0.32"></audio>
+      <audio id="sfx-05" class="clip" src="assets/sfx/typing-burst.mp3" data-start="14.10" data-duration="1.45" data-track-index="5" data-volume="0.30"></audio>
+      <audio id="sfx-06" class="clip" src="assets/sfx/error-alert.mp3" data-start="16.45" data-duration="1.20" data-track-index="6" data-volume="0.28"></audio>
+      <audio id="sfx-07" class="clip" src="assets/sfx/bass-hit.mp3" data-start="19.10" data-duration="1.80" data-track-index="7" data-volume="0.26"></audio>
+
+      <!-- Hồi 2 SFX -->
+      <audio id="sfx-08" class="clip" src="assets/sfx/whoosh-punchy.mp3" data-start="22.85" data-duration="0.52" data-track-index="4" data-volume="0.32"></audio>
+      <audio id="sfx-09" class="clip" src="assets/sfx/sparkle.mp3" data-start="23.20" data-duration="1.75" data-track-index="5" data-volume="0.28"></audio>
+      <audio id="sfx-10" class="clip" src="assets/sfx/typing-burst.mp3" data-start="28.15" data-duration="1.45" data-track-index="6" data-volume="0.32"></audio>
+      <audio id="sfx-11" class="clip" src="assets/sfx/click-crisp.mp3" data-start="30.05" data-duration="0.34" data-track-index="4" data-volume="0.34"></audio>
+      <audio id="sfx-12" class="clip" src="assets/sfx/pop-clean.wav" data-start="31.30" data-duration="0.42" data-track-index="5" data-volume="0.32"></audio>
+      <audio id="sfx-13" class="clip" src="assets/sfx/ui-click-clean.wav" data-start="36.90" data-duration="0.20" data-track-index="6" data-volume="0.36"></audio>
+      <audio id="sfx-14" class="clip" src="assets/sfx/whoosh-snappy.mp3" data-start="37.25" data-duration="0.52" data-track-index="4" data-volume="0.30"></audio>
+      <audio id="sfx-15" class="clip" src="assets/sfx/ping-marker.mp3" data-start="38.55" data-duration="1.15" data-track-index="7" data-volume="0.30"></audio>
+
+      <!-- Hồi 3 SFX -->
+      <audio id="sfx-16" class="clip" src="assets/sfx/whoosh-swipe.mp3" data-start="42.35" data-duration="0.13" data-track-index="4" data-volume="0.34"></audio>
+      <audio id="sfx-17" class="clip" src="assets/sfx/ui-click-clean.wav" data-start="44.45" data-duration="0.20" data-track-index="5" data-volume="0.36"></audio>
+      <audio id="sfx-18" class="clip" src="assets/sfx/whoosh-snappy.mp3" data-start="46.90" data-duration="0.52" data-track-index="6" data-volume="0.30"></audio>
+      <audio id="sfx-19" class="clip" src="assets/sfx/click-crisp.mp3" data-start="50.15" data-duration="0.34" data-track-index="4" data-volume="0.34"></audio>
+      <audio id="sfx-20" class="clip" src="assets/sfx/pop-clean.wav" data-start="54.85" data-duration="0.42" data-track-index="5" data-volume="0.34"></audio>
+      <audio id="sfx-21" class="clip" src="assets/sfx/lock-confirm.wav" data-start="58.45" data-duration="0.32" data-track-index="6" data-volume="0.36"></audio>
+
+      <!-- Hồi 4 SFX -->
+      <audio id="sfx-22" class="clip" src="assets/sfx/whoosh-punchy.mp3" data-start="61.95" data-duration="0.52" data-track-index="4" data-volume="0.30"></audio>
+      <audio id="sfx-23" class="clip" src="assets/sfx/pop-quick.mp3" data-start="64.55" data-duration="0.65" data-track-index="5" data-volume="0.30"></audio>
+      <audio id="sfx-24" class="clip" src="assets/sfx/lock-confirm.wav" data-start="66.65" data-duration="0.32" data-track-index="6" data-volume="0.36"></audio>
+      <audio id="sfx-25" class="clip" src="assets/sfx/sparkle.mp3" data-start="69.35" data-duration="1.75" data-track-index="7" data-volume="0.32"></audio>
+      <audio id="sfx-26" class="clip" src="assets/sfx/chime-success.mp3" data-start="72.10" data-duration="2.20" data-track-index="8" data-volume="0.30"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const mainTl = gsap.timeline({ paused: true });
+      mainTl.to(".studio-orb-1", { x: 34, y: 28, duration: 19, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      mainTl.to(".studio-orb-2", { x: -30, y: -26, duration: 15, yoyo: true, repeat: 4, ease: "sine.inOut" }, 0);
+      mainTl.to("#corner-brand", { opacity: 0, duration: 0.45, ease: "power2.out" }, 69.0);
+      window.__timelines["main"] = mainTl;
+    </script>
+  </body>
+</html>

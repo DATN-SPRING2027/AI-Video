@@ -1,0 +1,9 @@
+Tài liệu dự án nằm rải rác từ kho lưu trữ đến hàng chục nhóm tin nhắn. Mỗi lần tra cứu hay bàn giao là phải nhắn hỏi người cũ liên tục, làm đứt mạch công việc cả đội. Tự lục tìm thủ công thì mất hàng giờ, lại dễ đọc nhầm tài liệu bản cũ. Còn nếu sao chép dán lên các công cụ AI đại trà bên ngoài, doanh nghiệp đối mặt ngay với nguy cơ lộ dữ liệu mật, mà AI vẫn dễ tự suy diễn sai lệch vì thiếu bối cảnh.
+
+Giải pháp nay đã có ngay trong dự án của bạn: Continuum AI tích hợp sẵn không gian AI Chat nội bộ.
+
+Chỉ cần đặt câu hỏi tự nhiên bằng tiếng Việt, hệ thống hiển thị minh bạch từng bước suy luận trên tài liệu đã duyệt và tuân thủ chặt chẽ quyền hạn của bạn. Mọi câu trả lời đều gắn số trích dẫn rõ ràng, bấm vào là mở ngay đoạn văn bản gốc đúng trang, đúng phiên bản để đối chiếu tức thì.
+
+Một chạm dựng ngay Bản đồ tư duy toàn dự án, bấm nhánh nào là hỏi xoáy sâu nhánh đó. Bạn còn có thể rẽ nhánh sang cuộc trò chuyện mới mà không loãng luồng chính, lật xem nhiều phiên bản trả lời, hoặc bật giọng đọc tự nhiên khi đang bận tay. Câu trả lời tâm đắc có thể lưu thẳng vào ghi chú đầu việc giữ nguyên trích dẫn, hay chia sẻ nội bộ an toàn và thu hồi liên kết bất cứ lúc nào. Đi kèm bảng kiểm toán nguồn tài liệu sẵn sàng, trợ lý Robot đồng hành xuyên suốt mọi màn hình và lá chắn tự động cảnh báo thông tin nhạy cảm.
+
+Hỏi tự nhiên, trích dẫn tận gốc, bảo mật tuyệt đối cho từng dự án. Hãy cùng chờ đón ngày Continuum AI chính thức ra mắt!

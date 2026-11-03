@@ -1,0 +1,13 @@
+# Storyboard — Continuum AI Chat Showcase (`16:9` • `1920x1080` • `30fps` • `78.0s`)
+
+## Triết Lý Thiết Kế Hình Ảnh & Chuyển Động
+- **Screenshot Proof + Camera Motion + Keyword-Only:** Không dùng đoạn văn dài hay thanh phụ đề trên màn hình. Toàn bộ câu chuyện do giọng thuyết minh dẫn dắt, trên màn hình chỉ hiển thị **ảnh chụp màn hình bằng chứng thật (`2x Retina` từ `localhost:3000`)**, chuyển động ống kính **`Zoom-in` / `Pan` / `Fade-in`**, **con trỏ & gõ phím trực tiếp (`Typing`)**, **khoanh tròn nét bút SVG**, **Sound Effects (`SFX`) đa lớp**, và **nhãn `Keyword` cô đọng 2–4 từ** bằng font chuẩn **`Be Vietnam Pro`**.
+
+## Cấu Trúc 4 Hồi Khớp Mốc `Whisper` (`vo-track` bắt đầu tại `1.0s`)
+
+| Hồi | Thời lượng | Mốc câu chuyện | Chuyển động chính | Nhãn Keyword |
+|---|---|---|---|---|
+| **Hồi 1 (`act-01-pain-risk.html`)** | `0.0s – 22.8s` (`22.8s`) | Tài liệu phân tán, nhắn hỏi người cũ liên tục, lục tìm thủ công nhầm bản cũ, dán lên AI đại trà bên ngoài lo lộ mật & bịa đặt | Các thẻ tài liệu/tin nhắn `fade-in` chồng lấp ➔ Gõ dán nội dung nội bộ vào khung AI công cộng ➔ `Zoom-in` vào cảnh báo đỏ + gạch chéo | `TÀI LIỆU PHÂN TÁN` ➔ `NHẦM BẢN CŨ` ➔ `LỘ MẬT • DỄ BỊA ĐẶT` |
+| **Hồi 2 (`act-02-typing-citation.html`)** | `22.8s – 42.3s` (`19.5s`) | Giải pháp **Continuum AI Chat** ngay trong dự án: gõ câu hỏi tự nhiên, hiện bước suy luận minh bạch, bấm số trích dẫn mở ngay văn bản gốc đúng trang & phiên bản | `Fade-in` khung trình duyệt thật ➔ Con trỏ click & gõ từng chữ câu hỏi (`steps()`) ➔ Bấm Gửi ➔ Camera `Zoom-in` `1.8x` vào `[1]` và đoạn trích tô sáng trong `Evidence Sheet` + bút dạ xanh khoanh tròn | `CONTINUUM AI CHAT` ➔ `SUY LUẬN MINH BẠCH` ➔ `TRÍCH DẪN TẬN GỐC` |
+| **Hồi 3 (`act-03-mindmap-actions.html`)** | `42.3s – 61.9s` (`19.6s`) | Một chạm dựng **Bản đồ tư duy** hỏi xoáy sâu từng nhánh; rẽ nhánh hội thoại, đa phiên bản trả lời, đọc giọng nói, lưu thẳng vào Task Note & chia sẻ nội bộ có thu hồi liên kết | Trượt mượt sang `Mind Map` chia đôi màn hình + `Zoom-in` nhánh cây & click chuột ➔ Lia cận thanh công cụ `< 1/2 >` / Loa / Rẽ nhánh ➔ `Fade-in` + `Zoom-in` hộp thoại thật `Save to Task Note` & `Share & Revoke` | `BẢN ĐỒ TƯ DUY` ➔ `RẼ NHÁNH • ĐA BẢN` ➔ `GẮN THẲNG ĐẦU VIỆC` ➔ `CHIA SẺ AN TOÀN` |
+| **Hồi 4 (`act-04-trust-finale.html`)** | `61.9s – 78.0s` (`16.1s`) | Minh bạch nguồn tài liệu sẵn sàng, trợ lý Robot 3D đồng hành đa màn hình, lá chắn cảnh báo thông tin nhạy cảm & Màn kết chờ đón ngày ra mắt | `Zoom-in` bảng nguồn tài liệu + trợ lý `Robot 3D` + lá chắn bảo mật ➔ Thu mượt khung trình duyệt xuống và bung khóa thương hiệu chính thức `C∞ Continuum AI` | `PHÂN QUYỀN • MINH BẠCH` ➔ `SẮP RA MẮT` |

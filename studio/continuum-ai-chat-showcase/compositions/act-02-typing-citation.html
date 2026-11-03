@@ -1,0 +1,294 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: inherit;
+    }
+    #a2-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 960px 540px;
+      will-change: transform;
+    }
+    .kw-pill {
+      position: absolute;
+      left: 50%;
+      top: 38px;
+      transform: translateX(-50%);
+      padding: 13px 36px;
+      border-radius: 999px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.24);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 50;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    .kw-indigo {
+      background: #4f46e5;
+      border: 2px solid #c7d2fe;
+    }
+    .kw-sky {
+      background: #0369a1;
+      border: 2px solid #bae6fd;
+    }
+    .kw-emerald {
+      background: #047857;
+      border: 2px solid #a7f3d0;
+    }
+    .kw-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    /* High-Res Browser Window (1440 x 908 -> 1440 x 864 exact 5:3 Retina viewport) */
+    #a2-browser {
+      position: absolute;
+      left: 240px;
+      top: 118px;
+      width: 1440px;
+      height: 908px;
+      border-radius: 26px;
+      background: #0f172a;
+      box-shadow:
+        0 44px 95px rgba(15, 23, 42, 0.28),
+        0 14px 32px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.16);
+      overflow: hidden;
+      opacity: 0;
+    }
+    .br-bar {
+      height: 44px;
+      background: #0f172a;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .br-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .br-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .br-addr {
+      padding: 5px 22px;
+      border-radius: 999px;
+      background: #1e293b;
+      color: #f8fafc;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .br-view {
+      position: relative;
+      width: 1440px;
+      height: 864px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .shot-img {
+      position: absolute;
+      inset: 0;
+      width: 1440px;
+      height: 864px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Live Typing Overlay inside real Continuum AI Composer */
+    #type-box {
+      position: absolute;
+      left: 638px;
+      top: 796px;
+      width: 486px;
+      height: 31px;
+      background: #f3f4f6;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      z-index: 12;
+    }
+    #type-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2.5px solid #4f46e5;
+      padding-right: 4px;
+    }
+
+    /* Click Ripple Ring */
+    .click-ring {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      margin-left: -24px;
+      margin-top: -24px;
+      border-radius: 50%;
+      border: 3.5px solid #4f46e5;
+      opacity: 0;
+      z-index: 28;
+      pointer-events: none;
+    }
+
+    /* Pointer Cursor */
+    #a2-cursor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      z-index: 30;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.32));
+    }
+  </style>
+
+  <div id="root" data-composition-id="act2" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <!-- Minimal Keyword Pills -->
+    <div id="a2-kw-1" class="kw-pill kw-indigo"><span class="kw-dot"></span><span>CONTINUUM AI CHAT</span></div>
+    <div id="a2-kw-2" class="kw-pill kw-sky"><span class="kw-dot"></span><span>SUY LUẬN MINH BẠCH</span></div>
+    <div id="a2-kw-3" class="kw-pill kw-emerald"><span class="kw-dot"></span><span>TRÍCH DẪN TẬN GỐC</span></div>
+
+    <div id="a2-cam">
+      <div id="a2-browser">
+        <div class="br-bar" data-layout-ignore>
+          <div class="br-dots">
+            <span class="br-dot" style="background: #fb7185"></span>
+            <span class="br-dot" style="background: #fbbf24"></span>
+            <span class="br-dot" style="background: #34d399"></span>
+          </div>
+          <div class="br-addr">app.continuum.ai/ai-chat • Continuum Pulse</div>
+          <div style="width: 44px"></div>
+        </div>
+
+        <div class="br-view" data-layout-ignore>
+          <!-- Layer 1: Clean AI Chat Hero -->
+          <img id="s-hero" class="shot-img" src="assets/ui/proof-01-aichat-hero.png" alt="AI Chat Hero" />
+
+          <!-- Live Typing inside real Composer -->
+          <div id="type-box">
+            <div id="type-text" style="width: 0px">Vì sao dự án chốt SLA phản hồi P1 xuống 15 phút?</div>
+          </div>
+
+          <!-- Layer 2: Expanded Retrieval Reasoning Steps -->
+          <img id="s-steps" class="shot-img" src="assets/ui/proof-03b-steps-expanded.png" alt="Retrieval Steps" style="opacity: 0" />
+
+          <!-- Layer 3: Grounded Answer with [1] [2] [3] Citations -->
+          <img id="s-ans" class="shot-img" src="assets/ui/proof-03-answer-citations.png" alt="Cited Answer" style="opacity: 0" />
+
+          <!-- Layer 4: Evidence Sheet Drawer Open Highlighting Source Passage -->
+          <img id="s-ev" class="shot-img" src="assets/ui/proof-04-evidence-drawer.png" alt="Evidence Sheet" style="opacity: 0" />
+
+          <!-- Hand-Drawn Green Marker Oval over Verified Evidence Excerpt in Drawer -->
+          <svg
+            id="ev-marker-svg"
+            viewBox="0 0 460 112"
+            width="460"
+            height="112"
+            style="position: absolute; left: 968px; top: 302px; z-index: 20; pointer-events: none"
+          >
+            <path
+              id="ev-green-oval"
+              d="M 230,8 A 216,46 0 1,1 229,8"
+              fill="none"
+              stroke="#10b981"
+              stroke-width="4.5"
+              stroke-linecap="round"
+              pathLength="1"
+              style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+            />
+          </svg>
+
+          <!-- Click Ripple -->
+          <div id="a2-ripple" class="click-ring"></div>
+
+          <!-- Animated Cursor inside Browser View -->
+          <div id="a2-cursor">
+            <svg viewBox="0 0 36 36" width="34" height="34" fill="none">
+              <path d="M7 4L29 16.5L18.5 19.5L14.5 30L7 4Z" fill="#0f172a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // 0.0s -> 5.0s: Fade-in real AI Chat workspace ("Continuum AI tích hợp sẵn không gian AI Chat nội bộ")
+      tl.fromTo(
+        "#a2-browser",
+        { opacity: 0, y: 44, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "power3.out" },
+        0.08
+      );
+      tl.to("#a2-kw-1", { opacity: 1, y: 6, duration: 0.45, ease: "power3.out" }, 0.3);
+      tl.to("#a2-cam", { scale: 1.06, y: -12, duration: 3.8, ease: "sine.inOut" }, 0.8);
+
+      // 5.1s -> 7.5s: Zoom-in to bottom composer + live character typing + click Send!
+      tl.to("#a2-cam", { scale: 1.68, x: -75, y: -315, duration: 0.78, ease: "power3.inOut" }, 4.95);
+      tl.set("#a2-cursor", { x: 960, y: 640 }, 5.1);
+      tl.to("#a2-cursor", { opacity: 1, x: 720, y: 820, duration: 0.45, ease: "power2.out" }, 5.15);
+      tl.to("#type-box", { opacity: 1, duration: 0.12 }, 5.3);
+      tl.fromTo("#type-text", { width: 0 }, { width: 405, duration: 1.65, ease: "steps(40)" }, 5.35);
+
+      // Cursor moves to Send button (x=1262, y=816 in 1440x864 view) & clicks!
+      tl.to("#a2-cursor", { x: 1262, y: 816, duration: 0.32, ease: "power2.inOut" }, 7.0);
+      tl.set("#a2-ripple", { x: 1262, y: 816, scale: 0.35, opacity: 0.95 }, 7.25);
+      tl.to("#a2-ripple", { scale: 1.5, opacity: 0, duration: 0.45, ease: "power2.out" }, 7.26);
+
+      // 7.6s -> 12.4s: Crossfade to Expanded Retrieval Steps & Zoom-in onto "Quá trình xử lý"!
+      tl.to("#a2-kw-1", { opacity: 0, duration: 0.25 }, 7.65);
+      tl.to("#a2-kw-2", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 7.85);
+      tl.to("#type-box", { opacity: 0, duration: 0.2 }, 7.75);
+      tl.to("#a2-cursor", { opacity: 0, duration: 0.2 }, 7.75);
+      tl.to("#s-steps", { opacity: 1, duration: 0.45, ease: "power2.out" }, 7.8);
+      tl.to("#a2-cam", { scale: 1.58, x: -245, y: 155, duration: 0.95, ease: "power3.inOut" }, 7.8);
+
+      // 12.4s -> 14.3s: Crossfade to Answer + Citations [1][2][3] & Cursor clicks "Xem đoạn trích"
+      tl.to("#a2-kw-2", { opacity: 0, duration: 0.25 }, 12.45);
+      tl.to("#a2-kw-3", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 12.65);
+      tl.to("#s-ans", { opacity: 1, duration: 0.42, ease: "power2.out" }, 12.5);
+      tl.to("#a2-cam", { scale: 1.44, x: -195, y: -75, duration: 0.85, ease: "power2.inOut" }, 12.55);
+
+      // Cursor clicks "Xem đoạn trích" on Card [1] (left: 650, top: 610 in 1440x864 view)
+      tl.set("#a2-cursor", { x: 790, y: 520 }, 13.5);
+      tl.to("#a2-cursor", { opacity: 1, x: 650, y: 610, duration: 0.5, ease: "power2.out" }, 13.55);
+      tl.set("#a2-ripple", { x: 650, y: 610, scale: 0.35, opacity: 0.95 }, 14.1);
+      tl.to("#a2-ripple", { scale: 1.55, opacity: 0, duration: 0.45, ease: "power2.out" }, 14.12);
+
+      // 14.4s -> 19.5s: Evidence Drawer opens + Camera Zooms 1.68x onto Verified Passage + Green Marker Oval!
+      tl.to("#a2-cursor", { opacity: 0, duration: 0.2 }, 14.35);
+      tl.to("#s-ev", { opacity: 1, duration: 0.45, ease: "power2.out" }, 14.4);
+      tl.to("#a2-cam", { scale: 1.66, x: -495, y: 155, duration: 0.95, ease: "power3.inOut" }, 14.45);
+      tl.to("#ev-green-oval", { strokeDashoffset: 0, duration: 0.72, ease: "power2.out" }, 15.75);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act2"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

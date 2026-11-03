@@ -1,0 +1,10 @@
+{
+  "name": "continuum-ai-chat-showcase",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx hyperframes preview",
+    "check": "npx hyperframes check",
+    "render": "npx hyperframes render --quality delivery --output dist/continuum-ai-chat-showcase-1080p.mp4"
+  }
+}

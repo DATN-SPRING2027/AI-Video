@@ -1,0 +1,267 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: inherit;
+    }
+    #a3-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 960px 540px;
+      will-change: transform;
+    }
+    .kw-pill {
+      position: absolute;
+      left: 50%;
+      top: 26px;
+      transform: translateX(-50%);
+      padding: 13px 36px;
+      border-radius: 999px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.24);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 50;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    .kw-indigo {
+      background: #4f46e5;
+      border: 2px solid #c7d2fe;
+    }
+    .kw-sky {
+      background: #0369a1;
+      border: 2px solid #bae6fd;
+    }
+    .kw-emerald {
+      background: #047857;
+      border: 2px solid #a7f3d0;
+    }
+    .kw-amber {
+      background: #b45309;
+      border: 2px solid #fde68a;
+    }
+    .kw-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    #a3-browser {
+      position: absolute;
+      left: 240px;
+      top: 118px;
+      width: 1440px;
+      height: 908px;
+      border-radius: 26px;
+      background: #0f172a;
+      box-shadow:
+        0 44px 95px rgba(15, 23, 42, 0.28),
+        0 14px 32px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.16);
+      overflow: hidden;
+    }
+    .br-bar {
+      height: 44px;
+      background: #0f172a;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .br-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .br-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .br-addr {
+      padding: 5px 22px;
+      border-radius: 999px;
+      background: #1e293b;
+      color: #f8fafc;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .br-view {
+      position: relative;
+      width: 1440px;
+      height: 864px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .shot-img {
+      position: absolute;
+      inset: 0;
+      width: 1440px;
+      height: 864px;
+      object-fit: cover;
+      display: block;
+    }
+    .click-ring {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      margin-left: -24px;
+      margin-top: -24px;
+      border-radius: 50%;
+      border: 3.5px solid #4f46e5;
+      opacity: 0;
+      z-index: 28;
+      pointer-events: none;
+    }
+    #a3-cursor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      z-index: 30;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.32));
+    }
+  </style>
+
+  <div id="root" data-composition-id="act3" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <!-- Minimal Keyword Pills -->
+    <div id="a3-kw-1" class="kw-pill kw-indigo"><span class="kw-dot"></span><span>BẢN ĐỒ TƯ DUY</span></div>
+    <div id="a3-kw-2" class="kw-pill kw-sky"><span class="kw-dot"></span><span>RẼ NHÁNH • ĐA BẢN</span></div>
+    <div id="a3-kw-3" class="kw-pill kw-emerald"><span class="kw-dot"></span><span>GẮN THẲNG ĐẦU VIỆC</span></div>
+    <div id="a3-kw-4" class="kw-pill kw-amber"><span class="kw-dot"></span><span>CHIA SẺ • THU HỒI 1 CHẠM</span></div>
+
+    <div id="a3-cam">
+      <div id="a3-browser">
+        <div class="br-bar" data-layout-ignore>
+          <div class="br-dots">
+            <span class="br-dot" style="background: #fb7185"></span>
+            <span class="br-dot" style="background: #fbbf24"></span>
+            <span class="br-dot" style="background: #34d399"></span>
+          </div>
+          <div class="br-addr">app.continuum.ai/ai-chat • Mind Map &amp; Actions</div>
+          <div style="width: 44px"></div>
+        </div>
+
+        <div class="br-view" data-layout-ignore>
+          <!-- Layer 1: Split-Screen Mind Map Studio -->
+          <img id="s-mm" class="shot-img" src="assets/ui/proof-05-mindmap-split.png" alt="Mind Map Split View" />
+
+          <!-- Layer 2: Multi-version (< 2/2 >), Speaker & Branch Menu -->
+          <img id="s-more" class="shot-img" src="assets/ui/proof-06-more-actions.png" alt="Branch and Versions" style="opacity: 0" />
+
+          <!-- Hand-Drawn Marker Oval around < 2/2 > + Action Bar -->
+          <svg
+            viewBox="0 0 340 68"
+            width="340"
+            height="68"
+            style="position: absolute; left: 590px; top: 712px; z-index: 20; pointer-events: none"
+          >
+            <path
+              id="actbar-oval"
+              d="M 170,8 A 158,26 0 1,1 169,8"
+              fill="none"
+              stroke="#4f46e5"
+              stroke-width="4"
+              stroke-linecap="round"
+              pathLength="1"
+              style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+            />
+          </svg>
+
+          <!-- Layer 3: Save to Task Note Modal -->
+          <img id="s-note" class="shot-img" src="assets/ui/proof-07-save-task-note.png" alt="Save to Task Note" style="opacity: 0" />
+
+          <!-- Layer 4: Project-Only Share & Revoke Modal -->
+          <img id="s-share" class="shot-img" src="assets/ui/proof-07b-share-modal.png" alt="Share and Revoke" style="opacity: 0" />
+
+          <!-- Hand-Drawn Oval on "Thu hồi liên kết" inside Share Modal -->
+          <svg
+            viewBox="0 0 180 62"
+            width="180"
+            height="62"
+            style="position: absolute; left: 604px; top: 676px; z-index: 24; pointer-events: none"
+          >
+            <path
+              id="revoke-oval"
+              d="M 90,7 A 80,24 0 1,1 89,7"
+              fill="none"
+              stroke="#10b981"
+              stroke-width="4"
+              stroke-linecap="round"
+              pathLength="1"
+              style="stroke-dasharray: 1 1.2; stroke-dashoffset: 1.1"
+            />
+          </svg>
+
+          <div id="a3-ripple" class="click-ring"></div>
+          <div id="a3-cursor">
+            <svg viewBox="0 0 36 36" width="34" height="34" fill="none">
+              <path d="M7 4L29 16.5L18.5 19.5L14.5 30L7 4Z" fill="#0f172a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Beat 3A (0.0s -> 4.6s): Split-screen Mind Map + Zoom into interactive tree & branch quick-ask!
+      tl.fromTo("#a3-browser", { x: 70, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.02);
+      tl.to("#a3-kw-1", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 0.2);
+      tl.to("#a3-cam", { scale: 1.44, x: -305, y: -175, duration: 0.95, ease: "power3.inOut" }, 0.55);
+
+      // Cursor clicks branch "Kiến trúc & SLA P1 (15p)" (x=1320, y=408 in 1440x864) -> moves to "Hỏi sâu" (x=1340, y=836)
+      tl.set("#a3-cursor", { x: 1210, y: 470 }, 1.45);
+      tl.to("#a3-cursor", { opacity: 1, x: 1320, y: 408, duration: 0.5, ease: "power2.out" }, 1.5);
+      tl.set("#a3-ripple", { x: 1320, y: 408, scale: 0.35, opacity: 0.95 }, 2.12);
+      tl.to("#a3-ripple", { scale: 1.55, opacity: 0, duration: 0.45, ease: "power2.out" }, 2.14);
+      tl.to("#a3-cursor", { x: 1340, y: 836, duration: 0.65, ease: "power2.inOut" }, 2.65);
+
+      // Beat 3B (4.6s -> 12.3s): Crossfade to Multi-version (< 2/2 >), Speaker & Branch Menu!
+      tl.to("#a3-kw-1", { opacity: 0, duration: 0.25 }, 4.55);
+      tl.to("#a3-kw-2", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 4.75);
+      tl.to("#a3-cursor", { opacity: 0, duration: 0.2 }, 4.55);
+      tl.to("#s-more", { opacity: 1, duration: 0.45, ease: "power2.out" }, 4.6);
+      tl.to("#a3-cam", { scale: 1.58, x: -115, y: -145, duration: 0.95, ease: "power3.inOut" }, 4.65);
+      tl.to("#a3-cam", { scale: 1.63, x: -125, y: -155, duration: 6.6, ease: "sine.inOut" }, 5.65);
+      tl.to("#actbar-oval", { strokeDashoffset: 0, duration: 0.68, ease: "power2.out" }, 7.85);
+
+      // Beat 3C (12.3s -> 16.0s): Fade-in Save to Task Note Dialog & Zoom onto Reference Preservation!
+      tl.to("#a3-kw-2", { opacity: 0, duration: 0.25 }, 12.35);
+      tl.to("#a3-kw-3", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 12.55);
+      tl.set("#actbar-oval", { opacity: 0 }, 12.45);
+      tl.to("#s-note", { opacity: 1, duration: 0.45, ease: "power2.out" }, 12.45);
+      tl.to("#a3-cam", { scale: 1.36, x: 0, y: -15, duration: 0.85, ease: "power3.inOut" }, 12.5);
+
+      // Beat 3D (16.0s -> 19.6s): Fade-in Share & Revoke Modal + Highlight 1-Click Revoke!
+      tl.to("#a3-kw-3", { opacity: 0, duration: 0.25 }, 15.95);
+      tl.to("#a3-kw-4", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 16.15);
+      tl.to("#s-share", { opacity: 1, duration: 0.45, ease: "power2.out" }, 16.05);
+      tl.to("#a3-cam", { scale: 1.5, x: -95, y: -55, duration: 0.85, ease: "power3.inOut" }, 16.1);
+      tl.to("#revoke-oval", { strokeDashoffset: 0, duration: 0.65, ease: "power2.out" }, 17.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act3"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>

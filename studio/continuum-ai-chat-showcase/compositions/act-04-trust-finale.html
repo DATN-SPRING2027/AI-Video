@@ -1,0 +1,280 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: inherit;
+    }
+    #a4-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 960px 540px;
+      will-change: transform;
+    }
+    .kw-pill {
+      position: absolute;
+      left: 50%;
+      top: 24px;
+      transform: translateX(-50%);
+      padding: 13px 36px;
+      border-radius: 999px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      background: #047857;
+      border: 2px solid #a7f3d0;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.24);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 50;
+      opacity: 0;
+      white-space: nowrap;
+    }
+    .kw-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    /* Brand Finale Header (Keyword-only per Thang's visual rule) */
+    #brand-finale {
+      position: absolute;
+      left: 50%;
+      top: 58px;
+      transform: translateX(-50%);
+      width: 1280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 45;
+      opacity: 0;
+    }
+    .finale-logo {
+      height: 114px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 36px rgba(37, 99, 235, 0.2));
+      margin-bottom: 24px;
+    }
+    .finale-chips {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+    .f-chip {
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      white-space: nowrap;
+    }
+    #finale-cta {
+      padding: 16px 54px;
+      border-radius: 999px;
+      background: #4f46e5;
+      border: 2.5px solid #c7d2fe;
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      box-shadow: 0 22px 48px rgba(79, 70, 229, 0.36);
+      white-space: nowrap;
+    }
+
+    #a4-browser {
+      position: absolute;
+      left: 240px;
+      top: 118px;
+      width: 1440px;
+      height: 908px;
+      border-radius: 26px;
+      background: #0f172a;
+      box-shadow:
+        0 44px 95px rgba(15, 23, 42, 0.28),
+        0 14px 32px rgba(15, 23, 42, 0.16),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.16);
+      overflow: hidden;
+      transform-origin: 720px 0px;
+    }
+    .br-bar {
+      height: 44px;
+      background: #0f172a;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .br-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .br-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .br-addr {
+      padding: 5px 22px;
+      border-radius: 999px;
+      background: #1e293b;
+      color: #f8fafc;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .br-view {
+      position: relative;
+      width: 1440px;
+      height: 864px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .shot-img {
+      position: absolute;
+      inset: 0;
+      width: 1440px;
+      height: 864px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Sensitive Data Shield Badge */
+    #sec-shield {
+      position: absolute;
+      left: 345px;
+      top: 590px;
+      padding: 15px 24px;
+      border-radius: 20px;
+      background: #0f172a;
+      border: 2.5px solid #34d399;
+      box-shadow: 0 26px 56px rgba(15, 23, 42, 0.42);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+      z-index: 25;
+      opacity: 0;
+      white-space: nowrap;
+    }
+  </style>
+
+  <div id="root" data-composition-id="act4" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="a4-kw-1" class="kw-pill"><span class="kw-dot"></span><span>PHÂN QUYỀN • MINH BẠCH</span></div>
+
+    <!-- Brand Finale -->
+    <div id="brand-finale">
+      <img
+        src="assets/brand/continuum-lockup-light.png"
+        alt="Continuum AI"
+        class="finale-logo"
+        data-layout-ignore
+      />
+      <div class="finale-chips">
+        <span class="f-chip">HỎI TỰ NHIÊN</span>
+        <span class="f-chip">TRÍCH DẪN TẬN GỐC</span>
+        <span class="f-chip">BẢO MẬT NỘI BỘ</span>
+      </div>
+      <div id="finale-cta">SẮP RA MẮT</div>
+    </div>
+
+    <div id="a4-cam">
+      <div id="a4-browser">
+        <div class="br-bar" data-layout-ignore>
+          <div class="br-dots">
+            <span class="br-dot" style="background: #fb7185"></span>
+            <span class="br-dot" style="background: #fbbf24"></span>
+            <span class="br-dot" style="background: #34d399"></span>
+          </div>
+          <div class="br-addr">app.continuum.ai • Enterprise AI Workspace</div>
+          <div style="width: 44px"></div>
+        </div>
+
+        <div class="br-view" data-layout-ignore>
+          <!-- Layer 1: Project Sources Audit Panel (8/8 READY) -->
+          <img id="s-src" class="shot-img" src="assets/ui/proof-08-sources-panel.png" alt="Project Sources Audit" />
+
+          <!-- Layer 2: 3D Robot Companion Panel Open -->
+          <img id="s-bot-open" class="shot-img" src="assets/ui/proof-08b-companion-panel.png" alt="3D Robot Companion Panel" style="opacity: 0" />
+
+          <!-- Sensitive Data Protection Shield Pop -->
+          <div id="sec-shield">
+            <svg viewBox="0 0 40 40" width="38" height="38" fill="none">
+              <path d="M20 3L7 9V19C7 28 12.6 35.8 20 38.5C27.4 35.8 33 28 33 19V9L20 3Z" fill="#047857" stroke="#6ee7b7" stroke-width="2.5" />
+              <path d="M14 20L18 24L26 16" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>LÁ CHẮN DỮ LIỆU NHẠY CẢM</span>
+          </div>
+
+          <!-- Layer 3: Full Workspace with 3D Robot Dock for Finale -->
+          <img id="s-bot-dock" class="shot-img" src="assets/ui/proof-08-companion-3d.png" alt="Workspace Finale" style="opacity: 0" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Beat 4A (0.0s -> 2.6s): Zoom-in onto "8/8 nguồn sẵn sàng cho AI tìm kiếm"
+      tl.to("#a4-kw-1", { opacity: 1, y: 6, duration: 0.4, ease: "power3.out" }, 0.15);
+      tl.fromTo(
+        "#a4-cam",
+        { scale: 1.12, x: 0, y: 0 },
+        { scale: 1.58, x: -460, y: 55, duration: 0.85, ease: "power3.inOut" },
+        0.05
+      );
+
+      // Beat 4B (2.6s -> 4.7s): Crossfade & Pan to 3D Robot Companion Panel
+      tl.to("#s-bot-open", { opacity: 1, duration: 0.42, ease: "power2.out" }, 2.6);
+      tl.to("#a4-cam", { scale: 1.38, x: -245, y: -140, duration: 0.88, ease: "power3.inOut" }, 2.65);
+      tl.to("#a4-cam", { scale: 1.42, x: -255, y: -148, duration: 3.55, ease: "sine.inOut" }, 3.55);
+
+      // Beat 4C (4.7s -> 7.2s): Security Shield pops next to 3D Robot ("lá chắn tự động cảnh báo thông tin nhạy cảm")
+      tl.fromTo(
+        "#sec-shield",
+        { opacity: 0, scale: 0.78, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "back.out(1.65)" },
+        4.75
+      );
+
+      // Beat 4D (7.2s -> 16.1s): Pull back smoothly to Brand Finale ("SẮP RA MẮT")
+      tl.to(["#a4-kw-1", "#sec-shield"], { opacity: 0, duration: 0.3 }, 7.15);
+      tl.to("#s-bot-dock", { opacity: 1, duration: 0.45, ease: "power2.out" }, 7.25);
+      tl.to("#a4-cam", { scale: 1.0, x: 0, y: 0, duration: 0.85, ease: "power3.inOut" }, 7.25);
+      tl.to("#a4-browser", { y: 268, scale: 0.76, duration: 0.9, ease: "power3.inOut" }, 7.3);
+
+      tl.fromTo(
+        "#brand-finale",
+        { opacity: 0, y: -26, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "power3.out" },
+        7.65
+      );
+      tl.to(
+        "#finale-cta",
+        { scale: 1.045, duration: 0.95, yoyo: true, repeat: 6, ease: "sine.inOut" },
+        8.5
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["act4"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</template>
